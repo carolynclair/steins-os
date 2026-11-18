@@ -1,0 +1,16 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Id": "org.steinsos.worldline",
+    "Name": "Worldline Instrument",
+    "Description": "A compact live worldline instrument with shared service controls",
+    "Icon": "steins-os",
+    "Category": "Utilities",
+    "Version": "0.1.0",
+    "License": "MIT",
+    "Authors": [{"Name": "Steins;OS contributors"}]
+  },
+  "X-KDE-ParentApp": "org.kde.plasmashell",
+  "X-Plasma-API-Minimum-Version": "6.3",
+  "X-Plasma-Provides": ["org.steinsos.worldline"]
+}

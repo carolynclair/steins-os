@@ -1,0 +1,21 @@
+Loading default layout
+kf.plasma.core: Applet invalid: Cannot find a package for "empty"
+dbus-daemon[18237]: [session uid=1000 pid=18237 pidfd=5] Activating service name='org.kde.ActivityManager' requested by ':1.0' (uid=1000 pid=18239 comm="plasmawindowed /home/gary/Documents/ChatGPT/Steins" label="chatgpt (unconfined)")
+kf.plasma.core: Unknown containment type requested: "" "" check Plasma::Containment::Type for supported values
+kf.windowsystem: virtual void KX11Extras::connectNotify(const QMetaMethod&) may only be used on X11
+kf.windowsystem: virtual void KX11Extras::connectNotify(const QMetaMethod&) may only be used on X11
+dbus-daemon[18237]: [session uid=1000 pid=18237 pidfd=5] Successfully activated service 'org.kde.ActivityManager'
+kf.kirigami.platform: Failed to find a Kirigami platform plugin for style "Fusion"
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+kf.windowsystem: Could not find any platform plugin
+kf.plasma.quick: Applet preload policy set to 1
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::PlasmaWindow(0x561f6c4f4910)
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::PlasmaWindow(0x561f6c51fe20)
+qml: 0
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::AppletPopup_QML_23(0x561f6c4f4910, name="popupWindow")
+kf.plasma.quick: Couldn't create KWindowShadow for ToolTipDialog(0x561f6c51fe20)

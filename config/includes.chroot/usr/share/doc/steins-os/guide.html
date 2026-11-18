@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steins;OS · Field Guide</title>
+<style>
+:root{--bg:#151b20;--panel:#1d252b;--fg:#e7e2d6;--muted:#a9b3ad;--accent:#e99a45;--green:#adc4ad;--line:#33414a}
+@media (prefers-color-scheme:light){:root{--bg:#f4f1ea;--panel:#e9e4d8;--fg:#1d2328;--muted:#4a5560;--accent:#8a4a10;--green:#2f5a3a;--line:#c9c1ae}}
+*{box-sizing:border-box}
+html{scroll-padding-top:16px}
+body{max-width:52rem;margin:0 auto;padding:2rem 1.25rem 4rem;background:var(--bg);color:var(--fg);font:1.125rem/1.65 "Noto Sans","DejaVu Sans",sans-serif}
+h1,h2{color:var(--accent);line-height:1.25}
+h1{font-size:2rem;margin:.2rem 0}
+h2{font-size:1.35rem;margin-top:2.2rem;border-top:1px solid var(--line);padding-top:1.1rem}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+code,kbd{font-family:"DejaVu Sans Mono",monospace;color:var(--green);background:var(--panel);padding:.05em .35em;border-radius:3px}
+.kicker{color:var(--muted);letter-spacing:.12em;font-size:.85rem;margin:0}
+nav ul{columns:2;padding-left:1.1rem}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--panel);padding:.4rem .7rem}
+.note{background:var(--panel);border-left:4px solid var(--accent);padding:.6rem 1rem;margin:1rem 0}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:30rem}
+th,td{text-align:left;padding:.4rem .7rem;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+.sw{display:inline-block;width:.9em;height:.9em;border-radius:2px;vertical-align:-.1em;margin-right:.45em;border:1px solid var(--muted)}
+@media (max-width:40rem){nav ul{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+<p class="kicker">FUTURE GADGET LABORATORY</p>
+<h1>Steins;OS / Field Guide</h1>
+<p>Gate of Steiner · 0.1 development preview · works offline</p>
+<nav aria-label="Contents"><ul>
+<li><a href="#welcome">Welcome</a></li><li><a href="#worldlines">Six worldlines</a></li>
+<li><a href="#terminal">The ibm5100 terminal</a></li><li><a href="#real">Real or fiction</a></li>
+<li><a href="#meter">The optional meter</a></li><li><a href="#persistence">Saving and reopening apps</a></li>
+<li><a href="#install">Install</a></li><li><a href="#accounts">Accounts</a></li>
+<li><a href="#updates">Updates and software</a></li><li><a href="#recovery">Recovery and limits</a></li>
+<li><a href="#credits">Credits</a></li></ul></nav>
+<main id="main">
+
+<h2 id="welcome">Welcome to the laboratory</h2>
+<p>Open applications with the Steins;OS menu at the top left. Network, volume and clock controls are at the top right. Use Settings Manager for display scaling, keyboard, power and accessibility. About Steins;OS in the menu summarises this system.</p>
+
+<h2 id="worldlines">Six worldlines</h2>
+<p>The desktop has one number, the <strong>divergence</strong>, from 0 to 6. The whole number picks a world. Changing worlds changes the wallpaper, the terminal colours, the top bar and the desktop widget together.</p>
+<div class="scroll"><table>
+<tr><th>Number</th><th>Worldline</th><th>Reference</th><th>Mood</th></tr>
+<tr><td>0.x</td><td><span class="sw" style="background:#c4513a"></span>Alpha</td><td><code>0.571024</code></td><td>Origin attractor field</td></tr>
+<tr><td>1.x</td><td><span class="sw" style="background:#e99a45"></span>Steins Gate</td><td><code>1.048596</code></td><td>Future gadget laboratory (default)</td></tr>
+<tr><td>2.x</td><td><span class="sw" style="background:#e0622c"></span>Hinamizawa</td><td><code>2.198306</code></td><td>Evening, cicada hour</td></tr>
+<tr><td>3.x</td><td><span class="sw" style="background:#38a8e0"></span>Hitogashima</td><td><code>3.072100</code></td><td>Island, tide, shadow</td></tr>
+<tr><td>4.x</td><td><span class="sw" style="background:#a99cf0"></span>Lugunica</td><td><code>4.250801</code></td><td>Silver moon, cold air, return</td></tr>
+<tr><td>5.x</td><td><span class="sw" style="background:#f08ab8"></span>Mitakihara</td><td><code>5.093001</code></td><td>City, clockwork, again</td></tr>
+</table></div>
+<p>Wallpapers are original abstract artwork. Swatches show each world's accent colour.</p>
+
+<h2 id="terminal">The ibm5100 terminal</h2>
+<p>Open a terminal and run <code>ibm5100</code>, a retro amber console. Useful commands:</p>
+<ul>
+<li><code>HELP</code> lists commands; <code>LIST</code> shows the six worlds in order; <code>DIVERGENCE</code> shows the meter.</li>
+<li><code>SET 2.198306</code> sets the number directly (0 to 6).</li>
+<li><code>DMAIL your message</code> sends a D-Mail. The text decides how far the number moves, and the same text always gives the same shift.</li>
+<li>Codes are typed on their own. Try <code>CICADA</code>, which selects Hinamizawa. More are out there; <code>EXIT</code> closes the link.</li>
+</ul>
+<p>The same actions exist outside the console as <code>steins-worldline set NUMBER</code> and <code>dmail "message"</code>. A D-Mail is fiction and local-only: it stays on this computer, nothing is sent, and no network is used.</p>
+
+<h2 id="real">Real or fiction</h2>
+<div class="note"><strong>Decorative:</strong> the divergence number, worldline names, D-Mail and codes. They only choose colours and wallpaper.<br><strong>Real:</strong> the CPU, memory, disk and uptime readings in the desktop widget and in System information.</div>
+<p>The number is not a measurement of your computer, and nothing in this system predicts or alters real events.</p>
+
+<h2 id="meter">The optional divergence meter</h2>
+<p>Search the menu for <em>Divergence Meter</em> for a small window of glowing digits that follows the current number. <kbd>Enter</kbd> opens ibm5100; <kbd>Esc</kbd> closes it. It does not start by itself. The desktop widget is the default readout, so start the meter only if you want both.</p>
+
+<h2 id="persistence">Saving, and reopening apps</h2>
+<p>On the live USB, changes disappear at shutdown. On an installed system your number is kept in your home folder and re-applied at login.</p>
+<p>After a world change, apps that were already open keep their old accent colours. <strong>Close and reopen GTK applications</strong> to see the new accent. The panel, wallpaper, terminal and widget update immediately.</p>
+<p>Prefer a fixed look? Choose another wallpaper in Desktop Settings, or hide the widget in Session and Startup → Application Autostart.</p>
+
+<h2 id="install">Install</h2>
+<p>Back up your files. Launch <em>Install Steins;OS</em> from the application menu while running the live USB. Review the destination disk carefully: partitioning can erase data. Choose region, keyboard, partitions and your personal account. After installation, shut down, remove the USB and boot the installed system. The installer is only offered from the live session.</p>
+
+<h2 id="accounts">Accounts</h2>
+<p>The live account is <code>lab</code> with Debian live's default password <code>live</code>, and passwordless administrative access for installation. The installer creates your personal account. Never treat the live session as a secured installation.</p>
+
+<h2 id="updates">Updates and software</h2>
+<p>Debian security updates are enabled automatically. Use Synaptic, or run <code>sudo apt update &amp;&amp; sudo apt full-upgrade</code>, and reboot after kernel updates. Packages and firmware come from Debian repositories. Steins;OS has no update service of its own yet, so its own files (theme, tools, artwork) are not updated separately.</p>
+
+<h2 id="recovery">Recovery and limitations</h2>
+<p>If graphics fail, use the safe graphics option in the boot menu. Compatibility with specific Wi-Fi, graphics, suspend and Secure Boot setups needs hardware testing and is not claimed. This is a development preview, not a production-certified release. Check your files are backed up before installing.</p>
+
+<h2 id="credits">Credits</h2>
+<p>Built on Debian, Linux, GNU, XFCE, Calamares, LightDM and Plymouth. Fonts: Noto, DejaVu and Liberation. Icons: Papirus. Theme based on Greybird. Upstream licence texts are in /usr/share/doc. Original Steins;OS artwork is CC-BY-4.0 and original code is MIT. This is an unofficial fan-inspired project: no official anime artwork, audio or trademarks are used, licensed or endorsed.</p>
+</main>
+</body>
+</html>

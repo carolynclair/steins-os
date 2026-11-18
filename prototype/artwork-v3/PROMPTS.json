@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen; no reference images supplied",
+  "prompts": [
+    [
+      "alpha",
+      "Use case: stylized-concept. Asset type: original Linux desktop wallpaper, wide 16:9 landscape, no UI. Create an original hand-painted anime-background-style environment for a world called Alpha: an empty Tokyo-inspired electronics side street at blue-black rainy night, tiny repair shops, antenna cables, small amber workbench windows, red-orange reflections in wet asphalt, distant elevated rail and a faint overcast sky. Sophisticated 2010-era electronics atmosphere, plausible lived-in place, restrained cinematic composition with intricate environmental linework and painterly lighting. Match the quality of a premium illustrated anime environment rather than photorealism, 3D rendering or flat vector art. Keep a quiet readable middle area for desktop windows and a dark calm bottom edge for a panel. No people, no characters, no anime franchise landmarks, no logos, no readable signs or text, no UI, no meters, no icons, no watermark. Deliver one finished wallpaper, not a collage or mock-up."
+    ],
+    [
+      "lugunica",
+      "Use case: stylized-concept. Asset type: original Linux desktop wallpaper, wide 16:9 landscape, no UI. Create an original hand-painted anime-background-style environment for a world called Lugunica: a peaceful old canal city at lavender blue-hour twilight, European-inspired timber and pale stone houses, arched footbridges, warm lanterns reflected in still water, distant hilltop observatory and soft low clouds. Rich environmental linework and painterly light, premium illustrated anime scenery, cohesive with a sophisticated atmospheric Linux desktop. A lived-in plausible place, not an imitation of any existing fantasy franchise location. Violet, muted indigo and warm gold accents. Keep the middle area visually calm for desktop windows and a dark quiet bottom edge for a panel. No people, no characters, no franchise architecture or symbols, no logos, no readable text, no UI or gauges, no watermark. Not photorealistic, not 3D, not a collage. Deliver one finished illustrated wallpaper."
+    ],
+    [
+      "mitakihara",
+      "Use case: stylized-concept. Asset type: original Linux desktop wallpaper, wide 16:9 landscape, no UI. Create an original hand-painted anime-background-style environment for a world called Mitakihara: a serene modern Japanese-inspired city seen from a quiet elevated pedestrian terrace at deep blue night, rounded contemporary glass architecture, an original public observatory dome, trees and a few rose-pink lit windows, soft pink clouds at the far horizon. Subtle dreamlike atmosphere grounded in a believable place. Detailed environmental linework and painterly light like a premium illustrated anime background; no photorealism or 3D render. Graphite, deep blue and restrained rose-pink accents. Leave a calm open middle area for desktop windows and a dark quiet bottom edge for a panel. No people, no characters, no recognizable anime landmarks, no magical franchise symbols, no logos, no readable text, no UI, no meters, no watermark. Deliver a single cohesive original environment, not a collage."
+    ]
+  ]
+}

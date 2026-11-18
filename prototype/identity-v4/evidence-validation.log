@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": 565,
+  "canonical_icons": 35,
+  "small_renders": 105,
+  "qt_exact_alias_renders": 183,
+  "qt_version": "6.8.2",
+  "package_sha256": "3daff148cf5f951b020fc2a37c5cacdb30402357bf7126b0431b120c5f9c85b6",
+  "package": "/home/gary/Documents/ChatGPT/Steins;OS/dist/v4/identity/steins-identity-v4_0.4.0~prototype1_all.deb",
+  "scope": "Offscreen native Qt icon lookup and asset/package checks; actual Plasma interaction and desktop screenshots are a separate guest test."
+}

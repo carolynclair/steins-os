@@ -1,0 +1,12 @@
+{
+  "svg_xml_valid": true,
+  "png_dimensions": [
+    1920,
+    1080
+  ],
+  "current_emblem_source": "config/includes.chroot/usr/share/icons/hicolor/scalable/apps/steins-os.svg",
+  "current_emblem_sha256": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41",
+  "runtime_theme_modified": false,
+  "audio_played": false,
+  "integration_tested": false
+}

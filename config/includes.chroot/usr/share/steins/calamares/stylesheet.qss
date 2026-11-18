@@ -1,0 +1,74 @@
+/* Steins;OS Calamares theme: graphite surfaces, amber accent. Calamares auto-loads branding/stylesheet.qss.
+   Contrast (WCAG): text #e7e2d6 on #1b232a 12.3:1; dark #151b20 on amber #e99a45 7.6:1;
+   muted #a9b3ad on #1b232a 7.4:1; disabled #98a39d on #232d34 5.4:1 (computed). Focus is a 2px amber outline. */
+QWidget { background-color: #1b232a; color: #e7e2d6; font-size: 11pt; }
+QLabel { background: transparent; }
+QToolTip { background-color: #151b20; color: #e7e2d6; border: 1px solid #e99a45; padding: 3px; }
+
+QPushButton { background-color: #2a353d; color: #e7e2d6; border: 1px solid #55646e;
+  border-radius: 3px; padding: 6px 16px; min-height: 22px; }
+QPushButton:hover { background-color: #34424b; border-color: #e99a45; }
+QPushButton:pressed { background-color: #151b20; }
+QPushButton:focus { border: 2px solid #e99a45; padding: 5px 15px; }
+QPushButton:default { background-color: #e99a45; color: #151b20; border-color: #e99a45; font-weight: bold; }
+QPushButton:default:hover { background-color: #f1ac62; }
+QPushButton:disabled { background-color: #232d34; color: #98a39d; border-color: #3a4852; }
+
+QLineEdit, QPlainTextEdit, QTextEdit, QSpinBox, QComboBox { background-color: #11171b; color: #e7e2d6;
+  border: 1px solid #55646e; border-radius: 3px; padding: 4px 6px; min-height: 22px;
+  selection-background-color: #e99a45; selection-color: #151b20; }
+QLineEdit:focus, QPlainTextEdit:focus, QTextEdit:focus, QSpinBox:focus, QComboBox:focus { border: 2px solid #e99a45; }
+QLineEdit:disabled, QComboBox:disabled, QSpinBox:disabled { background-color: #232d34; color: #98a39d; border-color: #3a4852; }
+QLineEdit[readOnly="true"] { color: #a9b3ad; }
+QComboBox QAbstractItemView { background-color: #11171b; color: #e7e2d6; border: 1px solid #55646e;
+  selection-background-color: #e99a45; selection-color: #151b20; outline: 0; }
+
+QCheckBox, QRadioButton { background: transparent; spacing: 8px; }
+QCheckBox:focus, QRadioButton:focus { outline: 2px solid #e99a45; }
+QCheckBox:disabled, QRadioButton:disabled { color: #98a39d; }
+/* Explicit indicators remain visible against dark surfaces, including flags
+   painted by the partition tree's item delegate. */
+QCheckBox::indicator, QRadioButton::indicator, QTreeView::indicator, QListView::indicator {
+  width: 14px; height: 14px; border: 1px solid #98a39d; background-color: #11171b; }
+QCheckBox::indicator, QTreeView::indicator, QListView::indicator { border-radius: 2px; }
+QRadioButton::indicator { border-radius: 8px; }
+QCheckBox::indicator:checked, QTreeView::indicator:checked, QListView::indicator:checked {
+  background-color: #e99a45; border-color: #e99a45;
+  image: url(/usr/share/steins/calamares/check.svg); }
+QRadioButton::indicator:checked {
+  background-color: #e99a45; border-color: #e99a45;
+  image: url(/usr/share/steins/calamares/radio-dot.svg); }
+QCheckBox::indicator:disabled, QRadioButton::indicator:disabled,
+QTreeView::indicator:disabled, QListView::indicator:disabled { border-color: #55646e; }
+QCheckBox::indicator:checked:disabled, QRadioButton::indicator:checked:disabled {
+  background-color: #98a39d; border-color: #98a39d; }
+
+QListView, QTreeView, QTableView, QListWidget { background-color: #11171b; color: #e7e2d6;
+  border: 1px solid #3a4852; alternate-background-color: #172027; outline: 0;
+  selection-background-color: #e99a45; selection-color: #151b20; }
+QListView:focus, QTreeView:focus, QTableView:focus { border: 2px solid #e99a45; }
+QListView::item:selected, QTreeView::item:selected, QTableView::item:selected { background-color: #e99a45; color: #151b20; }
+QListView::item:disabled, QTreeView::item:disabled { color: #98a39d; }
+QHeaderView::section { background-color: #2a353d; color: #e7e2d6; border: 0; border-right: 1px solid #3a4852; padding: 4px 6px; }
+
+/* Calamares 3.3.14 paints partition legends with hard-coded black/grey pens.
+   A light backing is required here: setting QSS text colour cannot recolour
+   that custom painter. Keep the surrounding installer and normal views dark. */
+PartitionLabelsView { background-color: #ffffff; color: #151b20; border: none; }
+
+QProgressBar { background-color: #11171b; border: 1px solid #55646e; border-radius: 3px; text-align: center; color: #e7e2d6; min-height: 16px; }
+/* The percentage is painted over the filled area after 50%; bright amber
+   with light text was only 1.77:1. This amber gives 4.91:1 with the label. */
+QProgressBar::chunk { background-color: #8a521e; }
+
+QScrollBar:vertical { background: #11171b; width: 12px; margin: 0; }
+QScrollBar::handle:vertical { background: #55646e; min-height: 24px; border-radius: 4px; }
+QScrollBar::handle:vertical:hover { background: #e99a45; }
+QScrollBar:horizontal { background: #11171b; height: 12px; margin: 0; }
+QScrollBar::handle:horizontal { background: #55646e; min-width: 24px; border-radius: 4px; }
+QScrollBar::handle:horizontal:hover { background: #e99a45; }
+QScrollBar::add-line, QScrollBar::sub-line { width: 0; height: 0; }
+
+QGroupBox { border: 1px solid #3a4852; border-radius: 3px; margin-top: 10px; padding-top: 8px; }
+QGroupBox::title { subcontrol-origin: margin; left: 8px; padding: 0 4px; color: #e99a45; }
+QMessageBox, QDialog { background-color: #1b232a; }

@@ -1,0 +1,30 @@
+{
+  "package_sha256": "9ab47a7e376b7d8fd3d692ccc1b27497ae0eae2fd0b21b6868710312aaf7b591",
+  "bytes": 41956,
+  "payload_entries": 70,
+  "plymouth_files_byte_identical_to_v3_1": 48,
+  "no_maintainer_scripts": true,
+  "all_payload_files_root_owned_and_safe_modes": true,
+  "grub_assets": [
+    {
+      "file": "prototype/startup/assets/grub/grub-background-1280x800.png",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "0ac8293ffabaa4945be8c745ca6473a300b0a4a5e9a91869433a5ad44a722201",
+      "sampled_central_menu_region_uniform_graphite": true
+    },
+    {
+      "file": "prototype/startup/assets/grub/grub-background-1366x768.png",
+      "dimensions": [
+        1366,
+        768
+      ],
+      "sha256": "2c1b0cbea178c6ab39210455a70421b842ab7a0f7f7c60c7c35205d100717a6c",
+      "sampled_central_menu_region_uniform_graphite": true
+    }
+  ],
+  "grub_helper_tests_passed": 8,
+  "actual_grub_rendering_qualified": false
+}

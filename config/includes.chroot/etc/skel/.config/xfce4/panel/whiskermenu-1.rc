@@ -1,0 +1,5 @@
+button-title=Steins;OS
+button-icon=steins-os
+show-button-title=true
+show-button-icon=true
+favorites=steins-about.desktop,firefox-esr.desktop,xfce4-terminal.desktop,thunar.desktop,mousepad.desktop

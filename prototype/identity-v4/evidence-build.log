@@ -1,0 +1,11 @@
+dpkg-deb: building package 'steins-identity-v4' in '/home/gary/Documents/ChatGPT/Steins;OS/dist/v4/identity/steins-identity-v4_0.4.0~prototype1_all.deb'.
+{
+  "package": "dist/v4/identity/steins-identity-v4_0.4.0~prototype1_all.deb",
+  "sha256": "3daff148cf5f951b020fc2a37c5cacdb30402357bf7126b0431b120c5f9c85b6",
+  "bytes": 10012,
+  "version": "0.4.0~prototype1",
+  "token_install_path": "/usr/share/steins-v4/tokens.json",
+  "theme_name": "SteinsLab",
+  "canonical_icons": 35,
+  "host_install_performed": false
+}

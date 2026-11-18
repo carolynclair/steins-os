@@ -1,0 +1,165 @@
+{
+  "source_sha256": "a4770a972f40ef767dd9e70fc230668d1cd601626a4719efbc234bfee896c8ed",
+  "migration_source_sha256": "497c6275f4745b246746dfd6aed6aa3a61d577434b833c1b13e0a3d6e3a5578a",
+  "scope": "isolated offscreen Plasma loader + real QML methods + private fake D-Bus; not VM/host deployment",
+  "passed": true,
+  "probes": [
+    {
+      "phase": "stale",
+      "stale": true,
+      "status": "State refresh delayed"
+    },
+    {
+      "phase": "frames",
+      "dialog": {
+        "center": true,
+        "minimumWidth": 12,
+        "minimumHeight": 12,
+        "margin": 4
+      },
+      "widget": {
+        "center": true,
+        "minimumWidth": 12,
+        "minimumHeight": 12,
+        "margin": 14
+      }
+    },
+    {
+      "phase": "migration",
+      "result": {
+        "passed": true,
+        "plain_order": "1;7;2;3;4;5;6",
+        "replace_order": "1;7;3;4;5;6",
+        "removed": [
+          "2"
+        ],
+        "idempotent": true,
+        "safe_refusal": true,
+        "unrelated_widgets_preserved": true,
+        "plain_pins_unchanged": true,
+        "native_sequence_copy": true,
+        "native_qt_qstringlist": {
+          "array": false,
+          "tag": "[object V4Sequence]",
+          "length": 2
+        },
+        "js_array_compatible": true,
+        "invalid_sequences_refused_before_mutation": true,
+        "normalized_own_pins": [
+          "preferred://browser",
+          "applications:steins-navigator-v4.desktop",
+          "applications:org.kde.konsole.desktop",
+          "applications:steins-terminal-v3.desktop",
+          "preferred://browser",
+          "applications:other.steins-navigator.desktop"
+        ],
+        "third_party_duplicates_preserved": true
+      }
+    },
+    {
+      "phase": "partial",
+      "number": "2.198306",
+      "partial": true,
+      "name": "Hinamizawa",
+      "error": "wallpaper: controlled partial apply"
+    },
+    {
+      "phase": "applied",
+      "applied": true
+    },
+    {
+      "phase": "disconnected",
+      "connected": false,
+      "number": "\u2014.\u2014\u2014\u2014\u2014\u2014\u2014"
+    },
+    {
+      "phase": "reconnected",
+      "connected": true,
+      "number": "2.198306"
+    }
+  ],
+  "backend_calls": [
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "ListWorldlines",
+      "args": []
+    },
+    {
+      "method": "SetPreference",
+      "args": [
+        "meter",
+        "true"
+      ]
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "SetPreference",
+      "args": [
+        "motion",
+        "\"off\""
+      ]
+    },
+    {
+      "method": "SetDivergence",
+      "args": [
+        "2.198306"
+      ]
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "ApplyCurrent",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "OpenNavigator",
+      "args": []
+    },
+    {
+      "method": "disappear",
+      "args": []
+    },
+    {
+      "method": "reappear",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "ListWorldlines",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    }
+  ],
+  "loader_exit": 124,
+  "temporary_home_and_private_bus": true,
+  "theme_sources_sha256": {
+    "dialogs/background.svg": "c354e4f09d039a9787d3008b0c1b56ac1bdd9ed426593dfb0bb39970bd5221a1",
+    "widgets/background.svg": "979324a90dd8d1c6c554fe6ac17a6072339d8fa0162d0ffdee0210df589cbf41"
+  }
+}

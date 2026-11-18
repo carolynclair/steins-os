@@ -1,0 +1,61 @@
+{
+  "scope": "Read-only file validation; no audio playback or runtime integration",
+  "assets": [
+    {
+      "file": "design/worldline-v1/engineering/audio/activation.wav",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "format": [
+        48000,
+        1,
+        2
+      ],
+      "encoded_peak_dbfs": -29.12,
+      "first_sample": 0,
+      "last_sample": 0,
+      "played": false
+    },
+    {
+      "file": "design/worldline-v1/engineering/audio/meter.wav",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "format": [
+        48000,
+        1,
+        2
+      ],
+      "encoded_peak_dbfs": -29.12,
+      "first_sample": 0,
+      "last_sample": 0,
+      "played": false
+    },
+    {
+      "file": "design/worldline-v1/engineering/audio/stabilise.wav",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "format": [
+        48000,
+        1,
+        2
+      ],
+      "encoded_peak_dbfs": -29.12,
+      "first_sample": 0,
+      "last_sample": 0,
+      "played": false
+    },
+    {
+      "file": "design/worldline-v1/engineering/audio/shift-preview.wav",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "format": [
+        48000,
+        1,
+        2
+      ],
+      "encoded_peak_dbfs": -29.12,
+      "first_sample": 0,
+      "last_sample": 0,
+      "played": false
+    }
+  ]
+}

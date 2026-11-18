@@ -1,0 +1,119 @@
+#!/usr/bin/python3
+"""Native Qt Quick worldline navigator. Talks only to our session-bus API."""
+import json
+import sys
+from pathlib import Path
+from PySide6.QtCore import QObject, Signal, Slot, Property, QUrl, QTimer, SLOT, QThread
+from PySide6.QtGui import QGuiApplication, QIcon
+from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtDBus import QDBusConnection
+
+BUS = 'org.steinsos.Worldline1'
+PATH = '/org/steinsos/Worldline'
+
+
+class Request(QThread):
+    result = Signal(str, str)
+    failed = Signal(str)
+    def __init__(self, method, args, target, parent):
+        super().__init__(parent)
+        self.method, self.args, self.target = method, args, target
+    def run(self):
+        import dbus
+        bus = dbus.SessionBus(private=True)
+        try:
+            interface = dbus.Interface(bus.get_object(BUS, PATH), BUS)
+            self.result.emit(str(getattr(interface, self.method)(*self.args, timeout=30)), self.target)
+        except Exception as e:
+            self.failed.emit(str(e))
+        finally:
+            bus.close()
+
+
+class Bridge(QObject):
+    changed = Signal()
+    def __init__(self):
+        super().__init__()
+        self._state = {'name': 'Connecting…', 'divergence': '—', 'palette': {}, 'preferences': {}}
+        self._packs = []
+        self._busy = False
+        self._error = ''
+        self.pending = set()
+        self.bus = QDBusConnection.sessionBus()
+        self.bus.connect(BUS, PATH, BUS, 'StateChanged', self, SLOT('receive(QString)'))
+        QTimer.singleShot(0, self.refresh)
+
+    @Property('QVariantMap', notify=changed)
+    def state(self): return self._state
+    @Property('QVariantList', notify=changed)
+    def packs(self): return self._packs
+    @Property(bool, notify=changed)
+    def busy(self): return self._busy
+    @Property(str, notify=changed)
+    def error(self): return self._error
+
+    @Slot(str)
+    def receive(self, encoded):
+        self._state = json.loads(encoded)
+        self._error = '; '.join(e['step'] + ': ' + e['message'] for e in self._state.get('errors', []))
+        self.changed.emit()
+
+    def call(self, method, args=(), target='state'):
+        self._busy = True
+        self._error = ''
+        self.changed.emit()
+        watcher = Request(method, args, target, self)
+        self.pending.add(watcher)
+        def result(encoded, destination):
+            try:
+                obj = json.loads(encoded)
+                if destination == 'packs': self._packs = obj
+                else:
+                    self._state = obj
+                    self._error = '; '.join(e['step'] + ': ' + e['message'] for e in obj.get('errors', []))
+            except (ValueError, TypeError) as e:
+                self._error = 'Invalid service response: ' + str(e)
+            self.changed.emit()
+        def failed(message):
+            self._error = message
+            self.changed.emit()
+        def done():
+            self.pending.discard(watcher)
+            self._busy = bool(self.pending)
+            self.changed.emit()
+            watcher.deleteLater()
+        watcher.result.connect(result)
+        watcher.failed.connect(failed)
+        watcher.finished.connect(done)
+        watcher.start()
+
+    @Slot()
+    def refresh(self):
+        self.call('GetState')
+        self.call('ListWorldlines', target='packs')
+
+    @Slot(str)
+    def select(self, value): self.call('SetDivergence', (value,))
+    @Slot(bool)
+    def meter(self, value): self.call('SetPreference', ('meter', json.dumps(value)))
+    @Slot(str)
+    def motion(self, value): self.call('SetPreference', ('motion', json.dumps(value)))
+    @Slot()
+    def retry(self): self.call('ApplyCurrent')
+
+
+app = QGuiApplication(sys.argv)
+app.setApplicationName('Worldlines')
+app.setOrganizationName('SteinsOS')
+app.setDesktopFileName('steins-navigator-v4')
+app.setWindowIcon(QIcon.fromTheme('steins-navigator-v4'))
+bridge = Bridge()
+app.aboutToQuit.connect(lambda: [worker.wait(31000) for worker in list(bridge.pending)])
+engine = QQmlApplicationEngine()
+engine.rootContext().setContextProperty('worldline', bridge)
+sys.path.insert(0, '/usr/share/steins-v4')
+from surface_tokens import load_tokens
+engine.rootContext().setContextProperty('designTokens', load_tokens())
+engine.load(QUrl.fromLocalFile('/usr/share/steins-v4/Navigator.qml'))
+if not engine.rootObjects(): sys.exit(1)
+sys.exit(app.exec())

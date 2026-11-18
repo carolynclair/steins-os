@@ -1,0 +1,7 @@
+[Plymouth Theme]
+Name=Steins;OS Laboratory
+Description=Original amber laboratory boot sequence
+ModuleName=script
+[script]
+ImageDir=/usr/share/plymouth/themes/steins
+ScriptFile=/usr/share/plymouth/themes/steins/steins.script

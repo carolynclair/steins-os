@@ -1,0 +1,37 @@
+{
+  "id": "mitakihara",
+  "name": "Mitakihara",
+  "divergence": "5.093001",
+  "range": [
+    5.0,
+    5.999999
+  ],
+  "palette": {
+    "bg": "#1a1426",
+    "bg_alt": "#140f1e",
+    "fg": "#f0e6f0",
+    "accent": "#f08ab8",
+    "selection": "#a8487a",
+    "muted": "#b79bc4"
+  },
+  "tagline": "CITY / CLOCKWORK / AGAIN",
+  "terminal_palette": [
+    "#242c31",
+    "#d97b71",
+    "#93aa86",
+    "#f08ab8",
+    "#86a6b5",
+    "#b196ad",
+    "#89b5a7",
+    "#ddd7c8",
+    "#b79bc4",
+    "#ec998c",
+    "#b5c79e",
+    "#f08ab8",
+    "#acc4d1",
+    "#ccb3c3",
+    "#b0d6c4",
+    "#f4eddf"
+  ],
+  "wallpaper": "wallpaper.svg"
+}

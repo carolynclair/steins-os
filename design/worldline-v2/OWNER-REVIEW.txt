@@ -1,0 +1,219 @@
+STEINS;OS — V2 Design & Engineering Review
+From: Burrito 🌯 — Design Reviewer
+To: Alex Ultra / Codexito — Lead Engineer
+Status: Review complete; refinement and validation requested
+Project: Steins;OS / Project Worldline
+
+1. Overall assessment
+
+Alex,
+
+The latest preview demonstrates substantial progress towards the Steins;OS vision. The Akihabara sunset worldline, Hinamizawa artwork, desktop shell, divergence indicators, Worldline navigator, terminal, notification, power dialog, lock screen and transition storyboard share an increasingly coherent aesthetic.
+
+The anime illustrations are especially successful. They establish a beautiful environment without requiring the interface itself to be overloaded with anime imagery.
+
+The next milestone is not simply additional features. It is to make the system feel like one original, recognisable operating system, rather than a collection of independently styled components.
+
+Preserve the successful artwork and existing functionality. Prioritise the refinements below.
+
+2. Priority 1 — Everyday terminal identity
+
+The terminal is functional-looking, with tabs, shell output and a divergence display. However, visually it still resembles a conventional terminal with a custom colour scheme.
+
+Please refine it into a recognisable Steins;OS flagship application.
+
+Explore:
+
+- A distinctive title bar and tab design consistent with the shell.
+- An integrated but restrained divergence indicator.
+- Worldline-aware accent colours and status treatments.
+- Carefully designed typography, spacing, cursor and selection colours.
+- Optional compact status information that does not compete with terminal output.
+- Consistent visual behaviour in maximised, tiled and floating states.
+
+Keep it genuinely practical: Bash/Zsh, real PTY behaviour, terminal escape sequences, copy/paste, scrolling, keyboard shortcuts, resizing, SSH, Vim/Neovim, Unicode and long-running processes must remain reliable.
+
+Do not sacrifice terminal usability for decorative effects.
+
+Maintain the distinction between the modern everyday terminal and the retro IBN 5100-inspired Worldline terminal. Both belong to the same OS but serve different purposes.
+
+Acceptance: The everyday terminal should look unmistakably Steins;OS even when viewed without the wallpaper.
+
+3. Priority 2 — Boot and login experience
+
+The previewed Steins;OS loading screen feels too static for the intended identity.
+
+Develop a more dynamic, cinematic but restrained startup sequence.
+
+Potential direction:
+
+1. Dark background with a subtle signal or scanline emergence.
+2. Steins;OS symbol assembling from light traces or geometric fragments.
+3. Divergence digits briefly appearing, rolling or stabilising.
+4. A short original system-identification cue.
+5. A clean transition into the login screen or desktop.
+
+Keep the experience fast and appropriate for repeated daily use.
+
+Support reduced motion and silence, and avoid excessive flashes or long unskippable sequences.
+
+Crucially, determine whether this is a design preview, a login animation, a Plymouth boot splash, or an actual implemented end-to-end sequence. Integrate only through appropriate Linux boot/display-manager mechanisms, without compromising reliable startup.
+
+4. Priority 3 — Logo review
+
+The current circular, gold-toned emblem is an interesting starting point, but I am not yet convinced it is the right long-term symbol.
+
+It feels somewhat generic compared with the uniqueness of the Worldline concept.
+
+Please explore a small set of original alternatives, such as:
+
+- A minimal geometric worldline/divergence mark.
+- An abstract temporal intersection or branching symbol.
+- A distinctive Steins;OS monogram with subtle scientific instrumentation influences.
+
+The mark must work in monochrome, at tiny panel-icon sizes, on a login screen and as a larger boot emblem.
+
+Avoid direct copying of Steins;Gate franchise logos or assets.
+
+Do not replace the existing logo automatically. Present two or three candidates alongside the current mark, with rationale and practical mock-ups, for approval.
+
+5. Priority 4 — Worldline shift: the signature experience
+
+The approximately 800 ms five-stage storyboard is a promising design:
+
+Activate → Instability → Distort → Transform → Stabilise
+
+Now establish how much of this is actually implemented.
+
+The transition should feel like a brief, coordinated reality shift rather than a simple wallpaper replacement.
+
+Synchronise, where technically feasible:
+
+- Divergence digit movement.
+- Subtle visual distortion or chromatic separation.
+- Worldline wallpaper change.
+- Shell accent and terminal palette changes.
+- Native panel and navigator state.
+- A short optional original sound cue.
+- A clean stabilisation without lost application state.
+
+All entry points — navigator, divergence meter, IBN terminal and any future shortcuts — should use one authoritative Worldline state service.
+
+Ensure reduced-motion and instant-change fallbacks. Never interrupt active applications or leave mismatched colours after a failed transition.
+
+Acceptance: A shift changes the appropriate system elements coherently, and the user can continue working immediately.
+
+6. Priority 5 — Audio integration audit
+
+We cannot confirm from the screenshots whether the sound system was integrated after the latest changes.
+
+Please inspect the actual implementation and report what exists.
+
+Consider original, subtle cues for:
+
+- Successful Worldline shift.
+- Shift initiation or stabilisation.
+- Login readiness.
+- Notifications.
+- Error or rejected command.
+
+Audio should be optional, volume-controlled and respectful of mute settings.
+
+Do not use copyrighted anime or game sound samples without appropriate permission.
+
+Do not add sounds everywhere. Silence is part of a good interface.
+
+7. Priority 6 — System-wide visual consistency
+
+Review the entire prototype with the wallpaper hidden or replaced by a neutral background.
+
+Inspect:
+
+- Application launcher.
+- Panel and task switching.
+- Window decorations.
+- Notifications.
+- Power confirmation.
+- Settings and accessibility.
+- Worldline navigator.
+- Divergence meter.
+- Login and lock screen.
+- Terminal and file manager.
+
+Identify inconsistent spacing, typography, border radii, accent colours, icon styles, window controls and interaction patterns.
+
+The shell should have a clear visual grammar, not simply matching dark blue surfaces.
+
+Pay particular attention to the bottom panel. It is improving, but should become more distinctively Steins;OS.
+
+Do not rebuild reliable Linux infrastructure unnecessarily. Prefer maintainable integrations with the existing desktop/compositor where practical.
+
+8. Worldline artwork
+
+Preserve the illustrated Akihabara and Hinamizawa directions shown in the previews.
+
+They are among the strongest parts of the current design.
+
+Continue with original anime-style environments for the other worldlines, while preserving a coherent level of artistic quality.
+
+Worldlines should feel like different places and atmospheres, not merely colour-filtered versions of one wallpaper.
+
+Avoid photorealistic replacements.
+
+9. VM test environment
+
+Please assess whether we can build a repeatable, isolated VM test environment for the current Steins;OS prototype.
+
+Preferred outcome:
+
+- Bootable test image or reproducible installation process.
+- QEMU/KVM where supported.
+- Plasma/Wayland compatibility assessment.
+- Appropriate virtual GPU configuration.
+- Snapshots or rollback before changes.
+- Clearly documented launch and reset commands.
+- No destructive changes to the host system.
+
+Test startup, login, terminal, shell interactions, Worldline switching, notifications, audio, lock screen and shutdown.
+
+If graphical acceleration, Wayland effects or sound are limited in the VM, document those limitations and distinguish them from actual product defects.
+
+Do not overwrite or migrate the existing working environment without approval.
+
+10. Engineer-led polish pass
+
+Beyond the issues identified above, use your own engineering and design judgement to identify the highest-impact refinements.
+
+Look for genuine usability, stability, accessibility, performance and consistency problems.
+
+Fix low-risk defects within the agreed scope. For major architectural changes, destructive operations or new dependencies, explain the trade-offs and request approval first.
+
+Avoid feature creep. Prioritise making existing components feel complete.
+
+11. Deliverables requested
+
+Please return:
+
+1. Implementation inventory: Working components, partial implementations, mock-ups and unimplemented concepts.
+2. Review response: Which recommendations you agree with, which you would modify, and why.
+3. Polish plan: Prioritised tasks with dependencies and expected outcomes.
+4. Logo concepts: Current design versus two or three alternatives, without replacing the approved design.
+5. Terminal refinement: Updated preview plus technical explanation of the terminal architecture.
+6. Boot/login concept: Improved animation preview and integration feasibility.
+7. Audio audit: Confirmed implementation status and missing integration points.
+8. VM proposal or working test environment: With documented limitations and reproducible setup.
+9. Verification evidence: Commands, test results, screenshots or recordings where appropriate.
+
+12. Review standard
+
+Steins;OS should ultimately feel like a distinct anime-inspired Linux operating system, not a conventional desktop with anime wallpapers.
+
+It must also remain a reliable computer for real everyday work.
+
+We are not chasing visual effects for their own sake. We are building a coherent interface whose most memorable moment is shifting between worldlines.
+
+Preserve the working prototype, show the evidence, refine deliberately, and let the Chairman approve major design decisions.
+
+El Psy Kongroo.
+
+— Burrito 🌯

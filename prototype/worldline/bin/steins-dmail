@@ -1,0 +1,3 @@
+#!/bin/sh
+# Thunderbird owns accounts, profiles, authentication and transport.
+exec thunderbird "$@"

@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "scope": "actual KSvg FrameSvgItem raster + bold white text underlay composites on private offscreen Plasma, temporary HOME/XDG and private D-Bus",
+  "cases": [
+    {
+      "case": "dialog-389",
+      "size": [
+        389,
+        247
+      ],
+      "minimum_edge_alpha": 255,
+      "gap_pixels": 0,
+      "sample_gaps": [],
+      "source_sha256": "c354e4f09d039a9787d3008b0c1b56ac1bdd9ed426593dfb0bb39970bd5221a1"
+    },
+    {
+      "case": "dialog-568",
+      "size": [
+        568,
+        458
+      ],
+      "minimum_edge_alpha": 255,
+      "gap_pixels": 0,
+      "sample_gaps": [],
+      "source_sha256": "c354e4f09d039a9787d3008b0c1b56ac1bdd9ed426593dfb0bb39970bd5221a1"
+    },
+    {
+      "case": "widget-411",
+      "size": [
+        411,
+        317
+      ],
+      "minimum_edge_alpha": 255,
+      "gap_pixels": 0,
+      "sample_gaps": [],
+      "source_sha256": "979324a90dd8d1c6c554fe6ac17a6072339d8fa0162d0ffdee0210df589cbf41"
+    },
+    {
+      "case": "panel-607",
+      "size": [
+        607,
+        46
+      ],
+      "minimum_edge_alpha": 239,
+      "gap_pixels": 0,
+      "sample_gaps": [],
+      "source_sha256": "084d75e9bb522eb2c03fada1bc306530e59728cb5e5ace817ef13622e4b66370"
+    },
+    {
+      "case": "task-focus",
+      "size": [
+        93,
+        36
+      ],
+      "minimum_edge_alpha": 255,
+      "gap_pixels": 0,
+      "sample_gaps": [],
+      "source_sha256": "5cc7c97155c885a44108c321701a2e893abfd39e9cbcc96b63925d179cc070fc"
+    },
+    {
+      "case": "list-pressed",
+      "size": [
+        247,
+        38
+      ],
+      "minimum_edge_alpha": 255,
+      "gap_pixels": 0,
+      "sample_gaps": [],
+      "source_sha256": "ffa3d7821ae44cf0bbdaca01c8b1dad10f703b9e0ead0c692a4ad29b201e5633"
+    }
+  ]
+}

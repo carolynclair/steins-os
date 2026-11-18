@@ -1,0 +1,23 @@
+{
+  "scope": "source and deterministic private-bus tests; deployment belongs to V2 fork ledger",
+  "retry_delays_seconds": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "tests_passed": 17,
+  "files": [
+    {
+      "path": "prototype/worldline/lib/worldline_service.py",
+      "before_sha256": "f9fb31a2fe1ba625ccdfc1f0198be72f09339b60b9542e05f3f26f911e64cacf",
+      "after_sha256": "283396463ee76f0b8c483efd93970f179ce55b19f3d4a1d32fea4e7c2247378f"
+    },
+    {
+      "path": "prototype/worldline/tests/test_service.py",
+      "before_sha256": "2e9f1de84485ead8ff666684217354a578b00df024992598e2358d3be52785f5",
+      "after_sha256": "965eb0621b6b8d9080de780680289682139619990dbf7203086f979b477094a9"
+    }
+  ]
+}

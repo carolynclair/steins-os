@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+# Steins files and derived branding are configured by the local packages.
+dpkg-query -W steins-artwork steins-desktop steins-branding steins-live-installer
+/usr/lib/steins/configure-system branding
+/usr/lib/steins/configure-system installer
+# Exclude installers that fetch payloads outside Debian package archives.
+apt-get purge -y firmware-b43-installer firmware-b43legacy-installer b43-fwcutter
+rm -rf /usr/lib/firmware/b43 /usr/lib/firmware/b43legacy
+# Finalise boot files after all kernel/package triggers have run.
+plymouth-set-default-theme steins
+update-initramfs -u -k all
+systemctl enable NetworkManager lightdm

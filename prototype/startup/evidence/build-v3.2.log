@@ -1,0 +1,23 @@
+dpkg-deb: building package 'steins-startup-prototype' in '/home/gary/Documents/ChatGPT/Steins;OS/dist/v3/startup/steins-startup-prototype_0.1.0~v3.2_all.deb'.
+{
+  "version": "0.1.0~v3.2",
+  "package": "dist/v3/startup/steins-startup-prototype_0.1.0~v3.2_all.deb",
+  "sha256": "9ab47a7e376b7d8fd3d692ccc1b27497ae0eae2fd0b21b6868710312aaf7b591",
+  "original_emblem_source": "config/includes.chroot/usr/share/icons/hicolor/scalable/apps/steins-os.svg",
+  "original_emblem_sha256": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41",
+  "no_automatic_selection": true,
+  "no_audio": true,
+  "motion_variants": [
+    "full",
+    "reduced",
+    "off"
+  ],
+  "nominal_full_frames": 33,
+  "requested_refresh_hz": 30,
+  "real_boot_qualified": false,
+  "grub_background_sizes": [
+    "1280x800",
+    "1366x768"
+  ],
+  "grub_explicit_guest_opt_in_only": true
+}

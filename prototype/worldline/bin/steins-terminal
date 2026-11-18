@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import subprocess
+import sys
+sys.path.insert(0, '/usr/lib/steins')
+import steinslib as sl
+_, pack = sl.current()
+subprocess.run(['konsole', '--profile', 'Steins-' + (pack.id if pack else 'steins-gate'), *sys.argv[1:]])

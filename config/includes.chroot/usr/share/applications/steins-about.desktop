@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=About Steins;OS
+Comment=Laboratory system information and user guide
+Exec=steins-about
+Icon=steins-os
+Categories=System;

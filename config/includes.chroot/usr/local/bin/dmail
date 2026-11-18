@@ -1,0 +1,42 @@
+#!/usr/bin/python3
+"""dmail: send a D-Mail. The message text decides how far the divergence moves."""
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "lib", "steins"))
+import steinslib as sl  # noqa: E402
+
+
+def main():
+    text = " ".join(sys.argv[1:]).strip()
+    if not text and not sys.stdin.isatty():
+        text = sys.stdin.read().strip()
+    if not text:
+        print('usage: dmail "your message to the past"', file=sys.stderr)
+        return 2
+    before = sl.get_divergence()
+    try:
+        session = (sl.session_request('ShiftMessage', text)
+                   if os.environ.get('STEINS_DESKTOP_BACKEND') == 'plasma' else None)
+        if session:
+            before = session.get('previous_divergence', before)
+        after = session['divergence'] if session else sl.set_divergence(sl.send_dmail(text, before))
+        old, new = sl.pick_pack(before), sl.pick_pack(after)
+    except (OSError, RuntimeError) as e:
+        print("dmail: %s" % e, file=sys.stderr)
+        return 3
+    print("D-Mail sent.  %s -> %s" % (before, after))
+    if old.id == new.id:
+        print("Worldline unchanged: %s" % new.name)
+        if session is None:
+            return 0
+    else:
+        print("Worldline shift: %s -> %s" % (old.name, new.name))
+    result = sl.session_result(session) if session else sl.apply_pack(new)
+    for step, ok, detail in result.steps:
+        print("  " + detail if ok else "dmail: %s failed: %s" % (step, detail), file=None if ok else sys.stderr)
+    return 0 if result.ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

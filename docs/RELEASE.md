@@ -1,0 +1,11 @@
+# Release procedure
+
+1. Build on a disposable Linux amd64 host. Pin builder digest and repository snapshot before reproducibility claims. Preserve the exact package manifest, source revision and all build logs.
+2. Run `python3 tests/check_source.py`, `python3 tests/check_worldlines.py` and `python3 tests/check_packages.py`; execute `tests/check_migration.py` only in the disposable builder container described in PACKAGING.md. Run `tests/check_image.sh` in that builder against the exported ISO. Verify ISO hybrid BIOS and UEFI boot entries, SHA-256, kernel/initrd and squashfs presence.
+3. Boot BIOS and UEFI virtual machines. Check live account, desktop, launcher, network, browser, file manager, sound controls and shutdown. Retain screenshots and serial logs.
+4. Install with Calamares onto disposable virtual disks in BIOS and UEFI modes. Test offline installation too. Confirm automatic partitioning, user account, filesystem, bootloader and installer completion. Boot from disk with the ISO removed.
+5. Check that the live user, passwordless sudo, live autologin and installer tools are absent from the installed system; check the personal user and sudo password, network, security sources and update configuration. Test reboot twice.
+6. Test physical USB boot, Wi-Fi, Bluetooth, audio, graphics, suspend/resume, accessibility, localisation and updates on an explicit hardware matrix. Verify Secure Boot independently if advertised. Check encrypted/manual partitions separately before supporting them.
+7. Publish image, checksum, signed release manifest, source archive, package licenses and corresponding source/mirror strategy satisfying redistribution obligations. Do not claim guaranteed security or compatibility from a successful build alone.
+
+Steins;OS has no private update service: Debian maintains upstream packages. Distribution-specific files are owned by four local Debian packages, with tested migration and identity protection. A signed, published package repository and a responsible release process are still required for automatic Steins updates. This preview must not be advertised as a maintained production distribution until an update ownership and release process exists.

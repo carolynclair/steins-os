@@ -1,0 +1,27 @@
+[
+  {
+    "repository_source": "config/includes.chroot/usr/local/bin/steins-meter",
+    "snapshot": "source/config/includes.chroot/usr/local/bin/steins-meter",
+    "sha256": "004d527e873cba5766338caf71ec981e4d26848c252cb5fca22bcc9a6b00fee1"
+  },
+  {
+    "repository_source": "config/includes.chroot/usr/local/lib/steins/meterlib.py",
+    "snapshot": "source/config/includes.chroot/usr/local/lib/steins/meterlib.py",
+    "sha256": "6a72505769c75777abeb534a053827d746c67218285ab8c13dba56202391c9cf"
+  },
+  {
+    "repository_source": "config/includes.chroot/usr/share/plymouth/themes/steins/steins.script",
+    "snapshot": "source/config/includes.chroot/usr/share/plymouth/themes/steins/steins.script",
+    "sha256": "0c06584ad42f61a8697421ed2da2d8e6e0e7ce18b8c7d8ec01b47777d66b9624"
+  },
+  {
+    "repository_source": "prototype/worldline/lib/worldline_service.py",
+    "snapshot": "source/prototype/worldline/lib/worldline_service.py",
+    "sha256": "283396463ee76f0b8c483efd93970f179ce55b19f3d4a1d32fea4e7c2247378f"
+  },
+  {
+    "repository_source": "prototype/worldline/tests/test_service.py",
+    "snapshot": "source/prototype/worldline/tests/test_service.py",
+    "sha256": "965eb0621b6b8d9080de780680289682139619990dbf7203086f979b477094a9"
+  }
+]

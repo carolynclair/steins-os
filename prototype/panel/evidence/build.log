@@ -1,0 +1,7 @@
+dpkg-deb: building package 'steins-worldline-panel' in '/home/gary/Documents/ChatGPT/Steins;OS/dist/v3/panel/steins-worldline-panel_0.1.0~prototype1_all.deb'.
+{
+  "package": "/home/gary/Documents/ChatGPT/Steins;OS/dist/v3/panel/steins-worldline-panel_0.1.0~prototype1_all.deb",
+  "sha256": "79165566e5a0b338c9532fb78049e2f8b7082bcf1adbb308726e5f60473f58b0",
+  "bytes": 7280,
+  "host_installed": false
+}

@@ -1,0 +1,15 @@
+# V4 identity: one family, familiar meanings
+
+SteinsLab is an original code-native SVG icon family and shared token file. It gives the OS-owned launcher, terminal, file manager, D-Mail, Worldlines and settings the same 24px grid, 1.75px rounded stroke and restrained neutral ink. Common folder contents retain conventional document/download/picture/music/video meanings. It does not replace third-party browser/client branding with laboratory glyphs. Restart/sign-out and high/medium/low/muted volume states retain distinct conventional symbols.
+
+The existing Steins;OS emblem is copied byte-for-byte as `steins-os.svg`. A separate conventional application-grid `steins-launcher` symbol is available for the menu; it is not a new OS logo. The icon theme inherits Papirus-Dark, breeze-dark, breeze and hicolor for applications and states outside this focused family. No third-party icon assets or fonts are redistributed here.
+
+`TOKENS.json`, installed at `/usr/share/steins-v4/tokens.json`, is the shared V4 contract. Surfaces, spacing and icon geometry stay unchanged across all six worlds. The world accent is restricted to digits/focus/short active strokes: Hinamizawa uses soft sage, Hitogashima sea-glass, with muted variants for other atmospheres. A 94%-opaque panel is proposed with an opaque readable fallback; no blur/animation is required. Text/control selection remains neutral and contrast is checked against both opaque and worst-case white-wallpaper compositing.
+
+Build: `python3 prototype/identity-v4/build.py`. It uses the existing Debian builder's librsvg in an ephemeral user-ID container, then the existing host dpkg-deb. Outputs are under `dist/v4/identity/`. No host dependency/configuration is installed, and the package has no maintainer scripts or automatic theme selection. It installs `/usr/share/icons/SteinsLab/` and the token file only.
+
+Run `python3 prototype/identity-v4/validate.py` after building. It uses the host's existing PySide6 in an offscreen process to resolve every alias through `QIcon.fromTheme` at 16/24/32px, compare the result against a direct-file control, check inherited Breeze Dark fallback, inspect SVG/PNG bounds, calculate contrast and audit the package scope. This selects a theme only inside that process; it writes no desktop configuration.
+
+The comparison sheet is an asset proof, not an OS screenshot. Samples at 16/24/32 pixels show native-size rasterisation before the larger inspection rendering. `evidence/qt-theme-preview.png` is an actual Qt-rendered icon-theme preview. Bounds/alpha/XML/contrast tests do not establish human recognition or actual Plasma layout quality; the lead engineer's V4 guest screenshots and interaction tests provide those separately.
+
+Original icons: CC-BY-4.0, attribution Steins;OS contributors. Existing emblem retains its project license. New code/tokens/docs: MIT. See `PROVENANCE.json`, `LICENSE` and `evidence/VALIDATION.json` for exact files and verification. No icon theme is selected by this component; deployment remains in the separately named V4 guest.

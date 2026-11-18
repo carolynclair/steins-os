@@ -1,0 +1,188 @@
+#!/usr/bin/python3
+"""steins-meter: an optional divergence meter window. Follows the saved divergence live.
+
+Enter / Space / click opens the ibm5100 terminal; Esc closes. Not autostarted: the desktop
+Conky readout is the default meter, and this window is for people who want the tubes.
+"""
+import os
+import random
+import subprocess
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "lib", "steins"))
+import steinslib as sl  # noqa: E402
+import meterlib  # noqa: E402
+
+import gi  # noqa: E402
+gi.require_version("Gtk", "3.0")
+gi.require_version("Gdk", "3.0")
+from gi.repository import Gdk, Gio, GLib, Gtk  # noqa: E402
+
+FRAME_MS = 40
+
+
+class MeterWindow(Gtk.ApplicationWindow):
+    def __init__(self, app):
+        super().__init__(application=app, title="Divergence Meter")
+        self.set_resizable(False)
+        self.set_border_width(0)
+        self.get_style_context().add_class("steins-meter")
+        self.shown = None                 # what the tubes currently display
+        self.animation = None
+        self.animation_generation = 0
+        self.provider = Gtk.CssProvider()
+        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), self.provider,
+                                                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION + 1)
+
+        self.button = Gtk.Button()
+        self.button.get_style_context().add_class("meter-button")
+        self.button.set_relief(Gtk.ReliefStyle.NONE)
+        self.button.connect("clicked", self.open_terminal)
+        self.add(self.button)
+
+        body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        body.get_style_context().add_class("steins-meter-body")
+        self.button.add(body)
+        title = Gtk.Label(label="DIVERGENCE METER")
+        title.get_style_context().add_class("meter-title")
+        body.pack_start(title, False, False, 0)
+        row = Gtk.Box(spacing=6)
+        row.set_halign(Gtk.Align.CENTER)
+        self.tubes = []
+        for ch in "0.000000":
+            label = Gtk.Label(label=ch)
+            ctx = label.get_style_context()
+            ctx.add_class("tube")
+            if ch == ".":
+                ctx.add_class("dot")
+            row.pack_start(label, False, False, 0)
+            self.tubes.append(label)
+        body.pack_start(row, False, False, 0)
+        self.world = Gtk.Label(label="")
+        self.world.get_style_context().add_class("meter-world")
+        body.pack_start(self.world, False, False, 0)
+        hint = Gtk.Label(label="Enter: open terminal   Esc: close")
+        hint.get_style_context().add_class("meter-hint")
+        body.pack_start(hint, False, False, 0)
+
+        self.connect("key-press-event", self.on_key)
+        self.setup_monitor()
+        self.refresh(initial=True)
+        GLib.timeout_add_seconds(2, self.poll)       # fallback if file monitoring is unavailable
+
+    # -- state following ---------------------------------------------------
+    def setup_monitor(self):
+        self.monitor = None
+        try:
+            folder = sl.state_dir()
+            folder.mkdir(parents=True, exist_ok=True)
+            # Watch the directory: the state file is replaced atomically, which breaks a file-level watch.
+            self.monitor = Gio.File.new_for_path(str(folder)).monitor_directory(Gio.FileMonitorFlags.NONE, None)
+            self.monitor.connect("changed", self.on_file_event)
+        except (OSError, GLib.Error):
+            self.monitor = None
+
+    def on_file_event(self, monitor, file, other, event):
+        names = {item.get_basename() for item in (file, other) if item is not None}
+        # Atomic replacement may name the destination in ``other``. Preference
+        # changes cancel motion immediately, even while the number is unchanged.
+        if "preferences.json" in names:
+            self.refresh()
+        elif sl.state_file().name in names:
+            GLib.timeout_add(80, self.refresh_once)
+
+    def refresh_once(self):
+        self.refresh()
+        return False
+
+    def poll(self):
+        self.refresh()
+        return True
+
+    def refresh(self, initial=False):
+        number, pack = sl.current()
+        if pack is not None:
+            self.provider.load_from_data(meterlib.css_for(pack.palette).encode())
+        name = pack.name.upper() if pack else "NO WORLDLINE PACK"
+        self.world.set_text("WORLDLINE / " + name)
+        accessible = self.button.get_accessible()
+        accessible.set_name("Divergence meter")
+        accessible.set_description(meterlib.accessible_text(number, pack.name if pack else None))
+        default_motion = "reduced" if os.environ.get("STEINS_DESKTOP_BACKEND") == "plasma" else "full"
+        motion = meterlib.motion_profile(sl.state_dir() / "preferences.json", default_motion)
+        if initial or self.shown is None or motion != "full":
+            self.cancel_animation()
+            self.show_text(number)
+            self.shown = number
+            return
+        if number == self.shown:
+            return
+        self.animate(self.shown, number)
+        self.shown = number
+
+    # -- display -----------------------------------------------------------
+    def show_text(self, text, scrambling=False):
+        for label, ch in zip(self.tubes, text):
+            label.set_text(ch)
+            ctx = label.get_style_context()
+            (ctx.add_class if scrambling and ch != "." else ctx.remove_class)("scramble")
+
+    def cancel_animation(self):
+        # Also invalidate callbacks already queued for dispatch: removing a GLib
+        # source alone must not allow an obsolete frame to overwrite stable digits.
+        self.animation_generation += 1
+        if self.animation:
+            GLib.source_remove(self.animation)
+            self.animation = None
+
+    def animate(self, old, new):
+        self.cancel_animation()
+        generation = self.animation_generation
+        frames = meterlib.flicker_frames(old, new, frames=15, rng=random.Random())
+        state = {"i": 0}
+
+        def tick():
+            if generation != self.animation_generation:
+                return False
+            i = state["i"]
+            self.show_text(frames[i], scrambling=i < len(frames) - 1)
+            state["i"] += 1
+            if state["i"] >= len(frames):
+                self.animation = None
+                return False
+            return True
+
+        self.animation = GLib.timeout_add(FRAME_MS, tick)
+
+    # -- actions -----------------------------------------------------------
+    def open_terminal(self, *_):
+        if os.environ.get("STEINS_DESKTOP_BACKEND") == "plasma":
+            subprocess.Popen(["steins-terminal", "-e", "ibm5100"])
+            return
+        for cmd in (["xfce4-terminal", "-e", "ibm5100"], ["x-terminal-emulator", "-e", "ibm5100"]):
+            try:
+                subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+                return
+            except OSError:
+                continue
+        self.world.set_text("NO TERMINAL FOUND - RUN ibm5100 YOURSELF")
+
+    def on_key(self, widget, event):
+        if event.keyval == Gdk.KEY_Escape:
+            self.close()
+            return True
+        return False
+
+
+class MeterApp(Gtk.Application):
+    def __init__(self):
+        super().__init__(application_id="org.steinsos.Meter")   # one window only: a second launch just raises it
+
+    def do_activate(self):
+        win = self.props.active_window or MeterWindow(self)
+        win.show_all()
+        win.present()
+
+
+if __name__ == "__main__":
+    sys.exit(MeterApp().run(sys.argv))

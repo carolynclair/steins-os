@@ -1,0 +1,13 @@
+test_absent_own_configuration_removed_neighbour_preserved (__main__.Fixture.test_absent_own_configuration_removed_neighbour_preserved) ... ok
+test_existing_configuration_byte_and_mode_restore (__main__.Fixture.test_existing_configuration_byte_and_mode_restore) ... ok
+test_failed_generation_restores_both_files (__main__.Fixture.test_failed_generation_restores_both_files) ... ok
+test_failed_rollback_generation_restores_verified_compiled_backup (__main__.Fixture.test_failed_rollback_generation_restores_verified_compiled_backup) ... ok
+test_later_edits_refuse_overwrite_and_repeat_apply_refused (__main__.Fixture.test_later_edits_refuse_overwrite_and_repeat_apply_refused) ... ok
+test_public_cli_refuses_nonroot_before_any_guest_operation (__main__.Fixture.test_public_cli_refuses_nonroot_before_any_guest_operation) ... ok
+test_symlink_configuration_refused_without_destination_change (__main__.Fixture.test_symlink_configuration_refused_without_destination_change) ... ok
+test_tampered_backup_refused (__main__.Fixture.test_tampered_backup_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.114s
+
+OK

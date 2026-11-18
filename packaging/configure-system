@@ -1,0 +1,142 @@
+#!/usr/bin/python3
+"""Regenerate Steins derived themes/installer branding from installed Debian data."""
+import hashlib
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+
+import yaml
+
+
+def run(*args, **kwargs):
+    return subprocess.run(args, check=True, **kwargs)
+
+
+def atomic_text(path, text):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, name = tempfile.mkstemp(prefix=".steins-", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w") as f:
+            f.write(text)
+        os.chmod(name, 0o644)
+        os.replace(name, path)
+    finally:
+        if os.path.exists(name):
+            os.unlink(name)
+
+
+def branding():
+    themes = Path('/usr/share/themes')
+    target = themes / 'Steins-Lab'
+    temporary = Path(tempfile.mkdtemp(prefix='.steins-theme-', dir=themes))
+    old = themes / '.steins-previous-theme'
+    try:
+        shutil.copytree(themes / 'Greybird-dark', temporary, dirs_exist_ok=True)
+        css = Path('/etc/steins/theme-overrides.css').read_text()
+        for name in ('gtk.css', 'gtk-dark.css'):
+            p = temporary / 'gtk-3.0' / name
+            if p.is_file():
+                p.write_text(p.read_text() + '\n' + css)
+        p = temporary / 'xfwm4/themerc'
+        if p.is_file():
+            lines = p.read_text().splitlines()
+            p.write_text('\n'.join('active_text_color=#e99a45' if s.startswith('active_text_color=') else s for s in lines) + '\n')
+        if old.exists():
+            shutil.rmtree(old)
+        if target.exists():
+            target.rename(old)
+        try:
+            temporary.rename(target)
+        except Exception:
+            if old.exists() and not target.exists():
+                old.rename(target)
+            raise
+        if old.exists():
+            shutil.rmtree(old)
+    finally:
+        if temporary.exists():
+            shutil.rmtree(temporary)
+
+    state = Path('/var/lib/steins/branding')
+    first = not state.exists()
+    state.mkdir(parents=True, exist_ok=True)
+    current = subprocess.run(['plymouth-set-default-theme'], capture_output=True, text=True, check=True).stdout.strip()
+    if first or current == 'steins':
+        run('plymouth-set-default-theme', 'steins')
+        splash = Path('/usr/share/plymouth/themes/steins')
+        digest = hashlib.sha256(b''.join(p.read_bytes() for p in sorted(splash.iterdir()) if p.is_file())).hexdigest()
+        stamp = state / 'plymouth.sha256'
+        if not stamp.exists() or stamp.read_text().strip() != digest:
+            if list(Path('/boot').glob('initrd.img-*')):
+                run('update-initramfs', '-u', '-k', 'all')
+            atomic_text(stamp, digest + '\n')
+
+
+def installer():
+    state = Path('/var/lib/steins/installer')
+    config = state / 'config'
+    config.mkdir(parents=True, exist_ok=True)
+    # Debian remains owner of its original conffiles. Work from a separate
+    # generated copy, selected with Calamares' supported --config option.
+    shutil.copytree('/etc/calamares', config, dirs_exist_ok=True)
+    qml = config / 'qml'
+    if not qml.exists():
+        qml.symlink_to('/usr/share/calamares/qml', target_is_directory=True)
+    directory = config / 'branding/steins'
+    directory.mkdir(parents=True, exist_ok=True)
+    upstream = Path('/etc/calamares/branding/debian/branding.desc')
+    data = yaml.safe_load(upstream.read_text())
+    data['componentName'] = 'steins'
+    data['strings'].update(productName='Steins;OS', shortProductName='Steins;OS',
+                          version='0.1', shortVersion='0.1', versionedName='Steins;OS 0.1',
+                          shortVersionedName='Steins;OS 0.1', bootloaderEntryName='Steins;OS',
+                          supportUrl='', knownIssuesUrl='', releaseNotesUrl='')
+    data['style'].update(SidebarBackground='#151b20', SidebarBackgroundCurrent='#614226',
+                         SidebarText='#e7e2d6', SidebarTextCurrent='#ffffff')
+    atomic_text(directory / 'branding.desc', yaml.safe_dump(data))
+    for name in ('stylesheet.qss', 'show.qml'):
+        shutil.copyfile(Path('/usr/share/steins/calamares') / name, directory / name)
+    for source, destination in (
+        ('/usr/share/plymouth/themes/steins/logo.png', 'debian-logo.png'),
+        ('/usr/share/backgrounds/steins/worldline.png', 'welcome.png'),
+        ('/usr/share/backgrounds/steins/oscilloscope.png', 'slide1.png'),
+    ):
+        shutil.copyfile(source, directory / destination)
+    settings = yaml.safe_load(Path('/etc/calamares/settings.conf').read_text())
+    settings['branding'] = 'steins'
+    settings['prompt-install'] = True
+    atomic_text(config / 'settings.conf', yaml.safe_dump(settings, sort_keys=False))
+    # The Debian cleanup list removes its settings but leaves the generic
+    # framework desktop entry. Remove the framework from the target too;
+    # Calamares itself continues running from the live environment.
+    packages_file = config / 'modules/packages.conf'
+    packages = yaml.safe_load(packages_file.read_text())
+    removals = [operation['remove'] for operation in packages['operations'] if 'remove' in operation]
+    if not removals:
+        raise RuntimeError('Debian installer cleanup changed; review before rebuilding')
+    if 'calamares' not in removals[0]:
+        removals[0].append('calamares')
+    atomic_text(packages_file, yaml.safe_dump(packages, sort_keys=False))
+    wrapper = Path('/usr/bin/calamares-install-debian').read_text()
+    invocation = 'pkexec calamares'
+    if wrapper.splitlines().count(invocation) != 1:
+        raise RuntimeError('Debian installer wrapper changed; review its invocation before rebuilding')
+    wrapper = wrapper.replace(invocation, invocation + ' --config /var/lib/steins/installer/config')
+    generated = Path('/usr/lib/steins/calamares-install')
+    atomic_text(generated, wrapper)
+    generated.chmod(0o755)
+
+
+if __name__ == '__main__':
+    if os.geteuid() != 0:
+        raise SystemExit('This package configuration helper requires root.')
+    if sys.argv[1:] == ['branding']:
+        branding()
+    elif sys.argv[1:] == ['installer']:
+        installer()
+    else:
+        raise SystemExit('Use branding or installer')

@@ -1,0 +1,37 @@
+{
+  "id": "steins-gate",
+  "name": "Steins Gate",
+  "divergence": "1.048596",
+  "range": [
+    1.0,
+    1.999999
+  ],
+  "palette": {
+    "bg": "#151b20",
+    "bg_alt": "#141a1e",
+    "fg": "#e7e2d6",
+    "accent": "#e99a45",
+    "selection": "#a2652a",
+    "muted": "#9cab9f"
+  },
+  "tagline": "FUTURE GADGET LABORATORY",
+  "terminal_palette": [
+    "#242c31",
+    "#d97b71",
+    "#93aa86",
+    "#e99a45",
+    "#86a6b5",
+    "#b196ad",
+    "#89b5a7",
+    "#ddd7c8",
+    "#9cab9f",
+    "#ec998c",
+    "#b5c79e",
+    "#e99a45",
+    "#acc4d1",
+    "#ccb3c3",
+    "#b0d6c4",
+    "#f4eddf"
+  ],
+  "wallpaper": "wallpaper.svg"
+}

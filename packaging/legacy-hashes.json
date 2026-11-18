@@ -1,0 +1,42 @@
+{
+  "/usr/local/bin/dmail": [
+    "007a3ca549e1a6197d781a727d270a4fe952918c35cb4ec3b732ae58272181fc",
+    "4067c3b1bba82bb64c69ec26495f3788c29112b98c8300542afdb509f42944c9"
+  ],
+  "/usr/local/bin/ibm5100": [
+    "21b0df24ebeb128cbfadf5d0fb2690d4e903bbd68b7cb82c41efe8124b60f9be",
+    "d646e07543039e19f2e1b37e16657a42bd380f61c2fbaae8cddd7be6eb081260",
+    "e3ff1d74270740b4d564c3da964e8442b87d9749a608b86c00e14395edbcefdf"
+  ],
+  "/usr/local/bin/install-steins-os": [
+    "d2d736b4da82841fe47f2534cb101d3d8d8d9301aac89b9b2d1085ef7267ea2e"
+  ],
+  "/usr/local/bin/steins-about": [
+    "3cae212ecfc72ba78f49c51cd16ffea3ea86e7cdffba2fcdcc7dc89f85d9998a",
+    "f625c88937a7a933de40e5001a94e3bf86da938f4fb78be0273d0bc1b43f3f06"
+  ],
+  "/usr/local/bin/steins-info": [
+    "566f0cf27e19d78dff2b3b769fbe19b641266b7f30e862e437693c62e359d1f4"
+  ],
+  "/usr/local/bin/steins-meter": [
+    "4798511ad5c0785a0cec159fe128474b4ba9053bc79cea53cdbf1bfd006c64fc"
+  ],
+  "/usr/local/bin/steins-session": [
+    "491f9a05fe576a3175211e99a9b4c58ec3edf5bc230403376f837ee27d2f5963",
+    "b5e407c4407c50201bc91cc6690742a93c8e31281966ec90f1376eec589b1377"
+  ],
+  "/usr/local/bin/steins-worldline": [
+    "655151e81e51b7c3b95319f522fc63c7e373f58208a01eab199717eb02d99145",
+    "7e4455a252e183a15dda2e9681431857ce5b344a248a33d8b04b67ee84e5f3dd"
+  ],
+  "/usr/local/lib/steins/aboutlib.py": [
+    "82c131ef2abaa1733e1c56aaf123cd1dc00ef70013b88c1c4ce33cca88c59c8c"
+  ],
+  "/usr/local/lib/steins/meterlib.py": [
+    "1e4e198aaea8a23f03b5b90a091c1e2126a63927865a2fb399c8ae9c2836b601"
+  ],
+  "/usr/local/lib/steins/steinslib.py": [
+    "45b9e0cddf3a774709cf4954df5e2d8fc79261bc39b163313b18ecba801f3ad5",
+    "9cac02676abcc80abc3851adc44d10d87f7e8c5bbed28d191fb7fdb6b30f08a9"
+  ]
+}

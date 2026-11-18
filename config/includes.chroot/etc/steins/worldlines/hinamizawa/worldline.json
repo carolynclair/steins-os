@@ -1,0 +1,37 @@
+{
+  "id": "hinamizawa",
+  "name": "Hinamizawa",
+  "divergence": "2.198306",
+  "range": [
+    2.0,
+    2.999999
+  ],
+  "palette": {
+    "bg": "#1a1210",
+    "bg_alt": "#140d0c",
+    "fg": "#eadbcd",
+    "accent": "#e0622c",
+    "selection": "#a8421a",
+    "muted": "#a89080"
+  },
+  "tagline": "EVENING / CICADA HOUR",
+  "terminal_palette": [
+    "#242c31",
+    "#d97b71",
+    "#93aa86",
+    "#e0622c",
+    "#86a6b5",
+    "#b196ad",
+    "#89b5a7",
+    "#ddd7c8",
+    "#a89080",
+    "#ec998c",
+    "#b5c79e",
+    "#e0622c",
+    "#acc4d1",
+    "#ccb3c3",
+    "#b0d6c4",
+    "#f4eddf"
+  ],
+  "wallpaper": "wallpaper.svg"
+}

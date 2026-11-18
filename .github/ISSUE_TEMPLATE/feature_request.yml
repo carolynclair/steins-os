@@ -1,0 +1,23 @@
+name: Feature proposal
+description: Suggest a focused improvement to the distribution.
+title: "[Feature] "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User need
+      description: What are you trying to do, and what currently gets in the way?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Prefer existing maintained Linux components where they fit. Explain how this improves daily use.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and tradeoffs
+      description: Existing applications, maintenance cost, accessibility, resource usage and update compatibility.

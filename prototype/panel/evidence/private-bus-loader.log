@@ -1,0 +1,25 @@
+Loading default layout
+kf.plasma.core: Applet invalid: Cannot find a package for "empty"
+dbus-daemon[29148]: [session uid=1000 pid=29148 pidfd=5] Activating service name='org.kde.ActivityManager' requested by ':1.1' (uid=1000 pid=29154 comm="plasmawindowed /tmp/steins-panel-qa-v_94vogw/packa" label="chatgpt (unconfined)")
+kf.plasma.core: Unknown containment type requested: "" "" check Plasma::Containment::Type for supported values
+kf.windowsystem: virtual void KX11Extras::connectNotify(const QMetaMethod&) may only be used on X11
+kf.windowsystem: virtual void KX11Extras::connectNotify(const QMetaMethod&) may only be used on X11
+dbus-daemon[29148]: [session uid=1000 pid=29148 pidfd=5] Successfully activated service 'org.kde.ActivityManager'
+kf.kirigami.platform: Failed to find a Kirigami platform plugin for style "Fusion"
+kf.windowsystem: Could not find any platform plugin
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+kf.plasma.quick: Applet preload policy set to 1
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::PlasmaWindow(0x55e0f1b46a60)
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::PlasmaWindow(0x55e0f185f740)
+qml: 0
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::AppletPopup_QML_23(0x55e0f1b46a60, name="popupWindow")
+kf.plasma.quick: Couldn't create KWindowShadow for ToolTipDialog(0x55e0f185f740)
+qml: PANEL_PROBE {"phase":"partial","number":"2.198306","partial":true,"name":"Hinamizawa","error":"wallpaper: controlled partial apply"}
+qml: PANEL_PROBE {"phase":"applied","applied":true}
+qml: PANEL_PROBE {"phase":"disconnected","connected":false,"number":"—.——————"}
+qml: PANEL_PROBE {"phase":"reconnected","connected":true,"number":"2.198306"}

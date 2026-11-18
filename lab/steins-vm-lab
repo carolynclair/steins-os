@@ -1,0 +1,63 @@
+#!/usr/bin/python3
+"""Run as your regular user. No sudoers or broad Polkit exception is installed."""
+import json
+import os
+from pathlib import Path
+import shlex
+import shutil
+import subprocess as sp
+import sys
+import xml.etree.ElementTree as ET
+
+LAB = Path('/var/lib/libvirt/images/SteinsOS-Test')
+URI = 'qemu:///system'
+NAME = 'SteinsOS-Test'
+
+
+def command(args, **kwargs):
+    # NSS membership is available immediately; a new login is not needed by this launcher.
+    return sp.run(['sg', 'libvirt', '-c', shlex.join(args)], check=True, **kwargs)
+
+
+def virsh(*args, **kwargs):
+    return command(['virsh', '-c', URI, *args], **kwargs)
+
+
+def main():
+    action = sys.argv[1] if len(sys.argv) > 1 else 'launch'
+    state = json.loads((LAB / 'lab.json').read_text())
+    xml = ET.fromstring(virsh('dumpxml', NAME, '--inactive', capture_output=True, text=True).stdout)
+    assert xml.findtext('uuid') == state['uuid'], 'This VM no longer matches the configured lab'
+    if action in ('launch', 'start'):
+        status = virsh('domstate', NAME, capture_output=True, text=True).stdout.strip()
+        if status == 'shut off':
+            assert shutil.disk_usage(LAB).free >= 10 * 1024**3, 'Free at least 10 GiB before starting this sparse-disk lab'
+            available = next(int(line.split()[1]) * 1024 for line in Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemAvailable:'))
+            assert available >= 8 * 1024**3, 'Close other applications to leave 8 GiB available before starting the 6 GiB guest'
+            virsh('start', NAME)
+        if action == 'launch':
+            command(['virt-manager', '--connect', URI, '--show-domain-console', NAME])
+    elif action == 'status':
+        virsh('dominfo', NAME)
+        virsh('domblklist', NAME, '--details')
+        virsh('net-dhcp-leases', state['network'])
+        print(f'Host free space: {shutil.disk_usage(LAB).free / 1024**3:.1f} GiB; guest capacity is sparse, not reserved.')
+    elif action == 'shutdown':
+        virsh('shutdown', NAME)
+        print('Shutdown requested; check status. A guest confirmation dialog may require a click.')
+    elif action in ('checkpoint', 'restore', 'verify'):
+        extra = sys.argv[2:]
+        assert (action == 'verify' and not extra) or (action != 'verify' and len(extra) == 1)
+        sp.run(['pkexec', '--disable-internal-agent', '/usr/local/libexec/steins-vm-lab', action, *extra], check=True)
+    elif action in ('boot-disk', 'boot-iso'):
+        assert virsh('domstate', NAME, capture_output=True, text=True).stdout.strip() == 'shut off', 'Shut down fully before changing boot media'
+        if action == 'boot-disk':
+            virsh('change-media', NAME, 'sda', '--eject', '--config')
+        else:
+            virsh('change-media', NAME, 'sda', str(LAB / 'steins-os.iso'), '--insert', '--config')
+    else:
+        raise SystemExit('Use launch, start, status, shutdown, boot-disk, boot-iso, checkpoint LABEL, restore LABEL, verify')
+
+
+if __name__ == '__main__':
+    main()

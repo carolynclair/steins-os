@@ -1,0 +1,11 @@
+#!/bin/sh
+printf '\n  STEINS;OS / GATE OF STEINER\n  --------------------------\n'
+printf '  Kernel     %s\n' "$(uname -r)"
+printf '  Machine    %s\n' "$(uname -m)"
+printf '  Host       %s\n' "$(hostname)"
+printf '  Uptime     %s\n' "$(uptime -p)"
+printf '  Desktop    %s\n' "${XDG_CURRENT_DESKTOP:-console}"
+printf '  Base       Debian 13 (trixie)\n\n'
+free -h
+printf '\n'
+df -h /

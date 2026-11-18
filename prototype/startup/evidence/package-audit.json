@@ -1,0 +1,12 @@
+{
+  "package_sha256": "907d616cb8da0d9a91b6770d77b62e911f46aaa8e746491f671a1fe4b6747e17",
+  "payload_entries": 60,
+  "control_entries": [
+    ".",
+    "./control"
+  ],
+  "only_optional_theme_and_doc_paths": true,
+  "no_maintainer_scripts": true,
+  "source_theme_preserved": true,
+  "host_config_changed": false
+}

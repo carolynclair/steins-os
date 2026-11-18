@@ -1,0 +1,5 @@
+{
+  "url": "https://deb.debian.org/debian/pool/main/p/plymouth/plymouth_24.004.60.orig.tar.xz",
+  "sha256": "f3f7841358c98f5e7b06a9eedbdd5e6882fd9f38bbd14a767fb083e3b55b1c34",
+  "status": "Official 24.004.60 source inspected; API evidence, not runtime qualification"
+}

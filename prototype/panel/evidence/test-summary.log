@@ -1,0 +1,108 @@
+{
+  "source_sha256": "bc0296762708ece4d47d6dcddb081b9dbf6227eee5aa0715897bc3d180717341",
+  "scope": "isolated offscreen Plasma loader + real QML methods + private fake D-Bus; not VM/host deployment",
+  "passed": true,
+  "probes": [
+    {
+      "phase": "partial",
+      "number": "2.198306",
+      "partial": true,
+      "name": "Hinamizawa",
+      "error": "wallpaper: controlled partial apply"
+    },
+    {
+      "phase": "applied",
+      "applied": true
+    },
+    {
+      "phase": "disconnected",
+      "connected": false,
+      "number": "\u2014.\u2014\u2014\u2014\u2014\u2014\u2014"
+    },
+    {
+      "phase": "reconnected",
+      "connected": true,
+      "number": "2.198306"
+    }
+  ],
+  "backend_calls": [
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "ListWorldlines",
+      "args": []
+    },
+    {
+      "method": "SetPreference",
+      "args": [
+        "meter",
+        "true"
+      ]
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "SetPreference",
+      "args": [
+        "motion",
+        "\"off\""
+      ]
+    },
+    {
+      "method": "SetDivergence",
+      "args": [
+        "2.198306"
+      ]
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "ApplyCurrent",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "disappear",
+      "args": []
+    },
+    {
+      "method": "reappear",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "ListWorldlines",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    },
+    {
+      "method": "GetState",
+      "args": []
+    }
+  ],
+  "loader_exit": 124,
+  "temporary_home_and_private_bus": true
+}

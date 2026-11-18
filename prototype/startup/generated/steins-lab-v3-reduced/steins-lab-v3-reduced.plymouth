@@ -1,0 +1,7 @@
+[Plymouth Theme]
+Name=Steins;OS Laboratory V3 (reduced)
+Description=Original restrained laboratory startup; silent
+ModuleName=script
+[script]
+ImageDir=/usr/share/plymouth/themes/steins-lab-v3-reduced
+ScriptFile=/usr/share/plymouth/themes/steins-lab-v3-reduced/steins.script

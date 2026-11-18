@@ -1,0 +1,47 @@
+Window.SetBackgroundTopColor(0.055, 0.075, 0.09);
+Window.SetBackgroundBottomColor(0.055, 0.075, 0.09);
+logo = Image("logo.png");
+sprite = Sprite(logo);
+sprite.SetX(Window.GetWidth()/2-logo.GetWidth()/2);
+sprite.SetY(Window.GetHeight()/2-logo.GetHeight()/2-45);
+message_sprite = Sprite();
+fun message(text) {
+ image = Image.Text(text, 0.91, 0.64, 0.32);
+ global.message_sprite.SetImage(image);
+ global.message_sprite.SetX(Window.GetWidth()/2-image.GetWidth()/2);
+ global.message_sprite.SetY(Window.GetHeight()/2+70);
+}
+fun normal_message() {
+ mode = Plymouth.GetMode();
+ if (mode == "shutdown") return "STEINS;OS / SHUTTING DOWN LABORATORY";
+ if (mode == "reboot") return "STEINS;OS / RESTARTING LABORATORY";
+ if (mode == "updates") return "STEINS;OS / APPLYING SYSTEM UPDATES";
+ if (mode == "system-upgrade") return "STEINS;OS / APPLYING SYSTEM UPDATES";
+ if (mode == "firmware-upgrade") return "STEINS;OS / APPLYING FIRMWARE UPDATE";
+ if (mode == "system-reset") return "STEINS;OS / RESETTING SYSTEM";
+ return "STEINS;OS / INITIALISING LABORATORY";
+}
+message(normal_message());
+fun display_message(text) { message(text); }
+Plymouth.SetDisplayMessageFunction(display_message);
+fun display_password(prompt, bullets) {
+ text = prompt + " ";
+ for (i = 0; i < bullets; i++) text += "*";
+ message(text);
+}
+Plymouth.SetDisplayPasswordFunction(display_password);
+fun display_normal() { message(normal_message()); }
+Plymouth.SetDisplayNormalFunction(display_normal);
+// A quiet activity pulse; password and status text remain fully readable.
+pulse_image = Image.Text("•  •  •", 0.91, 0.64, 0.32);
+pulse = Sprite(pulse_image);
+pulse.SetX(Window.GetWidth()/2-pulse_image.GetWidth()/2);
+pulse.SetY(Window.GetHeight()/2+105);
+phase = 0;
+fun refresh() {
+ global.phase += 0.035;
+ global.pulse.SetOpacity(0.45 + 0.35 * Math.Sin(global.phase));
+}
+Plymouth.SetRefreshFunction(refresh);
+fun display_question(prompt, entry) { message(prompt + " " + entry); }
+Plymouth.SetDisplayQuestionFunction(display_question);

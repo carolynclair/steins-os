@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+# live-build invokes binary hooks inside the assembled binary tree.
+if [ -d live ] && [ -d ../config ]; then
+ tree=.; configuration=../config
+elif [ -d binary/live ]; then
+ tree=binary; configuration=config
+else
+ echo 'Steins boot hook: cannot locate assembled image' >&2; exit 1
+fi
+python3 - "$tree" <<'PY'
+from pathlib import Path
+import sys
+base=Path(sys.argv[1])
+changed=0
+for root in (base/'isolinux',base/'syslinux',base/'boot/grub'):
+ for p in root.glob('**/*.cfg'):
+  text=p.read_text(errors='replace')
+  text=text.replace('Debian GNU/Linux', 'Steins;OS').replace('Debian Live', 'Steins;OS').replace('Live system', 'Steins;OS live')
+  text=text.replace('play 960 440 1 0 4 440 1','')
+  p.write_text(text);changed+=1
+for p in base.glob('**/stdmenu.cfg'):
+ text=p.read_text();text+='\nmenu title Steins;OS / Gate of Steiner\nmenu color title 1;33;40 #ffe99a45 #00151b20 std\nmenu color sel 7;37;40 #ff151b20 #ffe99a45 all\n';p.write_text(text)
+for p in (base/'boot/grub').glob('**/theme.txt'):
+ text=p.read_text().replace('Live Boot Menu with GRUB','Steins;OS / Gate of Steiner').replace('#a8a8a8','#9cab9f').replace('#ffffff','#e99a45');p.write_text(text)
+assert changed, 'No boot configuration files were found'
+PY
+for d in "$tree/isolinux" "$tree/syslinux" "$tree/boot/grub"; do
+ if [ -d "$d" ]; then
+  rsvg-convert -w 640 -h 480 "$configuration/steins-assets/boot.svg" -o "$d/splash.png"
+ fi
+done

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#101820"/>
+<text x="44" y="62" fill="#eee9df" font-family="Noto Sans" font-size="34" font-weight="600" text-anchor="start">Startup / signal to session</text>
+<text x="44" y="99" fill="#a9b6bf" font-family="Noto Sans" font-size="16" font-weight="400" text-anchor="start">Existing emblem retained · original motion study · silent default · real readiness wins over the timeline</text>
+<rect x="44" y="152" width="288" height="252" rx="12" fill="#0b1218" stroke="#435767"/>
+<path d="M72 224H156l14 -12h40" fill="none" stroke="#efad60" stroke-width="1.5" opacity="0.12"/>
+<path d="M72 246H167l14 -12h40" fill="none" stroke="#efad60" stroke-width="1.5" opacity="0.18"/>
+<path d="M72 268H178l14 -12h40" fill="none" stroke="#efad60" stroke-width="1.5" opacity="0.24"/>
+<path d="M72 290H189l14 -12h40" fill="none" stroke="#efad60" stroke-width="1.5" opacity="0.3"/>
+<path d="M72 312H200l14 -12h40" fill="none" stroke="#efad60" stroke-width="1.5" opacity="0.36"/>
+<text x="44" y="442" fill="#eee9df" font-family="Noto Sans" font-size="21" font-weight="600" text-anchor="start">01 / Signal</text>
+<text x="44" y="474" fill="#efad60" font-family="DejaVu Sans Mono" font-size="14" font-weight="400" text-anchor="start">0–120 ms</text>
+<text x="44" y="508" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Low-contrast trace emergence.</text>
+<text x="44" y="532" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">No full-screen flashes.</text>
+<rect x="351" y="152" width="288" height="252" rx="12" fill="#0b1218" stroke="#435767"/>
+<g opacity="0.85"><svg x="441" y="204" width="108" height="108" viewBox="0 0 128 128">
+<defs><clipPath id="assembly-mask"><path d="M0 0H128V51H71V128H0Z"/></clipPath></defs><g clip-path="url(#assembly-mask)">
+<g fill="none" stroke="#e99a45" stroke-width="5"><path d="M30 30h68L30 98h68M48 30v20m32 28v20"/><circle cx="64" cy="64" r="50" stroke-width="2"/></g>
+</g>
+</svg></g>
+<path d="M373 304h74m98 -62h70" stroke="#efad60" stroke-width="1.5" opacity=".45"/>
+<text x="351" y="442" fill="#eee9df" font-family="Noto Sans" font-size="21" font-weight="600" text-anchor="start">02 / Assemble</text>
+<text x="351" y="474" fill="#efad60" font-family="DejaVu Sans Mono" font-size="14" font-weight="400" text-anchor="start">120–480 ms</text>
+<text x="351" y="508" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Light resolves into the current mark.</text>
+<text x="351" y="532" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">No logo replacement.</text>
+<rect x="658" y="152" width="288" height="252" rx="12" fill="#0b1218" stroke="#435767"/>
+<g opacity="1"><svg x="747" y="192" width="110" height="110" viewBox="0 0 128 128">
+<g fill="none" stroke="#e99a45" stroke-width="5"><path d="M30 30h68L30 98h68M48 30v20m32 28v20"/><circle cx="64" cy="64" r="50" stroke-width="2"/></g>
+</svg></g>
+<text x="802" y="355" fill="#efad60" font-family="DejaVu Sans Mono" font-size="24" font-weight="400" text-anchor="middle">1.048596</text>
+<text x="802" y="380" fill="#a9b6bf" font-family="Noto Sans" font-size="9" font-weight="400" text-anchor="middle">THEME CALIBRATION</text>
+<text x="658" y="442" fill="#eee9df" font-family="Noto Sans" font-size="21" font-weight="600" text-anchor="start">03 / Calibrate</text>
+<text x="658" y="474" fill="#efad60" font-family="DejaVu Sans Mono" font-size="14" font-weight="400" text-anchor="start">480–720 ms</text>
+<text x="658" y="508" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Brief public theme digits.</text>
+<text x="658" y="532" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Never personal pre-login state.</text>
+<rect x="965" y="152" width="288" height="252" rx="12" fill="#0b1218" stroke="#435767"/>
+<g opacity="1"><svg x="1054" y="192" width="110" height="110" viewBox="0 0 128 128">
+<g fill="none" stroke="#e99a45" stroke-width="5"><path d="M30 30h68L30 98h68M48 30v20m32 28v20"/><circle cx="64" cy="64" r="50" stroke-width="2"/></g>
+</svg></g>
+<text x="1109" y="345" fill="#eee9df" font-family="Noto Sans" font-size="24" font-weight="500" text-anchor="middle">Steins;OS</text>
+<text x="965" y="442" fill="#eee9df" font-family="Noto Sans" font-size="21" font-weight="600" text-anchor="start">04 / Settle</text>
+<text x="965" y="474" fill="#efad60" font-family="DejaVu Sans Mono" font-size="14" font-weight="400" text-anchor="start">720–940 ms</text>
+<text x="965" y="508" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">The mark stabilises.</text>
+<text x="965" y="532" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Temporary traces recede.</text>
+<rect x="1272" y="152" width="288" height="252" rx="12" fill="#0b1218" stroke="#435767"/>
+<g opacity="1"><svg x="1379" y="195" width="74" height="74" viewBox="0 0 128 128">
+<g fill="none" stroke="#e99a45" stroke-width="5"><path d="M30 30h68L30 98h68M48 30v20m32 28v20"/><circle cx="64" cy="64" r="50" stroke-width="2"/></g>
+</svg></g>
+<text x="1416" y="314" fill="#eee9df" font-family="Noto Sans" font-size="24" font-weight="500" text-anchor="middle">Steins;OS</text>
+<text x="1416" y="350" fill="#a9b6bf" font-family="Noto Sans" font-size="12" font-weight="400" text-anchor="middle">Preparing the login screen</text>
+<text x="1272" y="442" fill="#eee9df" font-family="Noto Sans" font-size="21" font-weight="600" text-anchor="start">05 / Handoff</text>
+<text x="1272" y="474" fill="#efad60" font-family="DejaVu Sans Mono" font-size="14" font-weight="400" text-anchor="start">940–1,100 ms</text>
+<text x="1272" y="508" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Continue only when login is ready.</text>
+<text x="1272" y="532" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Do not delay authentication.</text>
+<rect x="1579" y="152" width="288" height="252" rx="12" fill="#0b1218" stroke="#435767"/>
+<rect x="1619" y="179" width="208" height="196" rx="10" fill="#151f28" stroke="#435767"/>
+<g opacity="1"><svg x="1701" y="192" width="44" height="44" viewBox="0 0 128 128">
+<g fill="none" stroke="#e99a45" stroke-width="5"><path d="M30 30h68L30 98h68M48 30v20m32 28v20"/><circle cx="64" cy="64" r="50" stroke-width="2"/></g>
+</svg></g>
+<text x="1723" y="262" fill="#eee9df" font-family="Noto Sans" font-size="18" font-weight="600" text-anchor="middle">Welcome back</text>
+<text x="1638" y="289" fill="#a9b6bf" font-family="Noto Sans" font-size="11" font-weight="400" text-anchor="start">Password</text>
+<rect x="1637" y="298" width="172" height="29" rx="5" fill="#0c1319" stroke="#efad60"/>
+<rect x="1637" y="336" width="172" height="26" rx="5" fill="#efad60" stroke="#efad60"/>
+<text x="1723" y="354" fill="#101820" font-family="Noto Sans" font-size="12" font-weight="600" text-anchor="middle">Sign in</text>
+<text x="1579" y="442" fill="#eee9df" font-family="Noto Sans" font-size="21" font-weight="600" text-anchor="start">06 / Authenticate</text>
+<text x="1579" y="474" fill="#efad60" font-family="DejaVu Sans Mono" font-size="14" font-weight="400" text-anchor="start">Readiness-driven</text>
+<text x="1579" y="508" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Greeter controls stay practical.</text>
+<text x="1579" y="532" fill="#a9b6bf" font-family="Noto Sans" font-size="13" font-weight="400" text-anchor="start">Cue belongs after login, if enabled.</text>
+<path d="M44 622H1876" stroke="#435767"/>
+<rect x="44" y="661" width="594" height="164" rx="10" fill="#151f28" stroke="#435767"/>
+<text x="66" y="697" fill="#efad60" font-family="Noto Sans" font-size="12" font-weight="600" text-anchor="start">FULL</text>
+<text x="66" y="735" fill="#eee9df" font-family="Noto Sans" font-size="25" font-weight="600" text-anchor="start">≤1,200 ms preview</text>
+<text x="66" y="772" fill="#a9b6bf" font-family="Noto Sans" font-size="14" font-weight="400" text-anchor="start">One assembly; no mandatory waiting.</text>
+<text x="66" y="799" fill="#a9b6bf" font-family="Noto Sans" font-size="14" font-weight="400" text-anchor="start">Native port remains unimplemented.</text>
+<rect x="664" y="661" width="594" height="164" rx="10" fill="#151f28" stroke="#435767"/>
+<text x="686" y="697" fill="#efad60" font-family="Noto Sans" font-size="12" font-weight="600" text-anchor="start">REDUCED</text>
+<text x="686" y="735" fill="#eee9df" font-family="Noto Sans" font-size="25" font-weight="600" text-anchor="start">150 ms or static</text>
+<text x="686" y="772" fill="#a9b6bf" font-family="Noto Sans" font-size="14" font-weight="400" text-anchor="start">No trace travel, scanning or digit roll.</text>
+<text x="686" y="799" fill="#a9b6bf" font-family="Noto Sans" font-size="14" font-weight="400" text-anchor="start">Authentication remains usable.</text>
+<rect x="1284" y="661" width="594" height="164" rx="10" fill="#151f28" stroke="#435767"/>
+<text x="1306" y="697" fill="#efad60" font-family="Noto Sans" font-size="12" font-weight="600" text-anchor="start">OFF / SILENT</text>
+<text x="1306" y="735" fill="#eee9df" font-family="Noto Sans" font-size="25" font-weight="600" text-anchor="start">Immediate when ready</text>
+<text x="1306" y="772" fill="#a9b6bf" font-family="Noto Sans" font-size="14" font-weight="400" text-anchor="start">Static mark and real status messages.</text>
+<text x="1306" y="799" fill="#a9b6bf" font-family="Noto Sans" font-size="14" font-weight="400" text-anchor="start">No audio prerequisite for startup.</text>
+<text x="44" y="886" fill="#eee9df" font-family="Noto Sans" font-size="23" font-weight="600" text-anchor="start">Integration boundaries</text>
+<text x="44" y="923" fill="#a9b6bf" font-family="Noto Sans" font-size="15" font-weight="400" text-anchor="start">Plymouth: early boot/status/passwords  →  SDDM: authentication  →  user session: worldline state and optional readiness cue</text>
+<text x="44" y="961" fill="#a9b6bf" font-family="Noto Sans" font-size="15" font-weight="400" text-anchor="start">No initramfs audio service. No user-home or session-bus reads before authentication. No screenshot-matched success claim.</text>
+<rect x="0" y="1014" width="1920" height="66" fill="#0b1218"/>
+<text x="44" y="1043" fill="#eee9df" font-family="Noto Sans" font-size="14" font-weight="600" text-anchor="start">DESIGN PREVIEW / NOT A PLYMOUTH CAPTURE</text>
+<text x="44" y="1066" fill="#a9b6bf" font-family="Noto Sans" font-size="12" font-weight="400" text-anchor="start">V2 startup direction · current emblem unchanged · cinematic timing is a proposal, not measured boot performance</text>
+</svg>

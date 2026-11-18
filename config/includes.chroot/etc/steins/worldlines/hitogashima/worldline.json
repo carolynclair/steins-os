@@ -1,0 +1,37 @@
+{
+  "id": "hitogashima",
+  "name": "Hitogashima",
+  "divergence": "3.072100",
+  "range": [
+    3.0,
+    3.999999
+  ],
+  "palette": {
+    "bg": "#0f1f2a",
+    "bg_alt": "#0b1821",
+    "fg": "#e3eef3",
+    "accent": "#38a8e0",
+    "selection": "#1f78a6",
+    "muted": "#7fa3b8"
+  },
+  "tagline": "ISLAND / TIDE / SHADOW",
+  "terminal_palette": [
+    "#242c31",
+    "#d97b71",
+    "#93aa86",
+    "#38a8e0",
+    "#86a6b5",
+    "#b196ad",
+    "#89b5a7",
+    "#ddd7c8",
+    "#7fa3b8",
+    "#ec998c",
+    "#b5c79e",
+    "#38a8e0",
+    "#acc4d1",
+    "#ccb3c3",
+    "#b0d6c4",
+    "#f4eddf"
+  ],
+  "wallpaper": "wallpaper.svg"
+}

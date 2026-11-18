@@ -1,0 +1,70 @@
+# V2 implementation inventory
+
+2026-11-01. **Source audit plus separately recorded V2 fork tests.** This inventory does not turn the design boards into an installed desktop, and does not transfer the reference ISO's installation results to a new design. Paths below are repository-relative. The lead engineer has now exercised the existing installed prototype in the isolated V2 fork; the additional results are scoped below.
+
+## What exists at each layer
+
+| Component | Classification | Confirmed scope / remaining gap |
+|---|---|---|
+| Debian/XFCE distribution | **Working reference artifact** | `dist/steins-os-0.1-amd64.iso`, package version `0.1.0-8`; prior BIOS/UEFI live boot and supported offline UEFI install/reboot tests are recorded in `docs/VALIDATION.md`. This ISO does not contain the proposed Worldline Shell or the new anime-art direction |
+| Installed Plasma experiment | **Working experiment, partially integrated** | `evidence/plasma-prototype/system.qcow2` is a 32-GiB virtual disk overlay of an earlier installed QA disk. Prior evidence shows Plasma/KWin 6.3.6, Wayland, Konsole, Dolphin, Thunderbird and Steins prototype package 3. It is not a newly built Plasma ISO or the 40-GiB `SteinsOS-Test` libvirt guest |
+| Host VM lab | **Working separate lab** | Existing persistent `SteinsOS-Test`, OVMF, 6 GiB/2 CPUs, 40-GiB VirtIO/NAT/local SPICE and root-scoped cold checkpoint tools are documented under `lab/`. Preserve it; do not repurpose its helper for the standalone Plasma experiment |
+| Per-user worldline service | **Working v1 interface; partial coordination; V2 startup recovery fix** | One existing divergence file, pack registry, JSON snapshots/signals, GUI requests, legacy-file observation, preparation checks, explicit partial errors and retry. V2 fixes a reset-boot race with bounded recovery for specific transient wallpaper D-Bus errors; 17 deterministic private-bus tests pass. No staged shift job/commit/effect/audio protocol |
+| All shift entry points | **Partial** | Navigator calls the session service. IBN, local `dmail` and `steins-worldline` still write via `steinslib` and can apply directly; service observes those writes afterward. They are not yet one serialized transaction path. Concurrent legacy read/modify/write and appearance ordering remain gaps |
+| Runtime navigator | **Working GUI** | Qt Quick selection and meter preference, async client requests, explicit errors. Recorded mouse + Tab/Space changes worked. It is the older experimental navigator, not the redesigned anchored scenic shell surface |
+| Runtime panel/launcher | **Configured upstream components** | `panel.js` creates a 48-DIP floating Plasma panel with Kickoff, icon task manager, tray and clock. There is no compact divergence applet, original task model or custom shell renderer in the running guest |
+| Proposed panel and compact meter | **Mock-up/specification** | V1/V2 boards define the original shell grammar and always-visible tube instrument. No production panel component owns that compact display yet |
+| Expanded divergence meter | **Working GTK application; V2 low-risk fix tested in fork** | Existing tube design follows the shared numeric file. The V2 source now reads the shared motion preference, renders Reduced/Off statically and cancels stale animation callbacks. Full retains its digit movement. Four live GTK checks passed after applying only these backed-up files inside the disposable V2 fork. This does not implement the compact shell control or a compositor transition |
+| Everyday terminal today | **Working Konsole launcher/profiles** | Generated per-world profiles and current-world launcher. Existing open windows are not rethemed; no custom frontend/header/session rail or compiled QTermWidget/KonsolePart application exists |
+| Flagship everyday terminal | **Mock-up/specification** | Original frame, tabs, shared divergence and interaction states. A maintained terminal-component spike is still required before claiming PTY/IME/SSH/Vim/Unicode/process compatibility of a new frontend |
+| IBN 5100 and fictional D-Mail | **Working local features** | Existing commands, secrets and deterministic local shifts remain. The old `dmail` is not a mail transport. Earlier tests confirm local state behaviour; no new staged-effect integration |
+| Real graphical D-Mail | **Working maintained client + partial theme integration** | Upstream Thunderbird, original launcher/icon and supported static theme. Prior isolated IMAP/SMTP send/receive preserved two attachments byte-for-byte. No personal/provider OAuth or upstream-update qualification; no worldline-driven dynamic theme bridge |
+| Artwork in the guest | **Working earlier scene set** | Three prototype PNGs under `prototype/worldline/share/wallpapers/`; other packs fall back to older SVGs. These are not the new approved anime-background candidates |
+| Approved anime-art direction | **Original design assets, not deployed** | `design/worldline-v1/art/` contains the Akihabara/Hinamizawa/coastal illustrations and provenance. Preserve them. Native size 1672×941; final six-world/4K/crop qualification is incomplete |
+| Native coordinated transition | **Unimplemented** | No KWin effect, staged shell animation scheduler or atomic coordinated appearance update. The shared `motion` preference is now consumed by the expanded meter, but the service/adapter still does not implement Full/Reduced/Off compositor effects |
+| Review transition preview | **Working review tool only** | V1 viewer loads PNG boards and animates a contained timing study. Its passing smoke checks establish the review tool, not a desktop/compositor effect |
+| Boot splash | **Working limited theme; V2 mode-label correction in source** | Existing project emblem, status/password/question callbacks and a quiet opacity pulse. V2 source adds `normal_message()` using Plymouth mode, so shutdown/reboot/update wording no longer always says startup. This has source/API evidence, not a newly booted initramfs qualification. There is still no light-trace assembly or end-to-end cinematic pipeline |
+| Login/lock | **Upstream runtime + mock-up targets** | Plasma experiment uses lab-only SDDM autologin/idle-lock settings. New login/lock designs are drawings, not installed authentication themes. Password/account/layout/error/accessibility states need secure implementation testing |
+| Notifications/power/settings/file manager | **Upstream runtime + mock-up styling targets** | They remain maintained desktop/application components. Common design boards are not evidence that arbitrary third-party header/control layouts are already implemented |
+| Original audio | **Validated assets; no project playback wiring** | Original WAV previews and generator exist under V1 engineering. Product source inspection found no cue playback API call. No shift/login/notification/error cue policy is integrated; normal upstream desktop audio was not comprehensively audited |
+| Logos | **Current mark retained; alternatives for review** | Existing emblem remains runtime branding. V2 alternatives are design candidates; none is selected automatically |
+
+## Exact implementation boundaries
+
+`prototype/worldline/lib/worldline_service.py` function `SetDivergence()` prepares assets, writes divergence, then applies appearance. `apply()` reports step errors, stores a result and emits signals; `_update_retry()` now handles the narrow startup dependency retry. The GLib event loop serializes these service calls, but helper operations run synchronously within it. This is not a compositor-wide transaction or a cancellation/job protocol.
+
+`prototype/worldline/lib/steinsplasma.py:46–57` generates colour schemes and per-pack Konsole profiles. `apply_prepared():61–83` applies Qt palette, wallpaper and GTK CSS as separate steps. If a later step fails, an earlier surface can already have changed. Existing terminal windows are not updated by writing profile files. `ApplyCurrent()` remains the explicit retry. V2 now automatically retries only a narrowly classified transient wallpaper D-Bus dependency failure, with a finite budget; permanent/mixed errors remain explicit and are not retried every polling tick.
+
+`config/includes.chroot/usr/local/bin/ibm5100:60–69`, `dmail:19–29` and `steins-worldline:53–66` still write/apply through the legacy model. This preserves compatibility, but prevents a claim that every trigger already participates in one staged transition. Converging them is a meaningful engine change, not a cosmetic QML patch.
+
+`prototype/worldline/share/panel.js` uses stock Plasma widgets and no divergence widget. `prototype/worldline/bin/steins-terminal` launches Konsole. The runtime source's optional `STEINS_DESKTOP_BACKEND=plasma` hook selects the adapter; it does not load the creative boards or new original icon family.
+
+## Evidence already recorded versus new V2 work
+
+Earlier `evidence/plasma-prototype/VALIDATION.md` records 49 legacy tests, 9 service contracts, 19 live checks, synthetic mail/attachment round trip, normal disk-only reboot and disk consistency. The multi-world sweep predates the final prototype package's small config-shape hardening; the ledger separately records final package install/reapply checks. Preserve those qualifications.
+
+Read-only inspection for this V2 audit reconfirmed the overlay format/backing path, QEMU 10.0.13 and shut-off `SteinsOS-Test`; see `engineering/evidence/read-only-inventory.json`. The source overlay was not mounted or modified. The new helper's 8 tests use temporary 16-MiB qcow2 fixtures and never start a VM; `vm-helper-tests.log` is helper evidence, not guest-UX acceptance. Any fresh V2 run needs its own versioned result ledger/screenshots.
+
+### Fresh V2 runtime evidence
+
+The lead engineer has now captured and booted `SteinsOS-V2-Validation` from the cold checkpoint. These tests exercise the **existing Plasma/Konsole prototype**, not the V2 flagship-terminal drawing or an installed original shell. Logs/captures are under `design/worldline-v2/evidence/`:
+
+- `runtime-results.json`: **21/21 checks pass** for actual Wayland session, six packs, invalid-state rejection, three actual wallpaper/Qt-scheme/number changes, no Conky, legacy CLI observation, IBN `SET` process/output/shared-state and notification-server acceptance.
+- `guest-inventory.log`: Plasma/KWin 6.3.6, Konsole 25.04.2, zero failed system units. The actual sound inventory says no sound cards; `guest-capabilities.log` shows only PipeWire's `auto_null` sink.
+- `pty-live.log`: real Konsole Bash PTY with stdin/stdout TTYs, `xterm-256color`, Unicode/ANSI keyboard fixture. `pty-resize-clipboard.log` records resize from 19×54 to 37×139 while the existing Bash process remained alive; `pty-copy.log` confirms the exact copied fixture.
+- `vi-live.log`: basic installed `vi` keyboard-entry/file-save fixture succeeded. This is not a Vim/Neovim feature matrix. SSH client, Zsh and Neovim were absent and remain untested; no dependencies were installed to conceal those gaps.
+- `actual-lock-screen-ready.png`, `lock-state.log` and `unlock-final.log`: actual ScreenSaver lock state became true, the fixture password was entered, and state returned false. This establishes normal lock/unlock of the inherited desktop, not the proposed custom login/lock theme.
+- `meter-live.log`: a real GTK meter window scheduled Full animation, canceled it when Reduced was selected, retained confirmed `2.198306` after the stale-tick window, and rendered Off statically. Source changes are the meter application/library; installed only in the V2 fork with file backups. Twelve headless motion tests and 49 legacy tests also pass in `startup/`.
+
+The later cold-reset check exposed a real startup race: the service can start before `org.kde.plasmashell` owns its bus name, cache the failed revision and never retry. `reset-verification.log` records restored divergence with a failed wallpaper operation. The V2 source now reattempts only wallpaper `ServiceUnknown`, `NameHasNoOwner` or `NoReply` at 1/2/4/8/16 seconds, with one pending timer and no divergence rewrite. It cancels stale callbacks on superseding state or manual success; permanent GTK/file errors do not enter a loop. `engineering/service-retry-tests.log` records 17 passing private-bus tests, including 8 added recovery/cap/stale-state/manual-success scenarios. This is a routine stability correction with unchanged public API/dependencies, not a staged-transition rewrite. The patched fork then rebooted with the saved worldline fully applied. A controlled real-shell outage recovered automatically after plasmashell returned, without divergence-file changes or another manual apply (`../evidence/live-startup-recovery.log`).
+
+The low-risk source changes do not update the reference ISO or original user prototype. The Plymouth mode-label helper has not been declared deployed by these tests. Final shutdown/reset outcomes belong to the lead engineer's V2 runtime ledger; they are not inferred from a running desktop or helper-unit tests.
+
+## Highest-impact engineering follow-up
+
+1. Keep inventory labels visible in the review app/report. The largest present risk is mistaking a polished board or WAV file for integrated runtime behaviour.
+2. Qualify the original terminal frontend on a maintained engine, keeping Konsole fallback. New development/runtime dependencies need the owner's requested approval before installation.
+3. Design one staged worldline request path, including legacy compatibility and failure semantics. Avoid playing success effects when appearance steps failed or before state is committed.
+4. Build and test the compact meter/panel integration before expanding decorative surfaces. The successful full-size meter should remain available.
+5. Package and boot-test the mode-label source correction while preserving password/question handling. Do not let cinematic timing hold up startup.
+6. Add audio policy/playback only after virtual audio transport and guest session output can be observed. A silent VM currently cannot establish whether a cue was successfully integrated.

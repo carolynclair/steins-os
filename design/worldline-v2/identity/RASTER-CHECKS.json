@@ -1,0 +1,185 @@
+{
+  "scope": "Rendering bounds/visible ink, not user-recognition testing",
+  "checks": [
+    {
+      "file": "current-16.png",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_ge_64_pixels": 46,
+      "bounds": [
+        2,
+        2,
+        14,
+        13
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "current-24.png",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_ge_64_pixels": 94,
+      "bounds": [
+        2,
+        2,
+        21,
+        21
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "current-32.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_ge_64_pixels": 184,
+      "bounds": [
+        3,
+        3,
+        28,
+        28
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "divergence-gate-16.png",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_ge_64_pixels": 44,
+      "bounds": [
+        2,
+        2,
+        13,
+        13
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "divergence-gate-24.png",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_ge_64_pixels": 82,
+      "bounds": [
+        3,
+        4,
+        20,
+        19
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "divergence-gate-32.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_ge_64_pixels": 156,
+      "bounds": [
+        4,
+        5,
+        27,
+        26
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "instrument-s-16.png",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_ge_64_pixels": 78,
+      "bounds": [
+        1,
+        1,
+        14,
+        14
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "instrument-s-24.png",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_ge_64_pixels": 132,
+      "bounds": [
+        2,
+        2,
+        21,
+        21
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "instrument-s-32.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_ge_64_pixels": 280,
+      "bounds": [
+        3,
+        3,
+        28,
+        28
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "phase-crossing-16.png",
+      "size": [
+        16,
+        16
+      ],
+      "alpha_ge_64_pixels": 60,
+      "bounds": [
+        2,
+        3,
+        13,
+        12
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "phase-crossing-24.png",
+      "size": [
+        24,
+        24
+      ],
+      "alpha_ge_64_pixels": 112,
+      "bounds": [
+        3,
+        5,
+        20,
+        18
+      ],
+      "not_clipped": true
+    },
+    {
+      "file": "phase-crossing-32.png",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_ge_64_pixels": 232,
+      "bounds": [
+        4,
+        6,
+        27,
+        25
+      ],
+      "not_clipped": true
+    }
+  ]
+}

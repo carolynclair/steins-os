@@ -1,0 +1,33 @@
+{
+  "schema": "org.steinsos.design.boot-sequence",
+  "version": "0.2-proposal",
+  "status": "Contained design preview; not an implemented Plymouth/SDDM sequence",
+  "current_emblem_preserved": true,
+  "default_audio": "silent",
+  "full_preview_duration_ms": 1100,
+  "full_preview_maximum_ms": 1200,
+  "production_completion": "Actual boot/display-manager readiness takes precedence. Never delay boot or authentication to complete this preview timeline.",
+  "digits": {
+    "illustrative_value": "1.048596",
+    "source_policy": "Public theme calibration/default only. Never read an unauthenticated user's home directory, per-user state file or session bus.",
+    "production_alternative": "Omit digits if they imply a user's confirmed private worldline. Session-specific divergence appears only after authentication."
+  },
+  "stages": [
+    {"id": "signal", "start_ms": 0, "end_ms": 120, "label": "Signal emergence", "visual": "A few low-contrast light traces appear on graphite; no repeated scanline flash.", "cue": null},
+    {"id": "assemble", "start_ms": 120, "end_ms": 480, "label": "Emblem assembly", "visual": "Trace segments resolve into the existing geometric emblem. No new logo is selected.", "cue": null},
+    {"id": "calibrate", "start_ms": 480, "end_ms": 720, "label": "Calibration", "visual": "One brief provisional digit treatment beneath the mark, then a stable public theme value.", "cue": null},
+    {"id": "settle", "start_ms": 720, "end_ms": 940, "label": "Quiet identification", "visual": "The mark settles and temporary traces/digits recede. No looping decorative gauges.", "cue": null},
+    {"id": "handoff", "start_ms": 940, "end_ms": 1100, "label": "Readiness handoff", "visual": "Carry the background/mark alignment into the greeter only when ready. Authentication controls remain immediately available.", "cue": "Optional post-login session-ready cue only, subject to per-user preferences, global mute and rate limiting."}
+  ],
+  "profiles": {
+    "full": {"preview_ms": 1100, "spatial_warp": false, "flashing": false, "loop": false},
+    "reduced": {"preview_ms": 150, "visual": "Short fade or static mark. No assembly travel, rolling digits or scanning.", "audio": "Independent optional preference; silent default."},
+    "off": {"preview_ms": 0, "visual": "Static emblem and genuine status/password/question controls; immediate handoff when ready.", "audio": "Silent default."}
+  },
+  "integration_boundaries": {
+    "early_boot": "Plymouth script theme in initramfs; must preserve status, password, question and text/TTY fallback.",
+    "greeter": "A separately qualified SDDM theme using its supported authentication proxy/models; no session-service shortcut around authentication.",
+    "session": "User worldline service applies current state after authenticated startup; no delayed boot cinematic replay.",
+    "sound": "No initramfs audio dependency. Optional session-ready cue belongs to an authenticated user session and never blocks startup."
+  }
+}

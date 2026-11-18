@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+"""Prototype-only session setup; never edits a pre-existing panel without opt-in."""
+import os
+import subprocess
+import sys
+from pathlib import Path
+import dbus
+
+if 'KDE' not in os.environ.get('XDG_CURRENT_DESKTOP', '').upper():
+    sys.exit('The prototype requires a Plasma session')
+home = Path.home()
+opt = home / '.config/steins-prototype/allow-layout'
+done = opt.with_name('layout-v1')
+if opt.is_file() and not done.exists():
+    for args in [
+        ['kwriteconfig6', '--file', 'kdeglobals', '--group', 'Icons', '--key', 'Theme', 'Papirus-Dark'],
+        ['kwriteconfig6', '--file', 'kdeglobals', '--group', 'General', '--key', 'font', 'Noto Sans,10,-1,5,50,0,0,0,0,0'],
+    ]:
+        subprocess.run(args, check=True)
+    shell = dbus.Interface(dbus.SessionBus().get_object('org.kde.plasmashell', '/PlasmaShell'), 'org.kde.PlasmaShell')
+    answer = str(shell.evaluateScript(Path('/usr/share/steins-prototype/panel.js').read_text(), timeout=20))
+    if 'Error' in answer: sys.exit(answer)
+    done.touch()
+os.execv('/usr/bin/steins-worldline-service', ['steins-worldline-service'])

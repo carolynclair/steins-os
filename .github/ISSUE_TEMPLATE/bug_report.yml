@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a reproducible problem in Steins;OS.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing Steins;OS. Please include enough detail to reproduce the problem.
+        Remove passwords, tokens, personal mail and identifying information from screenshots and logs.
+        The V4 Plasma checkpoint and the XFCE ISO are different builds; tell us which you used.
+  - type: input
+    id: version
+    attributes:
+      label: Build or commit
+      description: ISO filename and checksum, package versions, or Git commit.
+      placeholder: "V4 native Plasma prototype / commit …"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where did it happen?
+      options:
+        - QEMU/KVM virtual machine
+        - Another virtual machine
+        - Live USB on hardware
+        - Installed system on hardware
+        - Source tests or build container
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open …
+2. Select …
+3. Observe …"
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: System details and evidence
+      description: Desktop/session, worldline, display resolution/scaling, VM configuration or hardware, and redacted logs/screenshots.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before submitting
+      options:
+        - label: I removed credentials and private information from this report.
+          required: true

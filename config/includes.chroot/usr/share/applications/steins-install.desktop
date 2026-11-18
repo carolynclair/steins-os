@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Install Steins;OS
+Comment=Install the laboratory system onto your computer
+Exec=install-steins-os
+Icon=steins-os
+Categories=System;

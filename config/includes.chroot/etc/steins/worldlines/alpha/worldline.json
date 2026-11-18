@@ -1,0 +1,37 @@
+{
+  "id": "alpha",
+  "name": "Alpha",
+  "divergence": "0.571024",
+  "range": [
+    0.0,
+    0.999999
+  ],
+  "palette": {
+    "bg": "#171211",
+    "bg_alt": "#120e0e",
+    "fg": "#e6dcd6",
+    "accent": "#c4513a",
+    "selection": "#8f3a2a",
+    "muted": "#a08d86"
+  },
+  "tagline": "ORIGIN ATTRACTOR FIELD",
+  "terminal_palette": [
+    "#242c31",
+    "#d97b71",
+    "#93aa86",
+    "#c4513a",
+    "#86a6b5",
+    "#b196ad",
+    "#89b5a7",
+    "#ddd7c8",
+    "#a08d86",
+    "#ec998c",
+    "#b5c79e",
+    "#c4513a",
+    "#acc4d1",
+    "#ccb3c3",
+    "#b0d6c4",
+    "#f4eddf"
+  ],
+  "wallpaper": "wallpaper.svg"
+}

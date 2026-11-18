@@ -1,0 +1,9 @@
+[Configuration]
+CommandLoginShell=TRUE
+FontName=DejaVu Sans Mono 11
+ColorForeground=#e7e2d6
+ColorBackground=#141a1e
+ColorCursor=#e99a45
+ColorPalette=#242c31;#d97b71;#93aa86;#e8b56b;#86a6b5;#b196ad;#89b5a7;#ddd7c8;#66716e;#ec998c;#b5c79e;#ffd28a;#acc4d1;#ccb3c3;#b0d6c4;#f4eddf
+MiscMenubarDefault=FALSE
+MiscAlwaysShowTabs=FALSE

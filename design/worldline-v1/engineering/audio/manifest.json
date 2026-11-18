@@ -1,0 +1,57 @@
+{
+  "status": "design_previews_not_system_configuration",
+  "provenance": "Original deterministic synthesis using Python standard library; no input recordings or external samples.",
+  "license": "CC-BY-4.0",
+  "attribution": "Steins;OS contributors",
+  "playback": "Not played by the generator. User-controlled preview only; production audio defaults off.",
+  "files": [
+    {
+      "file": "activation.wav",
+      "purpose": "One warm activation touch",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits": 16,
+      "frames": 4320,
+      "duration_ms": 90,
+      "peak_dbfs": -29.12,
+      "rms_dbfs": -39.02,
+      "sha256": "211832ad70e21a86fb13802b66bdee6774cd57039f8aa39d0e7fc3ae4a844c05"
+    },
+    {
+      "file": "meter.wav",
+      "purpose": "One resonant movement texture for all tubes",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits": 16,
+      "frames": 7680,
+      "duration_ms": 160,
+      "peak_dbfs": -29.12,
+      "rms_dbfs": -39.93,
+      "sha256": "b8490cc3926cae44052cbfa203993b09a92ac97718c6fd234425c29ecddb3b4b"
+    },
+    {
+      "file": "stabilise.wav",
+      "purpose": "One successful-stabilisation cue",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits": 16,
+      "frames": 8640,
+      "duration_ms": 180,
+      "peak_dbfs": -29.12,
+      "rms_dbfs": -40.79,
+      "sha256": "24029cdb841410eecf115211925e60a7b22772db1f6f0847c3969d568d8f81de"
+    },
+    {
+      "file": "shift-preview.wav",
+      "purpose": "800ms assembled design exploration",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "bits": 16,
+      "frames": 38400,
+      "duration_ms": 800,
+      "peak_dbfs": -29.12,
+      "rms_dbfs": -42.75,
+      "sha256": "6271272e7711a25400267bcbf21d5de08431bd0b4ab140c96cd15ba490f33031"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "_comment": "Codes typed into the ibm5100 terminal. Values are divergence numbers (0 - 6). Add your own.",
+  "codes": {
+    "EL PSY KONGROO": "1.048596",
+    "ATTRACTOR": "0.571024",
+    "CICADA": "2.198306",
+    "HINAMIZAWA": "2.198306",
+    "SHADOW": "3.072100",
+    "HITOGASHIMA": "3.072100",
+    "RETURN BY DEATH": "4.250801",
+    "LUGUNICA": "4.250801",
+    "MITAKIHARA": "5.093001",
+    "AGAIN": "5.093001"
+  }
+}

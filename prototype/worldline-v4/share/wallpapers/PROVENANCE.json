@@ -1,0 +1,23 @@
+[
+  {
+    "file": "steins-gate.png",
+    "sha256": "974c8b7d85fb728cf301ec1829d275d786f9069d9eb9e05d29dbc78873ed3d5c",
+    "provenance": "Generated for Steins OS using OpenAI image generation, 2026-11-01. Original scene; no reference images or third-party assets supplied.",
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors"
+  },
+  {
+    "file": "hinamizawa.png",
+    "sha256": "6af3ae270b1f5d03cba2ef0d7e2efb5b7e22a0afb6478f9a5919c6c679d98a33",
+    "provenance": "Generated for Steins OS using OpenAI image generation, 2026-11-01. Original scene; no reference images or third-party assets supplied.",
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors"
+  },
+  {
+    "file": "hitogashima.png",
+    "sha256": "b9a17189d1da890a01a0fe43f8a3d3326cb06f18c89d16362cb62a63f20e176f",
+    "provenance": "Generated for Steins OS using OpenAI image generation, 2026-11-01. Original scene; no reference images or third-party assets supplied.",
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors"
+  }
+]

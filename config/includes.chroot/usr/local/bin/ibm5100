@@ -1,0 +1,148 @@
+#!/usr/bin/python3
+"""ibm5100: a retro amber terminal. Type codes or D-Mails to move the divergence."""
+import os
+import sys
+import time
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "lib", "steins"))
+import steinslib as sl  # noqa: E402
+
+AMBER, DIM, RESET = "\033[38;5;179m", "\033[38;5;137m", "\033[0m"   # DIM was 94 (about 3:1 on the terminal background)
+FAST = bool(os.environ.get("STEINS_FAST")) or not sys.stdout.isatty()
+# readline needs non-printing escapes wrapped in \001..\002 or long lines redraw in the wrong place
+PROMPT = ("\001%s\002\n> \001%s\002" % (AMBER, RESET)) if sys.stdin.isatty() else "\n> "
+
+STEP_LABELS = {"state": "STATE LINK", "render": "IMAGE FIELD", "gtk": "INTERFACE TINT",
+               "terminal": "TERMINAL PHOSPHOR", "conky-config": "OBSERVER PANEL", "wallpaper": "HORIZON",
+               "panel": "STATUS BAR", "conky": "READOUT"}
+
+
+def out(text="", delay=0.012, colour=AMBER):
+    sys.stdout.write(colour)
+    for ch in text:
+        sys.stdout.write(ch)
+        sys.stdout.flush()
+        if not FAST and ch != " ":
+            time.sleep(delay)
+    sys.stdout.write(RESET + "\n")
+    sys.stdout.flush()
+
+
+def tubes(number):
+    return "  [ " + " ".join(number) + " ]"
+
+
+def boot():
+    d, pack = sl.current()
+    out("5100-CLASS PORTABLE COMPUTER  /  STEINS;OS EMULATION", 0.02)
+    out("(UNOFFICIAL FAN TERMINAL - NOT AFFILIATED WITH ANY RIGHTS HOLDER)", 0.004, DIM)
+    out("")
+    for line in ("MEMORY CHECK .......... OK", "APL INTERPRETER ....... LOADED", "OBSERVER LINK ......... STANDBY"):
+        out(line, 0.01)
+        if not FAST:
+            time.sleep(0.15)
+    out("WORLDLINE ............ %s  %s" % ((pack.name.upper() if pack else "UNKNOWN"), d), 0.01)
+    out("")
+    out("TYPE HELP FOR COMMANDS.", 0.01)
+
+
+def show_apply(result):
+    """Friendly per-step status instead of raw file paths."""
+    for step, ok, detail in result.steps:
+        label = STEP_LABELS.get(step, step.upper())
+        if ok:
+            skipped = "skipped" in detail or "not restarted" in detail
+            out("  %-18s %s" % (label + " ...", "STANDBY" if skipped else "OK"), 0.003, DIM)
+        else:
+            out("  %-18s FAULT (%s)" % (label + " ...", detail.upper()[:48]), 0.003, DIM)
+
+
+def change(new_value=None, message=None):
+    before = sl.get_divergence()
+    session = None
+    if os.environ.get('STEINS_DESKTOP_BACKEND') == 'plasma' and not os.environ.get('STEINS_NO_APPLY'):
+        session = sl.session_request('ShiftMessage' if message is not None else 'SetDivergence',
+                                     message if message is not None else new_value)
+        before = session.get('previous_divergence', before)
+        after = session['divergence']
+    else:
+        after = sl.set_divergence(sl.send_dmail(message, before) if message is not None else new_value)
+    old, new = sl.pick_pack(before), sl.pick_pack(after)
+    out("DIVERGENCE " + before + "  >>  " + after, 0.02)
+    out(tubes(after), 0.05)
+    if old.id != new.id:
+        out("WORLDLINE SHIFT DETECTED: " + old.name.upper() + " -> " + new.name.upper(), 0.02)
+        if not os.environ.get("STEINS_NO_APPLY"):
+            show_apply(sl.session_result(session) if session else sl.apply_pack(new))
+    else:
+        out("WORLDLINE UNCHANGED: " + new.name.upper(), 0.01)
+        if session and not session['applied']:
+            show_apply(sl.session_result(session))
+
+
+def handle(line):
+    text = line.strip()
+    if not text:
+        return True
+    word, _, rest = text.partition(" ")
+    cmd = word.upper()
+    if cmd in ("EXIT", "QUIT", "BYE"):
+        out("OBSERVER LINK CLOSED. EL PSY KONGROO.", 0.02)
+        return False
+    if cmd == "HELP":
+        for l in ("HELP              THIS LIST", "DIVERGENCE        SHOW THE METER", "LIST              KNOWN WORLDLINES",
+                  "DMAIL <TEXT>      SEND A D-MAIL (TEXT DECIDES THE SHIFT)", "SET <NUMBER>      SET THE DIVERGENCE (0 - 6)",
+                  "<CODE>            ENTER A CODE. THEY ARE OUT THERE.", "EXIT              CLOSE THE LINK"):
+            out(l, 0.004)
+    elif cmd == "DIVERGENCE":
+        d, pack = sl.current()
+        out(tubes(d), 0.05)
+        out("WORLDLINE: " + (pack.name.upper() if pack else "UNKNOWN"), 0.01)
+    elif cmd == "LIST":
+        for p in sorted(sl.load_packs(), key=lambda q: (q.low, q.id)):    # by divergence, not folder name
+            out("%-24s %s" % (p.name.upper(), p.divergence), 0.004)
+    elif cmd == "DMAIL":
+        if not rest.strip():
+            out("DMAIL NEEDS A MESSAGE.", 0.01)
+        else:
+            out("TRANSMITTING TO THE PAST ...", 0.03)
+            change(message=rest)
+    elif cmd == "SET":
+        try:
+            value = sl.normalize(rest)
+        except ValueError:
+            out("INVALID NUMBER.", 0.01)
+        else:
+            change(value)
+    else:
+        value = sl.lookup_code(text)
+        if value is None:
+            out("?SYNTAX ERROR", 0.01)
+        else:
+            out("CODE ACCEPTED.", 0.02)
+            change(value)
+    return True
+
+
+def main():
+    try:
+        boot()
+    except KeyboardInterrupt:
+        print(RESET)
+    while True:
+        try:
+            line = input(PROMPT)
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+        try:
+            if not handle(line):
+                break
+        except KeyboardInterrupt:
+            print(RESET + "\n?INTERRUPTED")
+        except (OSError, RuntimeError) as e:     # unusable state folder, no packs, ...
+            out("?SYSTEM FAULT: " + str(e).upper()[:60], 0.003, DIM)
+
+
+if __name__ == "__main__":
+    main()

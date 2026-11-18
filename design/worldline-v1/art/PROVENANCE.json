@@ -1,0 +1,41 @@
+[
+  {
+    "worldline": "steins-gate",
+    "file": "steins-gate.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "0fef65f9a8fd763e1745739ed1b0ac84368ce47156910a779125ce4f831a1440",
+    "source": "Built-in image_gen, original anime-background-style scene; no reference image supplied",
+    "status": "design proposal; not installed",
+    "attribution": "Steins;OS contributors",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "worldline": "hinamizawa",
+    "file": "hinamizawa.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "5ba3560971f3c0a1fd2326dae6609ed96506fdb13c1ea575ec234ff0fea8a403",
+    "source": "Built-in image_gen, original anime-background-style scene; no reference image supplied",
+    "status": "design proposal; not installed",
+    "attribution": "Steins;OS contributors",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "worldline": "hitogashima",
+    "file": "hitogashima.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "966e415f1b69c43023046fdc341ad414bb2bae0d3c59b1ccad4e0454f6593414",
+    "source": "Built-in image_gen, original anime-background-style scene; no reference image supplied",
+    "status": "design proposal; not installed",
+    "attribution": "Steins;OS contributors",
+    "license": "CC-BY-4.0"
+  }
+]

@@ -1,0 +1,76 @@
+test_apply_writes_user_files (__main__.Apply.test_apply_writes_user_files) ... ok
+test_current_terminal_uses_xfconf (__main__.Apply.test_current_terminal_uses_xfconf) ... ok
+test_dry_run_writes_nothing (__main__.Apply.test_dry_run_writes_nothing) ... ok
+test_R5_a_failing_step_never_aborts_the_rest (__main__.ApplyHardening.test_R5_a_failing_step_never_aborts_the_rest) ... ok
+test_R5_failed_xfconf_is_reported_with_exit_status (__main__.ApplyHardening.test_R5_failed_xfconf_is_reported_with_exit_status) ... ok
+test_R6_cache_is_keyed_by_content_not_timestamp (__main__.ApplyHardening.test_R6_cache_is_keyed_by_content_not_timestamp) ... ok
+test_R6_failed_render_leaves_no_cached_image (__main__.ApplyHardening.test_R6_failed_render_leaves_no_cached_image) ... ok
+test_R7_state_path_with_spaces_is_quoted_for_conky (__main__.ApplyHardening.test_R7_state_path_with_spaces_is_quoted_for_conky) ... ok
+test_R8_user_gtk_css_is_preserved_and_block_replaced_in_place (__main__.ApplyHardening.test_R8_user_gtk_css_is_preserved_and_block_replaced_in_place) ... ok
+test_R9_unwritable_home_is_reported_not_raised (__main__.ApplyHardening.test_R9_unwritable_home_is_reported_not_raised) ... ok
+test_cli_apply_reports_failures_on_stderr_even_when_quiet (__main__.ApplyHardening.test_cli_apply_reports_failures_on_stderr_even_when_quiet) ... ok
+test_dry_run_still_writes_nothing_with_new_steps (__main__.ApplyHardening.test_dry_run_still_writes_nothing_with_new_steps) ... ok
+test_gtk_css_old_format_is_migrated_and_unterminated_block_is_left_alone (__main__.ApplyHardening.test_gtk_css_old_format_is_migrated_and_unterminated_block_is_left_alone) ... ok
+test_state_writes_are_atomic_and_leave_no_temp_files (__main__.ApplyHardening.test_state_writes_are_atomic_and_leave_no_temp_files) ... ok
+test_terminalrc_with_invalid_encoding_is_left_untouched (__main__.ApplyHardening.test_terminalrc_with_invalid_encoding_is_left_untouched) ... ok
+test_wallpaper_without_monitors_is_an_error_not_a_silent_success (__main__.ApplyHardening.test_wallpaper_without_monitors_is_an_error_not_a_silent_success) ... ok
+test_base_wallpaper_is_generated_from_the_steins_gate_pack (__main__.ArtworkContract.test_base_wallpaper_is_generated_from_the_steins_gate_pack) ... ok
+test_generator_manifest_matches_pack_folders (__main__.ArtworkContract.test_generator_manifest_matches_pack_folders) ... ok
+test_panel_default_is_graphite_and_session_has_a_monitor_fallback (__main__.ArtworkContract.test_panel_default_is_graphite_and_session_has_a_monitor_fallback) ... ok
+test_wallpapers_have_no_baked_number_and_keep_the_title_top_left (__main__.ArtworkContract.test_wallpapers_have_no_baked_number_and_keep_the_title_top_left) ... ok
+test_R3_one_bad_code_does_not_disable_the_rest (__main__.CodeHardening.test_R3_one_bad_code_does_not_disable_the_rest) ... ok
+test_cli (__main__.Commands.test_cli) ... ok
+test_dmail_command (__main__.Commands.test_dmail_command) ... ok
+test_ibm5100_eof_is_clean (__main__.Commands.test_ibm5100_eof_is_clean) ... ok
+test_ibm5100_session (__main__.Commands.test_ibm5100_session) ... ok
+test_set_dry_run_preserves_state (__main__.Commands.test_set_dry_run_preserves_state) ... ok
+test_css_and_accessible_text (__main__.MeterLogic.test_css_and_accessible_text) ... ok
+test_flicker_settles_left_to_right_on_the_new_value (__main__.MeterLogic.test_flicker_settles_left_to_right_on_the_new_value) ... ok
+test_glyphs (__main__.MeterLogic.test_glyphs) ... ok
+test_R1_cli_and_terminal_do_not_traceback (__main__.NumberHardening.test_R1_cli_and_terminal_do_not_traceback) ... ok
+test_R1_huge_or_odd_numbers_raise_valueerror_not_arithmetic_errors (__main__.NumberHardening.test_R1_huge_or_odd_numbers_raise_valueerror_not_arithmetic_errors) ... ok
+test_normalize (__main__.Numbers.test_normalize) ... ok
+test_R2_corrupt_and_incomplete_packs_are_skipped_not_fatal (__main__.PackHardening.test_R2_corrupt_and_incomplete_packs_are_skipped_not_fatal) ... ok
+test_R4_hostile_pack_data_is_rejected (__main__.PackHardening.test_R4_hostile_pack_data_is_rejected) ... ok
+test_R9_no_packs_is_a_clean_failure (__main__.PackHardening.test_R9_no_packs_is_a_clean_failure) ... ok
+test_bad_terminal_palette_is_dropped_not_fatal (__main__.PackHardening.test_bad_terminal_palette_is_dropped_not_fatal) ... ok
+test_duplicate_ids_and_missing_wallpaper_are_skipped (__main__.PackHardening.test_duplicate_ids_and_missing_wallpaper_are_skipped) ... ok
+test_names_are_sanitised_for_conky_and_terminal (__main__.PackHardening.test_names_are_sanitised_for_conky_and_terminal) ... ok
+test_nonfinite_ranges_are_skipped_without_crashing_other_packs (__main__.PackHardening.test_nonfinite_ranges_are_skipped_without_crashing_other_packs) ... ok
+test_no_third_party_imagery (__main__.Packs.test_no_third_party_imagery) ... ok
+test_packs_valid_and_cover_range (__main__.Packs.test_packs_valid_and_cover_range) ... ok
+test_pick (__main__.Packs.test_pick) ... ok
+test_codes (__main__.State.test_codes) ... ok
+test_dmail (__main__.State.test_dmail) ... ok
+test_state_roundtrip_and_default (__main__.State.test_state_roundtrip_and_default) ... ok
+test_R10_interrupt_during_a_command_returns_to_the_prompt (__main__.TerminalHardening.test_R10_interrupt_during_a_command_returns_to_the_prompt) ... [38;5;179m5100-CLASS PORTABLE COMPUTER  /  STEINS;OS EMULATION[0m
+[38;5;137m(UNOFFICIAL FAN TERMINAL - NOT AFFILIATED WITH ANY RIGHTS HOLDER)[0m
+[38;5;179m[0m
+[38;5;179mMEMORY CHECK .......... OK[0m
+[38;5;179mAPL INTERPRETER ....... LOADED[0m
+[38;5;179mOBSERVER LINK ......... STANDBY[0m
+[38;5;179mWORLDLINE ............ STEINS GATE  1.048596[0m
+[38;5;179m[0m
+[38;5;179mTYPE HELP FOR COMMANDS.[0m
+ok
+test_boot_shows_current_worldline (__main__.TerminalHardening.test_boot_shows_current_worldline) ... ok
+test_system_faults_are_reported_not_traceback (__main__.TerminalHardening.test_system_faults_are_reported_not_traceback) ... [0m
+?INTERRUPTED
+[38;5;179m5100-CLASS PORTABLE COMPUTER  /  STEINS;OS EMULATION[0m
+[38;5;137m(UNOFFICIAL FAN TERMINAL - NOT AFFILIATED WITH ANY RIGHTS HOLDER)[0m
+[38;5;179m[0m
+[38;5;179mMEMORY CHECK .......... OK[0m
+[38;5;179mAPL INTERPRETER ....... LOADED[0m
+[38;5;179mOBSERVER LINK ......... STANDBY[0m
+[38;5;179mWORLDLINE ............ STEINS GATE  1.048596[0m
+[38;5;179m[0m
+[38;5;179mTYPE HELP FOR COMMANDS.[0m
+[38;5;137m?SYSTEM FAULT: NO USABLE WORLDLINE PACKS[0m
+ok
+test_terminal_shows_friendly_steps_not_paths (__main__.TerminalHardening.test_terminal_shows_friendly_steps_not_paths) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 3.976s
+
+OK
+

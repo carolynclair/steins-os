@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Id": "SteinsLab",
+    "Name": "Steins Lab",
+    "Description": "Quiet graphite surfaces and original native panel/task frames for Steins OS",
+    "Version": "0.4.0",
+    "License": "MIT",
+    "Authors": [
+      {
+        "Name": "Steins OS contributors"
+      }
+    ]
+  },
+  "X-Plasma-API": "5.0"
+}

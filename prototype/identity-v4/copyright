@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: SteinsLab V4 identity
+Source: Steins;OS project / prototype/identity-v4
+
+Files: *
+Copyright: 2026 Steins;OS contributors
+License: MIT
+ The full MIT permission and warranty text is included in LICENSE.
+
+Files: icons/*.svg theme/SteinsLab/scalable/*/*.svg
+Copyright: 2026 Steins;OS contributors
+License: CC-BY-4.0
+ These original vector assets are licensed under Creative Commons Attribution
+ 4.0 International. Attribution: Steins;OS contributors.
+ License text: https://creativecommons.org/licenses/by/4.0/legalcode
+ The existing steins-os.svg emblem is preserved byte-for-byte under its
+ existing project artwork license. No official anime or third-party artwork
+ is included. Third-party inherited icon themes remain separately licensed.

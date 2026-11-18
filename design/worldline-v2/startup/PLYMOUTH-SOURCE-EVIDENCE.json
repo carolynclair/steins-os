@@ -1,0 +1,8 @@
+{
+  "url": "https://deb.debian.org/debian/pool/main/p/plymouth/plymouth_24.004.60.orig.tar.xz",
+  "archive_sha256": "f3f7841358c98f5e7b06a9eedbdd5e6882fd9f38bbd14a767fb083e3b55b1c34",
+  "member": "plymouth-24.004.60/src/plugins/splash/script/script-lib-plymouth.c",
+  "contains_GetMode": true,
+  "contains_shutdown_mode": true,
+  "source_inspection_only": true
+}

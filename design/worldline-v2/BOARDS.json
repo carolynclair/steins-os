@@ -1,0 +1,223 @@
+[
+  {
+    "id": "terminal-floating-steins-gate-1920x1080",
+    "kind": "terminal-floating",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/terminal-floating-steins-gate-1920x1080.svg",
+    "png": "boards/terminal-floating-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "terminal-maximised-steins-gate-1920x1080",
+    "kind": "terminal-maximised",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/terminal-maximised-steins-gate-1920x1080.svg",
+    "png": "boards/terminal-maximised-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "terminal-tiled-steins-gate-1920x1080",
+    "kind": "terminal-tiled",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/terminal-tiled-steins-gate-1920x1080.svg",
+    "png": "boards/terminal-tiled-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "login-steins-gate-1920x1080",
+    "kind": "login",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/login-steins-gate-1920x1080.svg",
+    "png": "boards/login-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "terminal-floating-steins-gate-1366x768",
+    "kind": "terminal-floating",
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/terminal-floating-steins-gate-1366x768.svg",
+    "png": "boards/terminal-floating-steins-gate-1366x768.png"
+  },
+  {
+    "id": "terminal-maximised-steins-gate-1366x768",
+    "kind": "terminal-maximised",
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/terminal-maximised-steins-gate-1366x768.svg",
+    "png": "boards/terminal-maximised-steins-gate-1366x768.png"
+  },
+  {
+    "id": "terminal-tiled-steins-gate-1366x768",
+    "kind": "terminal-tiled",
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/terminal-tiled-steins-gate-1366x768.svg",
+    "png": "boards/terminal-tiled-steins-gate-1366x768.png"
+  },
+  {
+    "id": "login-steins-gate-1366x768",
+    "kind": "login",
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/login-steins-gate-1366x768.svg",
+    "png": "boards/login-steins-gate-1366x768.png"
+  },
+  {
+    "id": "terminal-floating-steins-gate-1280x800",
+    "kind": "terminal-floating",
+    "worldline": "steins-gate",
+    "width": 1280,
+    "height": 800,
+    "svg": "boards/terminal-floating-steins-gate-1280x800.svg",
+    "png": "boards/terminal-floating-steins-gate-1280x800.png"
+  },
+  {
+    "id": "terminal-maximised-steins-gate-1280x800",
+    "kind": "terminal-maximised",
+    "worldline": "steins-gate",
+    "width": 1280,
+    "height": 800,
+    "svg": "boards/terminal-maximised-steins-gate-1280x800.svg",
+    "png": "boards/terminal-maximised-steins-gate-1280x800.png"
+  },
+  {
+    "id": "terminal-tiled-steins-gate-1280x800",
+    "kind": "terminal-tiled",
+    "worldline": "steins-gate",
+    "width": 1280,
+    "height": 800,
+    "svg": "boards/terminal-tiled-steins-gate-1280x800.svg",
+    "png": "boards/terminal-tiled-steins-gate-1280x800.png"
+  },
+  {
+    "id": "login-steins-gate-1280x800",
+    "kind": "login",
+    "worldline": "steins-gate",
+    "width": 1280,
+    "height": 800,
+    "svg": "boards/login-steins-gate-1280x800.svg",
+    "png": "boards/login-steins-gate-1280x800.png"
+  },
+  {
+    "id": "workspace-steins-gate-1920x1080",
+    "kind": "workspace",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/workspace-steins-gate-1920x1080.svg",
+    "png": "boards/workspace-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "shell-plain-steins-gate-1920x1080",
+    "kind": "shell-plain",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/shell-plain-steins-gate-1920x1080.svg",
+    "png": "boards/shell-plain-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "navigator-steins-gate-1920x1080",
+    "kind": "navigator",
+    "worldline": "steins-gate",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/navigator-steins-gate-1920x1080.svg",
+    "png": "boards/navigator-steins-gate-1920x1080.png"
+  },
+  {
+    "id": "terminal-floating-hinamizawa-1920x1080",
+    "kind": "terminal-floating",
+    "worldline": "hinamizawa",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/terminal-floating-hinamizawa-1920x1080.svg",
+    "png": "boards/terminal-floating-hinamizawa-1920x1080.png"
+  },
+  {
+    "id": "workspace-hinamizawa-1920x1080",
+    "kind": "workspace",
+    "worldline": "hinamizawa",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/workspace-hinamizawa-1920x1080.svg",
+    "png": "boards/workspace-hinamizawa-1920x1080.png"
+  },
+  {
+    "id": "terminal-floating-hitogashima-1920x1080",
+    "kind": "terminal-floating",
+    "worldline": "hitogashima",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/terminal-floating-hitogashima-1920x1080.svg",
+    "png": "boards/terminal-floating-hitogashima-1920x1080.png"
+  },
+  {
+    "id": "workspace-hitogashima-1920x1080",
+    "kind": "workspace",
+    "worldline": "hitogashima",
+    "width": 1920,
+    "height": 1080,
+    "svg": "boards/workspace-hitogashima-1920x1080.svg",
+    "png": "boards/workspace-hitogashima-1920x1080.png"
+  },
+  {
+    "id": "boot-stage-0",
+    "kind": "boot-stage",
+    "stage": 0,
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/boot-stage-0.svg",
+    "png": "boards/boot-stage-0.png"
+  },
+  {
+    "id": "boot-stage-1",
+    "kind": "boot-stage",
+    "stage": 1,
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/boot-stage-1.svg",
+    "png": "boards/boot-stage-1.png"
+  },
+  {
+    "id": "boot-stage-2",
+    "kind": "boot-stage",
+    "stage": 2,
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/boot-stage-2.svg",
+    "png": "boards/boot-stage-2.png"
+  },
+  {
+    "id": "boot-stage-3",
+    "kind": "boot-stage",
+    "stage": 3,
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/boot-stage-3.svg",
+    "png": "boards/boot-stage-3.png"
+  },
+  {
+    "id": "boot-stage-4",
+    "kind": "boot-stage",
+    "stage": 4,
+    "worldline": "steins-gate",
+    "width": 1366,
+    "height": 768,
+    "svg": "boards/boot-stage-4.svg",
+    "png": "boards/boot-stage-4.png"
+  }
+]

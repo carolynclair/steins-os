@@ -1,0 +1,23 @@
+Loading default layout
+kf.plasma.core: Applet invalid: Cannot find a package for "empty"
+kf.plasma.core: Unknown containment type requested: "" "" check Plasma::Containment::Type for supported values
+kf.kirigami.platform: Failed to find a Kirigami platform plugin for style "Fusion"
+kf.windowsystem: Could not find any platform plugin
+kf.plasma.quick: Applet preload policy set to 1
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::PlasmaWindow(0x55d54c930bb0)
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::PlasmaWindow(0x55d54c9b9340)
+qml: 0
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+kf.plasma.quick: Couldn't create KWindowShadow for PlasmaQuick::AppletPopup_QML_23(0x55d54c930bb0, name="popupWindow")
+kf.plasma.quick: Couldn't create KWindowShadow for ToolTipDialog(0x55d54c9b9340)
+qml: PANEL_PROBE {"phase":"stale","stale":true,"status":"State refresh delayed"}
+qml: PANEL_PROBE {"phase":"frames","dialog":{"center":true,"minimumWidth":12,"minimumHeight":12,"margin":4},"widget":{"center":true,"minimumWidth":12,"minimumHeight":12,"margin":14}}
+qml: PANEL_PROBE {"phase":"migration","result":{"passed":true,"plain_order":"1;7;2;3;4;5;6","replace_order":"1;7;3;4;5;6","removed":["2"],"idempotent":true,"safe_refusal":true,"unrelated_widgets_preserved":true,"plain_pins_unchanged":true,"native_sequence_copy":true,"native_qt_qstringlist":{"array":false,"tag":"[object V4Sequence]","length":2},"js_array_compatible":true,"invalid_sequences_refused_before_mutation":true,"normalized_own_pins":["preferred://browser","applications:steins-navigator-v4.desktop","applications:org.kde.konsole.desktop","applications:steins-terminal-v3.desktop","preferred://browser","applications:other.steins-navigator.desktop"],"third_party_duplicates_preserved":true}}
+qml: PANEL_PROBE {"phase":"partial","number":"2.198306","partial":true,"name":"Hinamizawa","error":"wallpaper: controlled partial apply"}
+qml: PANEL_PROBE {"phase":"applied","applied":true}
+qml: PANEL_PROBE {"phase":"disconnected","connected":false,"number":"—.——————"}
+qml: PANEL_PROBE {"phase":"reconnected","connected":true,"number":"2.198306"}

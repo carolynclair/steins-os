@@ -1,0 +1,5660 @@
+{
+  "status": "PASS",
+  "checks": 565,
+  "canonical_icons": 35,
+  "small_renders": 105,
+  "qt_exact_alias_renders": 183,
+  "qt_version": "6.8.2",
+  "package_sha256": "3daff148cf5f951b020fc2a37c5cacdb30402357bf7126b0431b120c5f9c85b6",
+  "package": "/home/gary/Documents/ChatGPT/Steins;OS/dist/v4/identity/steins-identity-v4_0.4.0~prototype1_all.deb",
+  "small_bounds": [
+    {
+      "icon": "launcher",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "launcher",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        3,
+        20,
+        20
+      ]
+    },
+    {
+      "icon": "launcher",
+      "size": 32,
+      "alpha64_bounds": [
+        4,
+        4,
+        27,
+        27
+      ]
+    },
+    {
+      "icon": "terminal",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "terminal",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "terminal",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-open",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-open",
+      "size": 24,
+      "alpha64_bounds": [
+        1,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-open",
+      "size": 32,
+      "alpha64_bounds": [
+        1,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "mail",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        3,
+        14,
+        12
+      ]
+    },
+    {
+      "icon": "mail",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "icon": "mail",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        6,
+        28,
+        25
+      ]
+    },
+    {
+      "icon": "worldlines",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        1,
+        13,
+        14
+      ]
+    },
+    {
+      "icon": "worldlines",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "icon": "worldlines",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        3,
+        28,
+        28
+      ]
+    },
+    {
+      "icon": "settings",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        1,
+        14,
+        14
+      ]
+    },
+    {
+      "icon": "settings",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "icon": "settings",
+      "size": 32,
+      "alpha64_bounds": [
+        2,
+        2,
+        29,
+        29
+      ]
+    },
+    {
+      "icon": "appearance",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "appearance",
+      "size": 24,
+      "alpha64_bounds": [
+        1,
+        3,
+        20,
+        20
+      ]
+    },
+    {
+      "icon": "appearance",
+      "size": 32,
+      "alpha64_bounds": [
+        2,
+        4,
+        27,
+        27
+      ]
+    },
+    {
+      "icon": "power",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "power",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        2,
+        20,
+        20
+      ]
+    },
+    {
+      "icon": "power",
+      "size": 32,
+      "alpha64_bounds": [
+        4,
+        2,
+        27,
+        27
+      ]
+    },
+    {
+      "icon": "reboot",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        2,
+        13,
+        14
+      ]
+    },
+    {
+      "icon": "reboot",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        2,
+        20,
+        21
+      ]
+    },
+    {
+      "icon": "reboot",
+      "size": 32,
+      "alpha64_bounds": [
+        4,
+        3,
+        27,
+        28
+      ]
+    },
+    {
+      "icon": "logout",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "logout",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "logout",
+      "size": 32,
+      "alpha64_bounds": [
+        5,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "notification",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "notification",
+      "size": 24,
+      "alpha64_bounds": [
+        4,
+        2,
+        19,
+        20
+      ]
+    },
+    {
+      "icon": "notification",
+      "size": 32,
+      "alpha64_bounds": [
+        5,
+        2,
+        26,
+        27
+      ]
+    },
+    {
+      "icon": "network",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        3,
+        13,
+        12
+      ]
+    },
+    {
+      "icon": "network",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "icon": "network",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        6,
+        28,
+        25
+      ]
+    },
+    {
+      "icon": "volume",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        3,
+        14,
+        12
+      ]
+    },
+    {
+      "icon": "volume",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        22,
+        19
+      ]
+    },
+    {
+      "icon": "volume",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        29,
+        26
+      ]
+    },
+    {
+      "icon": "volume-medium",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        3,
+        11,
+        12
+      ]
+    },
+    {
+      "icon": "volume-medium",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        17,
+        19
+      ]
+    },
+    {
+      "icon": "volume-medium",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        23,
+        26
+      ]
+    },
+    {
+      "icon": "volume-low",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        3,
+        11,
+        12
+      ]
+    },
+    {
+      "icon": "volume-low",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        16,
+        19
+      ]
+    },
+    {
+      "icon": "volume-low",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        22,
+        26
+      ]
+    },
+    {
+      "icon": "volume-muted",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        3,
+        14,
+        12
+      ]
+    },
+    {
+      "icon": "volume-muted",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "icon": "volume-muted",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "home",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "home",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        2,
+        20,
+        20
+      ]
+    },
+    {
+      "icon": "home",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        3,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "document",
+      "size": 16,
+      "alpha64_bounds": [
+        3,
+        1,
+        12,
+        14
+      ]
+    },
+    {
+      "icon": "document",
+      "size": 24,
+      "alpha64_bounds": [
+        4,
+        2,
+        19,
+        21
+      ]
+    },
+    {
+      "icon": "document",
+      "size": 32,
+      "alpha64_bounds": [
+        6,
+        3,
+        25,
+        28
+      ]
+    },
+    {
+      "icon": "download",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        2,
+        13,
+        14
+      ]
+    },
+    {
+      "icon": "download",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        3,
+        20,
+        21
+      ]
+    },
+    {
+      "icon": "download",
+      "size": 32,
+      "alpha64_bounds": [
+        5,
+        3,
+        26,
+        28
+      ]
+    },
+    {
+      "icon": "image",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        1,
+        14,
+        14
+      ]
+    },
+    {
+      "icon": "image",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "icon": "image",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        3,
+        28,
+        28
+      ]
+    },
+    {
+      "icon": "audio",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "audio",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        2,
+        19,
+        20
+      ]
+    },
+    {
+      "icon": "audio",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        3,
+        26,
+        27
+      ]
+    },
+    {
+      "icon": "video",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "video",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "icon": "video",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "trash",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        1,
+        13,
+        14
+      ]
+    },
+    {
+      "icon": "trash",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        2,
+        20,
+        21
+      ]
+    },
+    {
+      "icon": "trash",
+      "size": 32,
+      "alpha64_bounds": [
+        5,
+        3,
+        26,
+        28
+      ]
+    },
+    {
+      "icon": "search",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "search",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        3,
+        21,
+        21
+      ]
+    },
+    {
+      "icon": "search",
+      "size": 32,
+      "alpha64_bounds": [
+        4,
+        4,
+        28,
+        28
+      ]
+    },
+    {
+      "icon": "close",
+      "size": 16,
+      "alpha64_bounds": [
+        3,
+        3,
+        12,
+        12
+      ]
+    },
+    {
+      "icon": "close",
+      "size": 24,
+      "alpha64_bounds": [
+        5,
+        5,
+        18,
+        18
+      ]
+    },
+    {
+      "icon": "close",
+      "size": 32,
+      "alpha64_bounds": [
+        7,
+        7,
+        24,
+        24
+      ]
+    },
+    {
+      "icon": "plus",
+      "size": 16,
+      "alpha64_bounds": [
+        2,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "icon": "plus",
+      "size": 24,
+      "alpha64_bounds": [
+        3,
+        3,
+        20,
+        20
+      ]
+    },
+    {
+      "icon": "plus",
+      "size": 32,
+      "alpha64_bounds": [
+        4,
+        4,
+        27,
+        27
+      ]
+    },
+    {
+      "icon": "chevron-down",
+      "size": 16,
+      "alpha64_bounds": [
+        3,
+        5,
+        12,
+        10
+      ]
+    },
+    {
+      "icon": "chevron-down",
+      "size": 24,
+      "alpha64_bounds": [
+        5,
+        8,
+        18,
+        15
+      ]
+    },
+    {
+      "icon": "chevron-down",
+      "size": 32,
+      "alpha64_bounds": [
+        7,
+        11,
+        24,
+        20
+      ]
+    },
+    {
+      "icon": "folder-home",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-home",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-home",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-documents",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-documents",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-documents",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-downloads",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-downloads",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-downloads",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-pictures",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-pictures",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-pictures",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-music",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-music",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-music",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-videos",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-videos",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-videos",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "icon": "folder-network",
+      "size": 16,
+      "alpha64_bounds": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "icon": "folder-network",
+      "size": 24,
+      "alpha64_bounds": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "icon": "folder-network",
+      "size": 32,
+      "alpha64_bounds": [
+        3,
+        5,
+        28,
+        26
+      ]
+    }
+  ],
+  "qt_lookup": [
+    {
+      "name": "steins-launcher",
+      "size": 16,
+      "source": "launcher",
+      "sha256_rgba": "518d2880d6a1963d498062d284d44d766a2c27c180f94c14c6e41dd3622cceea"
+    },
+    {
+      "name": "steins-launcher",
+      "size": 24,
+      "source": "launcher",
+      "sha256_rgba": "31a160fc3e6422d6685db7e862d55087aa8a79599970024e0d28a4b21050895a"
+    },
+    {
+      "name": "steins-launcher",
+      "size": 32,
+      "source": "launcher",
+      "sha256_rgba": "fb0c76f38194a591a0b9cc16918684c2c4833843df14bce371e9f212e0e150cc"
+    },
+    {
+      "name": "start-here",
+      "size": 16,
+      "source": "launcher",
+      "sha256_rgba": "518d2880d6a1963d498062d284d44d766a2c27c180f94c14c6e41dd3622cceea"
+    },
+    {
+      "name": "start-here",
+      "size": 24,
+      "source": "launcher",
+      "sha256_rgba": "31a160fc3e6422d6685db7e862d55087aa8a79599970024e0d28a4b21050895a"
+    },
+    {
+      "name": "start-here",
+      "size": 32,
+      "source": "launcher",
+      "sha256_rgba": "fb0c76f38194a591a0b9cc16918684c2c4833843df14bce371e9f212e0e150cc"
+    },
+    {
+      "name": "utilities-terminal",
+      "size": 16,
+      "source": "terminal",
+      "sha256_rgba": "8a32aad9802cf18c9fa5aa7211074c2e09c0be5b0ef6a41f9b35f523c46ab01e"
+    },
+    {
+      "name": "utilities-terminal",
+      "size": 24,
+      "source": "terminal",
+      "sha256_rgba": "03a035dcc3b8ec39f538316e7e95cd6bc24196a80f8c7d26529e5a5694450161"
+    },
+    {
+      "name": "utilities-terminal",
+      "size": 32,
+      "source": "terminal",
+      "sha256_rgba": "6ab7d42388da55550e5586b34d7051982548b5025a1660dcb3484b3020e190ec"
+    },
+    {
+      "name": "steins-terminal",
+      "size": 16,
+      "source": "terminal",
+      "sha256_rgba": "8a32aad9802cf18c9fa5aa7211074c2e09c0be5b0ef6a41f9b35f523c46ab01e"
+    },
+    {
+      "name": "steins-terminal",
+      "size": 24,
+      "source": "terminal",
+      "sha256_rgba": "03a035dcc3b8ec39f538316e7e95cd6bc24196a80f8c7d26529e5a5694450161"
+    },
+    {
+      "name": "steins-terminal",
+      "size": 32,
+      "source": "terminal",
+      "sha256_rgba": "6ab7d42388da55550e5586b34d7051982548b5025a1660dcb3484b3020e190ec"
+    },
+    {
+      "name": "steins-terminal-v3",
+      "size": 16,
+      "source": "terminal",
+      "sha256_rgba": "8a32aad9802cf18c9fa5aa7211074c2e09c0be5b0ef6a41f9b35f523c46ab01e"
+    },
+    {
+      "name": "steins-terminal-v3",
+      "size": 24,
+      "source": "terminal",
+      "sha256_rgba": "03a035dcc3b8ec39f538316e7e95cd6bc24196a80f8c7d26529e5a5694450161"
+    },
+    {
+      "name": "steins-terminal-v3",
+      "size": 32,
+      "source": "terminal",
+      "sha256_rgba": "6ab7d42388da55550e5586b34d7051982548b5025a1660dcb3484b3020e190ec"
+    },
+    {
+      "name": "steins-terminal-v4",
+      "size": 16,
+      "source": "terminal",
+      "sha256_rgba": "8a32aad9802cf18c9fa5aa7211074c2e09c0be5b0ef6a41f9b35f523c46ab01e"
+    },
+    {
+      "name": "steins-terminal-v4",
+      "size": 24,
+      "source": "terminal",
+      "sha256_rgba": "03a035dcc3b8ec39f538316e7e95cd6bc24196a80f8c7d26529e5a5694450161"
+    },
+    {
+      "name": "steins-terminal-v4",
+      "size": 32,
+      "source": "terminal",
+      "sha256_rgba": "6ab7d42388da55550e5586b34d7051982548b5025a1660dcb3484b3020e190ec"
+    },
+    {
+      "name": "org.kde.konsole",
+      "size": 16,
+      "source": "terminal",
+      "sha256_rgba": "8a32aad9802cf18c9fa5aa7211074c2e09c0be5b0ef6a41f9b35f523c46ab01e"
+    },
+    {
+      "name": "org.kde.konsole",
+      "size": 24,
+      "source": "terminal",
+      "sha256_rgba": "03a035dcc3b8ec39f538316e7e95cd6bc24196a80f8c7d26529e5a5694450161"
+    },
+    {
+      "name": "org.kde.konsole",
+      "size": 32,
+      "source": "terminal",
+      "sha256_rgba": "6ab7d42388da55550e5586b34d7051982548b5025a1660dcb3484b3020e190ec"
+    },
+    {
+      "name": "konsole",
+      "size": 16,
+      "source": "terminal",
+      "sha256_rgba": "8a32aad9802cf18c9fa5aa7211074c2e09c0be5b0ef6a41f9b35f523c46ab01e"
+    },
+    {
+      "name": "konsole",
+      "size": 24,
+      "source": "terminal",
+      "sha256_rgba": "03a035dcc3b8ec39f538316e7e95cd6bc24196a80f8c7d26529e5a5694450161"
+    },
+    {
+      "name": "konsole",
+      "size": 32,
+      "source": "terminal",
+      "sha256_rgba": "6ab7d42388da55550e5586b34d7051982548b5025a1660dcb3484b3020e190ec"
+    },
+    {
+      "name": "system-file-manager",
+      "size": 16,
+      "source": "folder",
+      "sha256_rgba": "8252548cd0a063751a6e16eef34898e6440f6afd88ff33724751725ccb80a8d3"
+    },
+    {
+      "name": "system-file-manager",
+      "size": 24,
+      "source": "folder",
+      "sha256_rgba": "6cdc66d49f591ee1b6cab604e53c619a77cee499b34b5bf5b795b37594e1d846"
+    },
+    {
+      "name": "system-file-manager",
+      "size": 32,
+      "source": "folder",
+      "sha256_rgba": "515c78cf8cfff24287407f1397d282401b1f50e9634ef8e6cded9582bad353ce"
+    },
+    {
+      "name": "org.kde.dolphin",
+      "size": 16,
+      "source": "folder",
+      "sha256_rgba": "8252548cd0a063751a6e16eef34898e6440f6afd88ff33724751725ccb80a8d3"
+    },
+    {
+      "name": "org.kde.dolphin",
+      "size": 24,
+      "source": "folder",
+      "sha256_rgba": "6cdc66d49f591ee1b6cab604e53c619a77cee499b34b5bf5b795b37594e1d846"
+    },
+    {
+      "name": "org.kde.dolphin",
+      "size": 32,
+      "source": "folder",
+      "sha256_rgba": "515c78cf8cfff24287407f1397d282401b1f50e9634ef8e6cded9582bad353ce"
+    },
+    {
+      "name": "dolphin",
+      "size": 16,
+      "source": "folder",
+      "sha256_rgba": "8252548cd0a063751a6e16eef34898e6440f6afd88ff33724751725ccb80a8d3"
+    },
+    {
+      "name": "dolphin",
+      "size": 24,
+      "source": "folder",
+      "sha256_rgba": "6cdc66d49f591ee1b6cab604e53c619a77cee499b34b5bf5b795b37594e1d846"
+    },
+    {
+      "name": "dolphin",
+      "size": 32,
+      "source": "folder",
+      "sha256_rgba": "515c78cf8cfff24287407f1397d282401b1f50e9634ef8e6cded9582bad353ce"
+    },
+    {
+      "name": "steins-dmail",
+      "size": 16,
+      "source": "mail",
+      "sha256_rgba": "520d562ced09b610e5ec29f3132e46a779df75c8909738723269a5951bf3639e"
+    },
+    {
+      "name": "steins-dmail",
+      "size": 24,
+      "source": "mail",
+      "sha256_rgba": "60f714ec13b09c0a6448f1f5f878002d532dc34fef4bd99e22316f5eaf388cff"
+    },
+    {
+      "name": "steins-dmail",
+      "size": 32,
+      "source": "mail",
+      "sha256_rgba": "1a9b3305f07c43e1b27c8ceaac300c47448d065a057e771fe606714be9b89696"
+    },
+    {
+      "name": "internet-mail",
+      "size": 16,
+      "source": "mail",
+      "sha256_rgba": "520d562ced09b610e5ec29f3132e46a779df75c8909738723269a5951bf3639e"
+    },
+    {
+      "name": "internet-mail",
+      "size": 24,
+      "source": "mail",
+      "sha256_rgba": "60f714ec13b09c0a6448f1f5f878002d532dc34fef4bd99e22316f5eaf388cff"
+    },
+    {
+      "name": "internet-mail",
+      "size": 32,
+      "source": "mail",
+      "sha256_rgba": "1a9b3305f07c43e1b27c8ceaac300c47448d065a057e771fe606714be9b89696"
+    },
+    {
+      "name": "steins-navigator",
+      "size": 16,
+      "source": "worldlines",
+      "sha256_rgba": "07e528f7383cfda6515cb2297669435fe1642d185e7b79e4efc69b8bf3c441e9"
+    },
+    {
+      "name": "steins-navigator",
+      "size": 24,
+      "source": "worldlines",
+      "sha256_rgba": "cf56a9292906cf58670d1896955169c8dcb31585a1d8ffc8f676f7fac34a9ea8"
+    },
+    {
+      "name": "steins-navigator",
+      "size": 32,
+      "source": "worldlines",
+      "sha256_rgba": "604b78ea14f7e30c8e0a8a0a42df607ca7bc6c4e9025dc9aefc25ff3e74fce41"
+    },
+    {
+      "name": "steins-navigator-v4",
+      "size": 16,
+      "source": "worldlines",
+      "sha256_rgba": "07e528f7383cfda6515cb2297669435fe1642d185e7b79e4efc69b8bf3c441e9"
+    },
+    {
+      "name": "steins-navigator-v4",
+      "size": 24,
+      "source": "worldlines",
+      "sha256_rgba": "cf56a9292906cf58670d1896955169c8dcb31585a1d8ffc8f676f7fac34a9ea8"
+    },
+    {
+      "name": "steins-navigator-v4",
+      "size": 32,
+      "source": "worldlines",
+      "sha256_rgba": "604b78ea14f7e30c8e0a8a0a42df607ca7bc6c4e9025dc9aefc25ff3e74fce41"
+    },
+    {
+      "name": "steins-worldline",
+      "size": 16,
+      "source": "worldlines",
+      "sha256_rgba": "07e528f7383cfda6515cb2297669435fe1642d185e7b79e4efc69b8bf3c441e9"
+    },
+    {
+      "name": "steins-worldline",
+      "size": 24,
+      "source": "worldlines",
+      "sha256_rgba": "cf56a9292906cf58670d1896955169c8dcb31585a1d8ffc8f676f7fac34a9ea8"
+    },
+    {
+      "name": "steins-worldline",
+      "size": 32,
+      "source": "worldlines",
+      "sha256_rgba": "604b78ea14f7e30c8e0a8a0a42df607ca7bc6c4e9025dc9aefc25ff3e74fce41"
+    },
+    {
+      "name": "steins-worldlines",
+      "size": 16,
+      "source": "worldlines",
+      "sha256_rgba": "07e528f7383cfda6515cb2297669435fe1642d185e7b79e4efc69b8bf3c441e9"
+    },
+    {
+      "name": "steins-worldlines",
+      "size": 24,
+      "source": "worldlines",
+      "sha256_rgba": "cf56a9292906cf58670d1896955169c8dcb31585a1d8ffc8f676f7fac34a9ea8"
+    },
+    {
+      "name": "steins-worldlines",
+      "size": 32,
+      "source": "worldlines",
+      "sha256_rgba": "604b78ea14f7e30c8e0a8a0a42df607ca7bc6c4e9025dc9aefc25ff3e74fce41"
+    },
+    {
+      "name": "preferences-system",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "preferences-system",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "preferences-system",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "systemsettings",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "systemsettings",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "systemsettings",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "systemsettings5",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "systemsettings5",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "systemsettings5",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "systemsettings6",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "systemsettings6",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "systemsettings6",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "preferences-desktop-theme",
+      "size": 16,
+      "source": "appearance",
+      "sha256_rgba": "cf08462e340c71359ffcf6db1afaf5a52388d32a623429d623f9a1717126508e"
+    },
+    {
+      "name": "preferences-desktop-theme",
+      "size": 24,
+      "source": "appearance",
+      "sha256_rgba": "be7eaf062ae512d7e30b54550fec4304b79c0312e875c9438d52395a6540d294"
+    },
+    {
+      "name": "preferences-desktop-theme",
+      "size": 32,
+      "source": "appearance",
+      "sha256_rgba": "aa9bc78cf1bf8ba21165ea153e52d6d75ea02754abb5fe0c173c9397774c0cf2"
+    },
+    {
+      "name": "preferences-desktop",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "preferences-desktop",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "preferences-desktop",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "folder",
+      "size": 16,
+      "source": "folder",
+      "sha256_rgba": "8252548cd0a063751a6e16eef34898e6440f6afd88ff33724751725ccb80a8d3"
+    },
+    {
+      "name": "folder",
+      "size": 24,
+      "source": "folder",
+      "sha256_rgba": "6cdc66d49f591ee1b6cab604e53c619a77cee499b34b5bf5b795b37594e1d846"
+    },
+    {
+      "name": "folder",
+      "size": 32,
+      "source": "folder",
+      "sha256_rgba": "515c78cf8cfff24287407f1397d282401b1f50e9634ef8e6cded9582bad353ce"
+    },
+    {
+      "name": "folder-open",
+      "size": 16,
+      "source": "folder-open",
+      "sha256_rgba": "a4f77c4f727f18abc6be7a948191392ff2249f15e4be537f380774e98ae44994"
+    },
+    {
+      "name": "folder-open",
+      "size": 24,
+      "source": "folder-open",
+      "sha256_rgba": "3184c271385f1cf2528a55a381b199838a90c90f723ae87d8f5c098bf76af43c"
+    },
+    {
+      "name": "folder-open",
+      "size": 32,
+      "source": "folder-open",
+      "sha256_rgba": "8766a64ff4c870436b812b7343b6c78ad50c80b46fd10da2a6296e597417c25e"
+    },
+    {
+      "name": "user-home",
+      "size": 16,
+      "source": "home",
+      "sha256_rgba": "9741d5c237007caf2aac41dfff0bed8fa4af7fd1a2564753d4b4bd9a24dee1eb"
+    },
+    {
+      "name": "user-home",
+      "size": 24,
+      "source": "home",
+      "sha256_rgba": "2d9f8a68b84ac5f1b8a516aa168a2d7799d7bb8c91cb4732c6aaee191b19e7f9"
+    },
+    {
+      "name": "user-home",
+      "size": 32,
+      "source": "home",
+      "sha256_rgba": "20f59c59bb3bf97ca45c4e6daf56b65693996fe385a93ba639b9823e6d40f0f7"
+    },
+    {
+      "name": "user-desktop",
+      "size": 16,
+      "source": "home",
+      "sha256_rgba": "9741d5c237007caf2aac41dfff0bed8fa4af7fd1a2564753d4b4bd9a24dee1eb"
+    },
+    {
+      "name": "user-desktop",
+      "size": 24,
+      "source": "home",
+      "sha256_rgba": "2d9f8a68b84ac5f1b8a516aa168a2d7799d7bb8c91cb4732c6aaee191b19e7f9"
+    },
+    {
+      "name": "user-desktop",
+      "size": 32,
+      "source": "home",
+      "sha256_rgba": "20f59c59bb3bf97ca45c4e6daf56b65693996fe385a93ba639b9823e6d40f0f7"
+    },
+    {
+      "name": "folder-home",
+      "size": 16,
+      "source": "folder-home",
+      "sha256_rgba": "27adffc8f96079cf0f7f43710d1082fd6e9e55f21ba50a03bd3d12ab5b1d65e0"
+    },
+    {
+      "name": "folder-home",
+      "size": 24,
+      "source": "folder-home",
+      "sha256_rgba": "8880dd0709ce1a618ed1e214a8df32e67aac8ab87617c241ec31121d9f9313b8"
+    },
+    {
+      "name": "folder-home",
+      "size": 32,
+      "source": "folder-home",
+      "sha256_rgba": "73bdd730c1a2dfe7c29da9b0b8ebde0dd28df188d20e7bfd056758e8eb052742"
+    },
+    {
+      "name": "folder-documents",
+      "size": 16,
+      "source": "folder-documents",
+      "sha256_rgba": "26cd00a55af03bd1a9cd3ab4898d75cfa23985e284e490e7e626ca6dced02d6d"
+    },
+    {
+      "name": "folder-documents",
+      "size": 24,
+      "source": "folder-documents",
+      "sha256_rgba": "fc94f194c952f968b76f4fbacb50f6f24bb060bd4e2f18abd09b66041097c841"
+    },
+    {
+      "name": "folder-documents",
+      "size": 32,
+      "source": "folder-documents",
+      "sha256_rgba": "9bff7e59af1ea14d67b163d40a5d9db7f4441074b1f9ca515aef847bac54f964"
+    },
+    {
+      "name": "folder-download",
+      "size": 16,
+      "source": "folder-downloads",
+      "sha256_rgba": "082f77090b9d0bcf256c0c52e3716fa3c877e1fd93d415221586a4236bbf86b6"
+    },
+    {
+      "name": "folder-download",
+      "size": 24,
+      "source": "folder-downloads",
+      "sha256_rgba": "c88117a1d31199ac23a6cb4a698d80fd131dd9b66b45cc3ebe01988f5d47def9"
+    },
+    {
+      "name": "folder-download",
+      "size": 32,
+      "source": "folder-downloads",
+      "sha256_rgba": "003c4a404629c4aedb7d07331517221aed336a5c8dc8c0e56b7e5f806cf95245"
+    },
+    {
+      "name": "folder-downloads",
+      "size": 16,
+      "source": "folder-downloads",
+      "sha256_rgba": "082f77090b9d0bcf256c0c52e3716fa3c877e1fd93d415221586a4236bbf86b6"
+    },
+    {
+      "name": "folder-downloads",
+      "size": 24,
+      "source": "folder-downloads",
+      "sha256_rgba": "c88117a1d31199ac23a6cb4a698d80fd131dd9b66b45cc3ebe01988f5d47def9"
+    },
+    {
+      "name": "folder-downloads",
+      "size": 32,
+      "source": "folder-downloads",
+      "sha256_rgba": "003c4a404629c4aedb7d07331517221aed336a5c8dc8c0e56b7e5f806cf95245"
+    },
+    {
+      "name": "folder-pictures",
+      "size": 16,
+      "source": "folder-pictures",
+      "sha256_rgba": "c6580b992be8ba64bddb9987f8bc9c0c563093fcaa13cc9a9278c698818d79df"
+    },
+    {
+      "name": "folder-pictures",
+      "size": 24,
+      "source": "folder-pictures",
+      "sha256_rgba": "9f5873cfd94f3ff29dee956c2e6f5cdebbb24873ef98d2450536cab16bfa060a"
+    },
+    {
+      "name": "folder-pictures",
+      "size": 32,
+      "source": "folder-pictures",
+      "sha256_rgba": "fe45fb61a2b8b7c4a38b95b720d8441fbddc66fbca4d4c3976a8c2c5d5300aff"
+    },
+    {
+      "name": "folder-music",
+      "size": 16,
+      "source": "folder-music",
+      "sha256_rgba": "cf055bba980e4828b4a7fd1c65b04b61159934b715ee2bcaddb44787ef2cb84a"
+    },
+    {
+      "name": "folder-music",
+      "size": 24,
+      "source": "folder-music",
+      "sha256_rgba": "98784e694a166a7c7f9e19727a7152102e4faf28ebbd4a7c60f3d27f0cfdcb90"
+    },
+    {
+      "name": "folder-music",
+      "size": 32,
+      "source": "folder-music",
+      "sha256_rgba": "aa523e11275c702c5585905f1aafa21c77ebc38a10c5ddd66d7d9f7a6e66c8f5"
+    },
+    {
+      "name": "folder-videos",
+      "size": 16,
+      "source": "folder-videos",
+      "sha256_rgba": "d9bce843e4af009b2422bee6d3cd7aeb13779ffc288bdfc99c21638dcdb9487b"
+    },
+    {
+      "name": "folder-videos",
+      "size": 24,
+      "source": "folder-videos",
+      "sha256_rgba": "084070c1c353c60d2f75413b154fb1bd967b38a7787aca19533fe5aa74c48d6b"
+    },
+    {
+      "name": "folder-videos",
+      "size": 32,
+      "source": "folder-videos",
+      "sha256_rgba": "356c5818dea39e6d0064fd53e8d2472ed8f08180e40ff652a62bd7f5b3d83822"
+    },
+    {
+      "name": "folder-network",
+      "size": 16,
+      "source": "folder-network",
+      "sha256_rgba": "201318010ff4b8c3beeb96cd6e9ad2074ccb10575c569c0c8090128dd6037363"
+    },
+    {
+      "name": "folder-network",
+      "size": 24,
+      "source": "folder-network",
+      "sha256_rgba": "5d772c587e61fc52ffb74746b52f79fccec9ee17f7bf899025254f3b34de09fe"
+    },
+    {
+      "name": "folder-network",
+      "size": 32,
+      "source": "folder-network",
+      "sha256_rgba": "89dd2b9aa1c6da0a52a377d714a3530d6a28bc6a3649a4e201a6cc4f9ed5b170"
+    },
+    {
+      "name": "user-trash",
+      "size": 16,
+      "source": "trash",
+      "sha256_rgba": "a656cd86e54f2a39d045d4cb973acb7b8991e4956b61bf092441ff154eb5e302"
+    },
+    {
+      "name": "user-trash",
+      "size": 24,
+      "source": "trash",
+      "sha256_rgba": "6a72056cd447016fbc12c9fba72dd57b700e62192aa0a0b33eb26759b819f7bf"
+    },
+    {
+      "name": "user-trash",
+      "size": 32,
+      "source": "trash",
+      "sha256_rgba": "225bfe9c8445fc6d6285b5a2ec4e6e76b7c597505af3a823fd9d6bbfc37942e7"
+    },
+    {
+      "name": "user-trash-full",
+      "size": 16,
+      "source": "trash",
+      "sha256_rgba": "a656cd86e54f2a39d045d4cb973acb7b8991e4956b61bf092441ff154eb5e302"
+    },
+    {
+      "name": "user-trash-full",
+      "size": 24,
+      "source": "trash",
+      "sha256_rgba": "6a72056cd447016fbc12c9fba72dd57b700e62192aa0a0b33eb26759b819f7bf"
+    },
+    {
+      "name": "user-trash-full",
+      "size": 32,
+      "source": "trash",
+      "sha256_rgba": "225bfe9c8445fc6d6285b5a2ec4e6e76b7c597505af3a823fd9d6bbfc37942e7"
+    },
+    {
+      "name": "system-shutdown",
+      "size": 16,
+      "source": "power",
+      "sha256_rgba": "811cbf7977fa6a46a0b5e6c45349a7ab29b560da832c0e2df2ae0725639be2e3"
+    },
+    {
+      "name": "system-shutdown",
+      "size": 24,
+      "source": "power",
+      "sha256_rgba": "8c5bd21de2d323cd45acea98d490345b343435383226d8f23e5d6ce6afbf3b5e"
+    },
+    {
+      "name": "system-shutdown",
+      "size": 32,
+      "source": "power",
+      "sha256_rgba": "a8745e96f47803d917ba4107e46b651b3c00f0e6237ea306c9e5cd249f61693f"
+    },
+    {
+      "name": "system-reboot",
+      "size": 16,
+      "source": "reboot",
+      "sha256_rgba": "9502c25cfcf7ed906a4fe3996b4b7a13b44bee50480691546b9789b599db1752"
+    },
+    {
+      "name": "system-reboot",
+      "size": 24,
+      "source": "reboot",
+      "sha256_rgba": "38d8f313799214fc540c94f7813ef4267609c6e09c0a34cba18d48e6320c09ab"
+    },
+    {
+      "name": "system-reboot",
+      "size": 32,
+      "source": "reboot",
+      "sha256_rgba": "aa0500de1b00bbbffbc4fbf0bdfb3f930f5b80bc15e9642cd3988417a16f2b6d"
+    },
+    {
+      "name": "system-log-out",
+      "size": 16,
+      "source": "logout",
+      "sha256_rgba": "79486b324dff2e435e743978f16988592fea008440298baf66e42ca9879e8128"
+    },
+    {
+      "name": "system-log-out",
+      "size": 24,
+      "source": "logout",
+      "sha256_rgba": "773594190b7cf73f88851357121c1137f33775f7610479d824b5d4253ab62fb9"
+    },
+    {
+      "name": "system-log-out",
+      "size": 32,
+      "source": "logout",
+      "sha256_rgba": "7e62bdc58f7bb0d0d29b86c10e08924b0a782d569e8e8ca6bce3f7a7779e3bd9"
+    },
+    {
+      "name": "configure",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "configure",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "configure",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "preferences-other",
+      "size": 16,
+      "source": "settings",
+      "sha256_rgba": "57aff79907f0a4b630b8d56313db4227de42d8039ed0bee003305991251765d8"
+    },
+    {
+      "name": "preferences-other",
+      "size": 24,
+      "source": "settings",
+      "sha256_rgba": "85c9aaf8c8453eaa9cb941294faac4566c83c2785be915f6eeab9c131f5f08c7"
+    },
+    {
+      "name": "preferences-other",
+      "size": 32,
+      "source": "settings",
+      "sha256_rgba": "e41b6b3c74b7bbc06974fbe52bd2c438f6e048c75bbe673fd538c0fff95ded86"
+    },
+    {
+      "name": "edit-find",
+      "size": 16,
+      "source": "search",
+      "sha256_rgba": "6454dcfeda22812d4c405cf9855a7cb6e85b9026b4e9147b34290f2c645f7d75"
+    },
+    {
+      "name": "edit-find",
+      "size": 24,
+      "source": "search",
+      "sha256_rgba": "f7dee429a361db3f0f8f4d07b262671cabe083766c1194c57fa1fadeec4deaf3"
+    },
+    {
+      "name": "edit-find",
+      "size": 32,
+      "source": "search",
+      "sha256_rgba": "299affdc391ce47c2d00ee389a71db8aec2396025039c7921de56f04f940831c"
+    },
+    {
+      "name": "window-close",
+      "size": 16,
+      "source": "close",
+      "sha256_rgba": "fb8bafc9d1ecbbbd0abac5d1f6e595156d318fed9022c985abe9594b692650d4"
+    },
+    {
+      "name": "window-close",
+      "size": 24,
+      "source": "close",
+      "sha256_rgba": "7732dd4baf51306746d332139206ce601380020f1f2e0e50a3b51ae13279a8c8"
+    },
+    {
+      "name": "window-close",
+      "size": 32,
+      "source": "close",
+      "sha256_rgba": "c130063562ae592b897320a2fc671fbf3e2db16bb156ae8d07df6282faae3a02"
+    },
+    {
+      "name": "tab-close",
+      "size": 16,
+      "source": "close",
+      "sha256_rgba": "fb8bafc9d1ecbbbd0abac5d1f6e595156d318fed9022c985abe9594b692650d4"
+    },
+    {
+      "name": "tab-close",
+      "size": 24,
+      "source": "close",
+      "sha256_rgba": "7732dd4baf51306746d332139206ce601380020f1f2e0e50a3b51ae13279a8c8"
+    },
+    {
+      "name": "tab-close",
+      "size": 32,
+      "source": "close",
+      "sha256_rgba": "c130063562ae592b897320a2fc671fbf3e2db16bb156ae8d07df6282faae3a02"
+    },
+    {
+      "name": "list-add",
+      "size": 16,
+      "source": "plus",
+      "sha256_rgba": "af454fb3b4fc3ca61983b92b7ad84d791e993e6388959b93c7a02375eae70758"
+    },
+    {
+      "name": "list-add",
+      "size": 24,
+      "source": "plus",
+      "sha256_rgba": "271a502d6bc22aec8f97a6e0c07b641bb1fd4ed74871e684a92b00a58c217c65"
+    },
+    {
+      "name": "list-add",
+      "size": 32,
+      "source": "plus",
+      "sha256_rgba": "2dc15f51ea24e291f50657ecffe8c9db9232e6bb1ed05985cdff28b12e5d630c"
+    },
+    {
+      "name": "arrow-down",
+      "size": 16,
+      "source": "chevron-down",
+      "sha256_rgba": "98b69624da4b072a01964fd51ea192d59deaf84dc5907d47132f4284c974f7f2"
+    },
+    {
+      "name": "arrow-down",
+      "size": 24,
+      "source": "chevron-down",
+      "sha256_rgba": "d79b625c742707148132916148b149da09af68934cd30d58c43f0c1c5716255f"
+    },
+    {
+      "name": "arrow-down",
+      "size": 32,
+      "source": "chevron-down",
+      "sha256_rgba": "394655848142a5f585e56da0717c75513da5396f6670864cd310bfda73950d69"
+    },
+    {
+      "name": "mail-message-new",
+      "size": 16,
+      "source": "mail",
+      "sha256_rgba": "520d562ced09b610e5ec29f3132e46a779df75c8909738723269a5951bf3639e"
+    },
+    {
+      "name": "mail-message-new",
+      "size": 24,
+      "source": "mail",
+      "sha256_rgba": "60f714ec13b09c0a6448f1f5f878002d532dc34fef4bd99e22316f5eaf388cff"
+    },
+    {
+      "name": "mail-message-new",
+      "size": 32,
+      "source": "mail",
+      "sha256_rgba": "1a9b3305f07c43e1b27c8ceaac300c47448d065a057e771fe606714be9b89696"
+    },
+    {
+      "name": "notifications",
+      "size": 16,
+      "source": "notification",
+      "sha256_rgba": "b97a2fc65da3b8357106d1f510d9814622370b095c465dbfbaa0f9d112ca00fc"
+    },
+    {
+      "name": "notifications",
+      "size": 24,
+      "source": "notification",
+      "sha256_rgba": "087c930b5ba3352709b775feccb30b02d06bb4121c8c82d3a64cc4515a2cafd0"
+    },
+    {
+      "name": "notifications",
+      "size": 32,
+      "source": "notification",
+      "sha256_rgba": "fc030b3be4a28fa5dccf59de7fd270ab53361039e7ca599c18bd4e40d02e7923"
+    },
+    {
+      "name": "notification-inactive",
+      "size": 16,
+      "source": "notification",
+      "sha256_rgba": "b97a2fc65da3b8357106d1f510d9814622370b095c465dbfbaa0f9d112ca00fc"
+    },
+    {
+      "name": "notification-inactive",
+      "size": 24,
+      "source": "notification",
+      "sha256_rgba": "087c930b5ba3352709b775feccb30b02d06bb4121c8c82d3a64cc4515a2cafd0"
+    },
+    {
+      "name": "notification-inactive",
+      "size": 32,
+      "source": "notification",
+      "sha256_rgba": "fc030b3be4a28fa5dccf59de7fd270ab53361039e7ca599c18bd4e40d02e7923"
+    },
+    {
+      "name": "network-wireless",
+      "size": 16,
+      "source": "network",
+      "sha256_rgba": "9d822315f52a5cdc13c46ac9b3a98078bc46461b1110d1bf00602396c17568df"
+    },
+    {
+      "name": "network-wireless",
+      "size": 24,
+      "source": "network",
+      "sha256_rgba": "a13a2dc293be58c6d5a27849885959082ed58ea443b4f0c7efeef8dff388ae05"
+    },
+    {
+      "name": "network-wireless",
+      "size": 32,
+      "source": "network",
+      "sha256_rgba": "cafb33c6c0ee967da508d2c3d6c1ca0f6350939719851095f2ad6940e3322e7c"
+    },
+    {
+      "name": "network-wireless-connected-100",
+      "size": 16,
+      "source": "network",
+      "sha256_rgba": "9d822315f52a5cdc13c46ac9b3a98078bc46461b1110d1bf00602396c17568df"
+    },
+    {
+      "name": "network-wireless-connected-100",
+      "size": 24,
+      "source": "network",
+      "sha256_rgba": "a13a2dc293be58c6d5a27849885959082ed58ea443b4f0c7efeef8dff388ae05"
+    },
+    {
+      "name": "network-wireless-connected-100",
+      "size": 32,
+      "source": "network",
+      "sha256_rgba": "cafb33c6c0ee967da508d2c3d6c1ca0f6350939719851095f2ad6940e3322e7c"
+    },
+    {
+      "name": "audio-volume-high",
+      "size": 16,
+      "source": "volume",
+      "sha256_rgba": "1e3cc6e888f982f8913dc80bce9f042a3c5c66540265880e7479a6f43ae413bf"
+    },
+    {
+      "name": "audio-volume-high",
+      "size": 24,
+      "source": "volume",
+      "sha256_rgba": "d789211de09809fe3f7a8d02bd8251b542b8408106ae0d63243e1e346fa84f2f"
+    },
+    {
+      "name": "audio-volume-high",
+      "size": 32,
+      "source": "volume",
+      "sha256_rgba": "1da11708e8b6ae4992f6684fd5307887433562283083805864c5e71aee24115e"
+    },
+    {
+      "name": "audio-volume-medium",
+      "size": 16,
+      "source": "volume-medium",
+      "sha256_rgba": "6b6575d4d10ffff8fd505b14646931db0e0139d9343e8da7018bdf15feadef8b"
+    },
+    {
+      "name": "audio-volume-medium",
+      "size": 24,
+      "source": "volume-medium",
+      "sha256_rgba": "077c5ba0c3714932cdfe93c689c90a6eee2c5d0b07e18198598fc4bfe0f7236c"
+    },
+    {
+      "name": "audio-volume-medium",
+      "size": 32,
+      "source": "volume-medium",
+      "sha256_rgba": "26078630b5b0e36f53d3baa8e2aa1a1ea5086c22942269879867e13dead9244e"
+    },
+    {
+      "name": "audio-volume-low",
+      "size": 16,
+      "source": "volume-low",
+      "sha256_rgba": "4ca22a1b16029b04b9ba2f864a7239ee7d945871d3452e0c9d0c0e8a64cccd82"
+    },
+    {
+      "name": "audio-volume-low",
+      "size": 24,
+      "source": "volume-low",
+      "sha256_rgba": "9a39733c08f1f885e2b60bdb9ee6962418fa1d996587425d8531969fe3ef18c9"
+    },
+    {
+      "name": "audio-volume-low",
+      "size": 32,
+      "source": "volume-low",
+      "sha256_rgba": "a9f226db01883dfbb5c9568e0914440a7f3cd04551884cb261f9e008dbd04a99"
+    },
+    {
+      "name": "audio-volume-muted",
+      "size": 16,
+      "source": "volume-muted",
+      "sha256_rgba": "abfd31883e797b647a9de9e1ac55bf3cfac875ef25a1483259ed8758f696a8bf"
+    },
+    {
+      "name": "audio-volume-muted",
+      "size": 24,
+      "source": "volume-muted",
+      "sha256_rgba": "3ec7a2503c4c520be353fef94ce49ff34b786f1b392bcbec12069fe93b31a9be"
+    },
+    {
+      "name": "audio-volume-muted",
+      "size": 32,
+      "source": "volume-muted",
+      "sha256_rgba": "ba85cecc86974ce9c39b156385e29c6f28c0630dcdca7b7a63deda69d1ddf83b"
+    },
+    {
+      "name": "text-x-generic",
+      "size": 16,
+      "source": "document",
+      "sha256_rgba": "f2f4a155e035372296f3cab6700d6e5f572102bca48c0154a023be6a0514c54d"
+    },
+    {
+      "name": "text-x-generic",
+      "size": 24,
+      "source": "document",
+      "sha256_rgba": "fba13f0e12da84c3f8acd22dc63f8d2a6624647d6be581ee6472c1125ec168ce"
+    },
+    {
+      "name": "text-x-generic",
+      "size": 32,
+      "source": "document",
+      "sha256_rgba": "d62c8bdeb8253111f96a1fa911dd2e98018f21fb37c43ea5471778aa4e2d73c7"
+    },
+    {
+      "name": "application-x-desktop",
+      "size": 16,
+      "source": "launcher",
+      "sha256_rgba": "518d2880d6a1963d498062d284d44d766a2c27c180f94c14c6e41dd3622cceea"
+    },
+    {
+      "name": "application-x-desktop",
+      "size": 24,
+      "source": "launcher",
+      "sha256_rgba": "31a160fc3e6422d6685db7e862d55087aa8a79599970024e0d28a4b21050895a"
+    },
+    {
+      "name": "application-x-desktop",
+      "size": 32,
+      "source": "launcher",
+      "sha256_rgba": "fb0c76f38194a591a0b9cc16918684c2c4833843df14bce371e9f212e0e150cc"
+    },
+    {
+      "name": "image-x-generic",
+      "size": 16,
+      "source": "image",
+      "sha256_rgba": "7d56fe784952f8c821b8c807451f97e9be968bda14412d11848368eb15b68f63"
+    },
+    {
+      "name": "image-x-generic",
+      "size": 24,
+      "source": "image",
+      "sha256_rgba": "6711d6626c4b5f38fcd857f62219c468dc19125660b3a755dc8ff1ae0024b937"
+    },
+    {
+      "name": "image-x-generic",
+      "size": 32,
+      "source": "image",
+      "sha256_rgba": "ded4f8457ded85cf591a8a3f2cb2bef8f39e0c321c0b0f062721b9f5788b77f2"
+    },
+    {
+      "name": "audio-x-generic",
+      "size": 16,
+      "source": "audio",
+      "sha256_rgba": "ee67a391e65e086df527880abfd49dd800319c3b17c91987792eee714e3c5f73"
+    },
+    {
+      "name": "audio-x-generic",
+      "size": 24,
+      "source": "audio",
+      "sha256_rgba": "f7664653a223d6ddf0944248fba4220180c83b40be4036d261aaf93a9646721c"
+    },
+    {
+      "name": "audio-x-generic",
+      "size": 32,
+      "source": "audio",
+      "sha256_rgba": "28f838b908d0d411facc0d33613e4968aed78fadbbc9c38f8e16abd005925830"
+    },
+    {
+      "name": "video-x-generic",
+      "size": 16,
+      "source": "video",
+      "sha256_rgba": "64505c6f0139d402067cbe2ae22f7c429aaea6ffa617eec0ad49313afde30d18"
+    },
+    {
+      "name": "video-x-generic",
+      "size": 24,
+      "source": "video",
+      "sha256_rgba": "f2417404e5c906316f8c5eb0c735ded6f164167c651e1008f1d4faf7c161e135"
+    },
+    {
+      "name": "video-x-generic",
+      "size": 32,
+      "source": "video",
+      "sha256_rgba": "1187f1ee0bdc53c85fbe83be684afd35087e2a30bd282be3ddbffa377f38a3b7"
+    }
+  ],
+  "assertions": [
+    {
+      "check": "schema",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "stable geometry",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "six restrained world accents",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "all normal text and semantic icon contrast >= 4.5",
+      "pass": true,
+      "detail": {
+        "minimum": 4.572,
+        "ratios": {
+          "text / canvas": 14.542,
+          "text / panel": 13.849,
+          "text / raised": 12.332,
+          "text / raisedHover": 10.359,
+          "text / input": 14.943,
+          "text / selection": 9.311,
+          "text / panel on white wallpaper": 11.736,
+          "muted / canvas": 8.65,
+          "muted / panel": 8.238,
+          "muted / raised": 7.336,
+          "muted / raisedHover": 6.162,
+          "muted / input": 8.889,
+          "muted / selection": 5.539,
+          "muted / panel on white wallpaper": 6.981,
+          "subtle / canvas": 7.141,
+          "subtle / panel": 6.801,
+          "subtle / raised": 6.056,
+          "subtle / raisedHover": 5.087,
+          "subtle / input": 7.338,
+          "subtle / selection": 4.572,
+          "subtle / panel on white wallpaper": 5.763,
+          "icon / canvas": 11.778,
+          "icon / panel": 11.217,
+          "icon / raised": 9.988,
+          "icon / raisedHover": 8.39,
+          "icon / input": 12.102,
+          "icon / selection": 7.541,
+          "icon / panel on white wallpaper": 9.505,
+          "alpha / canvas": 7.175,
+          "alpha / panel": 6.833,
+          "alpha / raised": 6.084,
+          "alpha / raisedHover": 5.111,
+          "alpha / input": 7.373,
+          "alpha / selection": 4.594,
+          "alpha / panel on white wallpaper": 5.79,
+          "steins-gate / canvas": 8.669,
+          "steins-gate / panel": 8.256,
+          "steins-gate / raised": 7.351,
+          "steins-gate / raisedHover": 6.175,
+          "steins-gate / input": 8.908,
+          "steins-gate / selection": 5.551,
+          "steins-gate / panel on white wallpaper": 6.996,
+          "hinamizawa / canvas": 9.25,
+          "hinamizawa / panel": 8.81,
+          "hinamizawa / raised": 7.845,
+          "hinamizawa / raisedHover": 6.589,
+          "hinamizawa / input": 9.505,
+          "hinamizawa / selection": 5.923,
+          "hinamizawa / panel on white wallpaper": 7.465,
+          "hitogashima / canvas": 8.791,
+          "hitogashima / panel": 8.372,
+          "hitogashima / raised": 7.455,
+          "hitogashima / raisedHover": 6.262,
+          "hitogashima / input": 9.033,
+          "hitogashima / selection": 5.629,
+          "hitogashima / panel on white wallpaper": 7.094,
+          "lugunica / canvas": 8.132,
+          "lugunica / panel": 7.745,
+          "lugunica / raised": 6.896,
+          "lugunica / raisedHover": 5.793,
+          "lugunica / input": 8.356,
+          "lugunica / selection": 5.207,
+          "lugunica / panel on white wallpaper": 6.563,
+          "mitakihara / canvas": 8.262,
+          "mitakihara / panel": 7.868,
+          "mitakihara / raised": 7.006,
+          "mitakihara / raisedHover": 5.885,
+          "mitakihara / input": 8.489,
+          "mitakihara / selection": 5.29,
+          "mitakihara / panel on white wallpaper": 6.667
+        }
+      }
+    },
+    {
+      "check": "white selection text >= 4.5",
+      "pass": true,
+      "detail": 11.461
+    },
+    {
+      "check": "dark text on world accent >= 4.5",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "SVG launcher",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded launcher 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges launcher 16",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded launcher 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges launcher 24",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        20,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded launcher 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges launcher 32",
+      "pass": true,
+      "detail": [
+        4,
+        4,
+        27,
+        27
+      ]
+    },
+    {
+      "check": "SVG terminal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded terminal 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges terminal 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded terminal 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges terminal 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded terminal 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges terminal 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-open",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-open 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-open 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-open 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-open 24",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-open 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-open 32",
+      "pass": true,
+      "detail": [
+        1,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG mail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded mail 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges mail 16",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        14,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded mail 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges mail 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded mail 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges mail 32",
+      "pass": true,
+      "detail": [
+        3,
+        6,
+        28,
+        25
+      ]
+    },
+    {
+      "check": "SVG worldlines",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded worldlines 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges worldlines 16",
+      "pass": true,
+      "detail": [
+        2,
+        1,
+        13,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded worldlines 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges worldlines 24",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded worldlines 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges worldlines 32",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        28,
+        28
+      ]
+    },
+    {
+      "check": "SVG settings",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded settings 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges settings 16",
+      "pass": true,
+      "detail": [
+        1,
+        1,
+        14,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded settings 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges settings 24",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded settings 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges settings 32",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        29,
+        29
+      ]
+    },
+    {
+      "check": "SVG appearance",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded appearance 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges appearance 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded appearance 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges appearance 24",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        20,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded appearance 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges appearance 32",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        27,
+        27
+      ]
+    },
+    {
+      "check": "SVG power",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded power 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges power 16",
+      "pass": true,
+      "detail": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded power 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges power 24",
+      "pass": true,
+      "detail": [
+        3,
+        2,
+        20,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded power 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges power 32",
+      "pass": true,
+      "detail": [
+        4,
+        2,
+        27,
+        27
+      ]
+    },
+    {
+      "check": "SVG reboot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded reboot 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges reboot 16",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        13,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded reboot 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges reboot 24",
+      "pass": true,
+      "detail": [
+        3,
+        2,
+        20,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded reboot 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges reboot 32",
+      "pass": true,
+      "detail": [
+        4,
+        3,
+        27,
+        28
+      ]
+    },
+    {
+      "check": "SVG logout",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded logout 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges logout 16",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded logout 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges logout 24",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded logout 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges logout 32",
+      "pass": true,
+      "detail": [
+        5,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG notification",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded notification 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges notification 16",
+      "pass": true,
+      "detail": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded notification 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges notification 24",
+      "pass": true,
+      "detail": [
+        4,
+        2,
+        19,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded notification 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges notification 32",
+      "pass": true,
+      "detail": [
+        5,
+        2,
+        26,
+        27
+      ]
+    },
+    {
+      "check": "SVG network",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded network 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges network 16",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        13,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded network 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges network 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded network 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges network 32",
+      "pass": true,
+      "detail": [
+        3,
+        6,
+        28,
+        25
+      ]
+    },
+    {
+      "check": "SVG volume",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded volume 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume 16",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        14,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded volume 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        22,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded volume 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        29,
+        26
+      ]
+    },
+    {
+      "check": "SVG volume-medium",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded volume-medium 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-medium 16",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        11,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded volume-medium 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-medium 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        17,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded volume-medium 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-medium 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        23,
+        26
+      ]
+    },
+    {
+      "check": "SVG volume-low",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded volume-low 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-low 16",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        11,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded volume-low 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-low 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        16,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded volume-low 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-low 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        22,
+        26
+      ]
+    },
+    {
+      "check": "SVG volume-muted",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded volume-muted 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-muted 16",
+      "pass": true,
+      "detail": [
+        1,
+        3,
+        14,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded volume-muted 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-muted 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded volume-muted 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges volume-muted 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG home",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded home 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges home 16",
+      "pass": true,
+      "detail": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded home 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges home 24",
+      "pass": true,
+      "detail": [
+        3,
+        2,
+        20,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded home 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges home 32",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG document",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded document 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges document 16",
+      "pass": true,
+      "detail": [
+        3,
+        1,
+        12,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded document 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges document 24",
+      "pass": true,
+      "detail": [
+        4,
+        2,
+        19,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded document 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges document 32",
+      "pass": true,
+      "detail": [
+        6,
+        3,
+        25,
+        28
+      ]
+    },
+    {
+      "check": "SVG download",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded download 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges download 16",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        13,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded download 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges download 24",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        20,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded download 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges download 32",
+      "pass": true,
+      "detail": [
+        5,
+        3,
+        26,
+        28
+      ]
+    },
+    {
+      "check": "SVG image",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded image 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges image 16",
+      "pass": true,
+      "detail": [
+        1,
+        1,
+        14,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded image 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges image 24",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded image 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges image 32",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        28,
+        28
+      ]
+    },
+    {
+      "check": "SVG audio",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded audio 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges audio 16",
+      "pass": true,
+      "detail": [
+        1,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded audio 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges audio 24",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        19,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded audio 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges audio 32",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        26,
+        27
+      ]
+    },
+    {
+      "check": "SVG video",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded video 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges video 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded video 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges video 24",
+      "pass": true,
+      "detail": [
+        2,
+        4,
+        21,
+        19
+      ]
+    },
+    {
+      "check": "visible bounded video 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges video 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG trash",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded trash 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges trash 16",
+      "pass": true,
+      "detail": [
+        2,
+        1,
+        13,
+        14
+      ]
+    },
+    {
+      "check": "visible bounded trash 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges trash 24",
+      "pass": true,
+      "detail": [
+        3,
+        2,
+        20,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded trash 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges trash 32",
+      "pass": true,
+      "detail": [
+        5,
+        3,
+        26,
+        28
+      ]
+    },
+    {
+      "check": "SVG search",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded search 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges search 16",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded search 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges search 24",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        21,
+        21
+      ]
+    },
+    {
+      "check": "visible bounded search 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges search 32",
+      "pass": true,
+      "detail": [
+        4,
+        4,
+        28,
+        28
+      ]
+    },
+    {
+      "check": "SVG close",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded close 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges close 16",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        12,
+        12
+      ]
+    },
+    {
+      "check": "visible bounded close 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges close 24",
+      "pass": true,
+      "detail": [
+        5,
+        5,
+        18,
+        18
+      ]
+    },
+    {
+      "check": "visible bounded close 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges close 32",
+      "pass": true,
+      "detail": [
+        7,
+        7,
+        24,
+        24
+      ]
+    },
+    {
+      "check": "SVG plus",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded plus 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges plus 16",
+      "pass": true,
+      "detail": [
+        2,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded plus 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges plus 24",
+      "pass": true,
+      "detail": [
+        3,
+        3,
+        20,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded plus 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges plus 32",
+      "pass": true,
+      "detail": [
+        4,
+        4,
+        27,
+        27
+      ]
+    },
+    {
+      "check": "SVG chevron-down",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded chevron-down 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges chevron-down 16",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        12,
+        10
+      ]
+    },
+    {
+      "check": "visible bounded chevron-down 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges chevron-down 24",
+      "pass": true,
+      "detail": [
+        5,
+        8,
+        18,
+        15
+      ]
+    },
+    {
+      "check": "visible bounded chevron-down 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges chevron-down 32",
+      "pass": true,
+      "detail": [
+        7,
+        11,
+        24,
+        20
+      ]
+    },
+    {
+      "check": "SVG folder-home",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-home 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-home 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-home 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-home 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-home 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-home 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-documents",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-documents 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-documents 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-documents 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-documents 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-documents 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-documents 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-downloads",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-downloads 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-downloads 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-downloads 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-downloads 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-downloads 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-downloads 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-pictures",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-pictures 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-pictures 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-pictures 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-pictures 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-pictures 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-pictures 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-music",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-music 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-music 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-music 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-music 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-music 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-music 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-videos",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-videos 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-videos 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-videos 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-videos 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-videos 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-videos 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "SVG folder-network",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "visible bounded folder-network 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-network 16",
+      "pass": true,
+      "detail": [
+        1,
+        2,
+        14,
+        13
+      ]
+    },
+    {
+      "check": "visible bounded folder-network 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-network 24",
+      "pass": true,
+      "detail": [
+        2,
+        3,
+        21,
+        20
+      ]
+    },
+    {
+      "check": "visible bounded folder-network 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "clear canvas edges folder-network 32",
+      "pass": true,
+      "detail": [
+        3,
+        5,
+        28,
+        26
+      ]
+    },
+    {
+      "check": "existing emblem unchanged",
+      "pass": true,
+      "detail": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41"
+    },
+    {
+      "check": "alias bytes steins-launcher",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes start-here",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes utilities-terminal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-terminal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-terminal-v3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-terminal-v4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes org.kde.konsole",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes konsole",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes system-file-manager",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes org.kde.dolphin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes dolphin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-dmail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes internet-mail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-navigator",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-navigator-v4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-worldline",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes steins-worldlines",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes preferences-system",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes systemsettings",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes systemsettings5",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes systemsettings6",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes preferences-desktop-theme",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes preferences-desktop",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-open",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes user-home",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes user-desktop",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-home",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-documents",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-download",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-downloads",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-pictures",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-music",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-videos",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes folder-network",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes user-trash",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes user-trash-full",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes system-shutdown",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes system-reboot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes system-log-out",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes configure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes preferences-other",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes edit-find",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes window-close",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes tab-close",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes list-add",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes arrow-down",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes mail-message-new",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes notifications",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes notification-inactive",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes network-wireless",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes network-wireless-connected-100",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes audio-volume-high",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes audio-volume-medium",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes audio-volume-low",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes audio-volume-muted",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes text-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes application-x-desktop",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes image-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes audio-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "alias bytes video-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-launcher",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-launcher 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-launcher 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-launcher 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias start-here",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source start-here 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source start-here 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source start-here 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias utilities-terminal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source utilities-terminal 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source utilities-terminal 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source utilities-terminal 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-terminal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-terminal-v3",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal-v3 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal-v3 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal-v3 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-terminal-v4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal-v4 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal-v4 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-terminal-v4 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias org.kde.konsole",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source org.kde.konsole 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source org.kde.konsole 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source org.kde.konsole 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias konsole",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source konsole 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source konsole 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source konsole 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias system-file-manager",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-file-manager 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-file-manager 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-file-manager 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias org.kde.dolphin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source org.kde.dolphin 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source org.kde.dolphin 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source org.kde.dolphin 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias dolphin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source dolphin 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source dolphin 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source dolphin 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-dmail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-dmail 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-dmail 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-dmail 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias internet-mail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source internet-mail 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source internet-mail 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source internet-mail 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-navigator",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-navigator 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-navigator 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-navigator 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-navigator-v4",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-navigator-v4 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-navigator-v4 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-navigator-v4 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-worldline",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-worldline 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-worldline 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-worldline 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias steins-worldlines",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-worldlines 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-worldlines 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source steins-worldlines 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias preferences-system",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-system 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-system 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-system 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias systemsettings",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias systemsettings5",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings5 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings5 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings5 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias systemsettings6",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings6 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings6 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source systemsettings6 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias preferences-desktop-theme",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-desktop-theme 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-desktop-theme 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-desktop-theme 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias preferences-desktop",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-desktop 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-desktop 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-desktop 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-open",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-open 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-open 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-open 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias user-home",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-home 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-home 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-home 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias user-desktop",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-desktop 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-desktop 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-desktop 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-home",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-home 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-home 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-home 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-documents",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-documents 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-documents 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-documents 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-download",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-download 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-download 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-download 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-downloads",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-downloads 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-downloads 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-downloads 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-pictures",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-pictures 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-pictures 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-pictures 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-music",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-music 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-music 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-music 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-videos",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-videos 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-videos 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-videos 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias folder-network",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-network 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-network 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source folder-network 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias user-trash",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-trash 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-trash 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-trash 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias user-trash-full",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-trash-full 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-trash-full 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source user-trash-full 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias system-shutdown",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-shutdown 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-shutdown 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-shutdown 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias system-reboot",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-reboot 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-reboot 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-reboot 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias system-log-out",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-log-out 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-log-out 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source system-log-out 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias configure",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source configure 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source configure 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source configure 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias preferences-other",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-other 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-other 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source preferences-other 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias edit-find",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source edit-find 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source edit-find 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source edit-find 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias window-close",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source window-close 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source window-close 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source window-close 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias tab-close",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source tab-close 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source tab-close 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source tab-close 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias list-add",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source list-add 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source list-add 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source list-add 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias arrow-down",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source arrow-down 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source arrow-down 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source arrow-down 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias mail-message-new",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source mail-message-new 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source mail-message-new 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source mail-message-new 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias notifications",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source notifications 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source notifications 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source notifications 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias notification-inactive",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source notification-inactive 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source notification-inactive 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source notification-inactive 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias network-wireless",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source network-wireless 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source network-wireless 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source network-wireless 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias network-wireless-connected-100",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source network-wireless-connected-100 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source network-wireless-connected-100 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source network-wireless-connected-100 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias audio-volume-high",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-high 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-high 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-high 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias audio-volume-medium",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-medium 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-medium 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-medium 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias audio-volume-low",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-low 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-low 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-low 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias audio-volume-muted",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-muted 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-muted 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-volume-muted 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias text-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source text-x-generic 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source text-x-generic 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source text-x-generic 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias application-x-desktop",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source application-x-desktop 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source application-x-desktop 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source application-x-desktop 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias image-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source image-x-generic 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source image-x-generic 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source image-x-generic 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias audio-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-x-generic 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-x-generic 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source audio-x-generic 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt has alias video-x-generic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source video-x-generic 16",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source video-x-generic 24",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt exact source video-x-generic 32",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt inherited Breeze Dark fallback document-save",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt inherited Breeze Dark fallback edit-copy",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt inherited Breeze Dark fallback dialog-information",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "Qt preview saved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "package only identity share files",
+      "pass": true,
+      "detail": [
+        "usr/share/doc/steins-identity-v4/LICENSE",
+        "usr/share/doc/steins-identity-v4/PROVENANCE.json",
+        "usr/share/doc/steins-identity-v4/README.md",
+        "usr/share/doc/steins-identity-v4/copyright",
+        "usr/share/icons/SteinsLab/index.theme",
+        "usr/share/icons/SteinsLab/scalable/actions/arrow-down.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/configure.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/edit-find.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/list-add.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/mail-message-new.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/preferences-other.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/system-log-out.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/system-reboot.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/system-shutdown.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/tab-close.svg",
+        "usr/share/icons/SteinsLab/scalable/actions/window-close.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/dolphin.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/internet-mail.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/konsole.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/org.kde.dolphin.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/org.kde.konsole.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/preferences-desktop-theme.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/preferences-desktop.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/preferences-system.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/start-here.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-dmail.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-launcher.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-navigator-v4.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-navigator.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-os.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-terminal-v3.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-terminal-v4.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-terminal.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-worldline.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/steins-worldlines.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/system-file-manager.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/systemsettings.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/systemsettings5.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/systemsettings6.svg",
+        "usr/share/icons/SteinsLab/scalable/apps/utilities-terminal.svg",
+        "usr/share/icons/SteinsLab/scalable/mimetypes/application-x-desktop.svg",
+        "usr/share/icons/SteinsLab/scalable/mimetypes/audio-x-generic.svg",
+        "usr/share/icons/SteinsLab/scalable/mimetypes/image-x-generic.svg",
+        "usr/share/icons/SteinsLab/scalable/mimetypes/text-x-generic.svg",
+        "usr/share/icons/SteinsLab/scalable/mimetypes/video-x-generic.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-documents.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-download.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-downloads.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-home.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-music.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-network.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-open.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-pictures.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder-videos.svg",
+        "usr/share/icons/SteinsLab/scalable/places/folder.svg",
+        "usr/share/icons/SteinsLab/scalable/places/user-desktop.svg",
+        "usr/share/icons/SteinsLab/scalable/places/user-home.svg",
+        "usr/share/icons/SteinsLab/scalable/places/user-trash-full.svg",
+        "usr/share/icons/SteinsLab/scalable/places/user-trash.svg",
+        "usr/share/icons/SteinsLab/scalable/status/audio-volume-high.svg",
+        "usr/share/icons/SteinsLab/scalable/status/audio-volume-low.svg",
+        "usr/share/icons/SteinsLab/scalable/status/audio-volume-medium.svg",
+        "usr/share/icons/SteinsLab/scalable/status/audio-volume-muted.svg",
+        "usr/share/icons/SteinsLab/scalable/status/network-wireless-connected-100.svg",
+        "usr/share/icons/SteinsLab/scalable/status/network-wireless.svg",
+        "usr/share/icons/SteinsLab/scalable/status/notification-inactive.svg",
+        "usr/share/icons/SteinsLab/scalable/status/notifications.svg",
+        "usr/share/steins-v4/tokens.json"
+      ]
+    },
+    {
+      "check": "packaged tokens equal current source",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "package does not ship maintainer scripts",
+      "pass": true,
+      "detail": [
+        "control"
+      ]
+    },
+    {
+      "check": "package metadata name",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "scope": "Offscreen native Qt icon lookup and asset/package checks; actual Plasma interaction and desktop screenshots are a separate guest test."
+}

@@ -1,0 +1,102 @@
+--- a/config/includes.chroot/usr/local/bin/steins-meter
++++ b/config/includes.chroot/usr/local/bin/steins-meter
+@@ -29,6 +29,7 @@
+         self.get_style_context().add_class("steins-meter")
+         self.shown = None                 # what the tubes currently display
+         self.animation = None
++        self.animation_generation = 0
+         self.provider = Gtk.CssProvider()
+         Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), self.provider,
+                                                  Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION + 1)
+@@ -82,7 +83,12 @@
+             self.monitor = None
+ 
+     def on_file_event(self, monitor, file, other, event):
+-        if file is not None and file.get_basename() == sl.state_file().name:
++        names = {item.get_basename() for item in (file, other) if item is not None}
++        # Atomic replacement may name the destination in ``other``. Preference
++        # changes cancel motion immediately, even while the number is unchanged.
++        if "preferences.json" in names:
++            self.refresh()
++        elif sl.state_file().name in names:
+             GLib.timeout_add(80, self.refresh_once)
+ 
+     def refresh_once(self):
+@@ -102,12 +108,16 @@
+         accessible = self.button.get_accessible()
+         accessible.set_name("Divergence meter")
+         accessible.set_description(meterlib.accessible_text(number, pack.name if pack else None))
++        default_motion = "reduced" if os.environ.get("STEINS_DESKTOP_BACKEND") == "plasma" else "full"
++        motion = meterlib.motion_profile(sl.state_dir() / "preferences.json", default_motion)
++        if initial or self.shown is None or motion != "full":
++            self.cancel_animation()
++            self.show_text(number)
++            self.shown = number
++            return
+         if number == self.shown:
+             return
+-        if initial or self.shown is None:
+-            self.show_text(number)
+-        else:
+-            self.animate(self.shown, number)
++        self.animate(self.shown, number)
+         self.shown = number
+ 
+     # -- display -----------------------------------------------------------
+@@ -117,13 +127,23 @@
+             ctx = label.get_style_context()
+             (ctx.add_class if scrambling and ch != "." else ctx.remove_class)("scramble")
+ 
+-    def animate(self, old, new):
++    def cancel_animation(self):
++        # Also invalidate callbacks already queued for dispatch: removing a GLib
++        # source alone must not allow an obsolete frame to overwrite stable digits.
++        self.animation_generation += 1
+         if self.animation:
+             GLib.source_remove(self.animation)
++            self.animation = None
++
++    def animate(self, old, new):
++        self.cancel_animation()
++        generation = self.animation_generation
+         frames = meterlib.flicker_frames(old, new, frames=15, rng=random.Random())
+         state = {"i": 0}
+ 
+         def tick():
++            if generation != self.animation_generation:
++                return False
+             i = state["i"]
+             self.show_text(frames[i], scrambling=i < len(frames) - 1)
+             state["i"] += 1
+--- a/config/includes.chroot/usr/local/lib/steins/meterlib.py
++++ b/config/includes.chroot/usr/local/lib/steins/meterlib.py
+@@ -1,8 +1,29 @@
+ """Display-independent logic for the steins-meter divergence meter (testable without GTK)."""
+ import random
++import json
++from pathlib import Path
+ 
+ TUBES = 8                    # "d.dddddd"
+ DIGITS = "0123456789"
++
++
++def motion_profile(preferences_path, default="full"):
++    """Read the shared preference without maintaining another state file.
++
++    Legacy sessions may keep their existing Full behaviour when no preference file
++    exists. Plasma passes Reduced as its default. Corrupt/unreadable preferences
++    always choose Reduced so a damaged file cannot force digit scrambling.
++    """
++    try:
++        preferences = json.loads(Path(preferences_path).read_text(encoding="utf-8"))
++    except FileNotFoundError:
++        return default if default in ("off", "reduced", "full") else "reduced"
++    except (OSError, ValueError):
++        return "reduced"
++    if not isinstance(preferences, dict):
++        return "reduced"
++    value = preferences.get("motion", default)
++    return value if value in ("off", "reduced", "full") else "reduced"
+ 
+ 
+ def glyphs(number):

@@ -1,0 +1,3 @@
+# Media repository for Debian Calamares' offline UEFI bootloader installation.
+# Keep BIOS and UEFI lists separate: their installed frontend packages conflict.
+grub-efi

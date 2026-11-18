@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Steins;OS World-line Monitor
+Exec=steins-session
+OnlyShowIn=XFCE;

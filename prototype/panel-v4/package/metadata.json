@@ -1,0 +1,22 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Id": "org.steinsos.worldline.v4",
+    "Name": "Worldline Instrument V4",
+    "Description": "A quiet, clickable worldline instrument for the Steins Lab panel",
+    "Icon": "steins-worldline",
+    "Category": "Utilities",
+    "Version": "0.4.0",
+    "License": "MIT",
+    "Authors": [
+      {
+        "Name": "Steins;OS contributors"
+      }
+    ]
+  },
+  "X-KDE-ParentApp": "org.kde.plasmashell",
+  "X-Plasma-API-Minimum-Version": "6.3",
+  "X-Plasma-Provides": [
+    "org.steinsos.worldline.v4"
+  ]
+}

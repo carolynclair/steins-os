@@ -1,0 +1,486 @@
+{
+  "scope": "native Plymouth24.004.60 script engine with no display/daemon; not real boot qualification",
+  "checks_passed": 48,
+  "results": [
+    {
+      "variant": "steins-lab-v3",
+      "mode": 0,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 0,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 1,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 1,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 2,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 2,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 3,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 3,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 4,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 4,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 5,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 5,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 6,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 6,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 7,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 33.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3",
+      "mode": 7,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 0,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 0,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 1,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 1,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 2,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 2,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 3,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 3,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 4,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 4,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 5,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 5,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 6,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 6,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 7,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 3.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-reduced",
+      "mode": 7,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 1.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 0,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 0,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 1,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 1,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 2,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 2,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 3,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 3,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 4,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 4,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 5,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 5,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 6,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 6,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 7,
+      "scenario": "animation",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": false,
+      "native_script_engine": true,
+      "real_display": false
+    },
+    {
+      "variant": "steins-lab-v3-static",
+      "mode": 7,
+      "scenario": "prompt",
+      "passed": true,
+      "frame": 0.0,
+      "prompt_priority": true,
+      "native_script_engine": true,
+      "real_display": false
+    }
+  ]
+}

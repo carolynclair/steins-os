@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+if [ ! -d /run/live/medium ]; then
+  zenity --info --text='Installation is available only from the Steins;OS live USB.'
+  exit 0
+fi
+# Generated from Debian's calamares-install-debian wrapper by our package.
+exec /usr/lib/steins/calamares-install

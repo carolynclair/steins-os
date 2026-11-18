@@ -1,0 +1,7 @@
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+
+// Explicit Debian origin avoids dependence on derivative display branding.
+Unattended-Upgrade::Origins-Pattern {
+ "origin=Debian,codename=trixie-security,label=Debian-Security";
+};

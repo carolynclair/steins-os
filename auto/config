@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eu
+lb config noauto --mode debian --distribution trixie --architectures amd64  --archive-areas "main contrib non-free non-free-firmware"  --binary-images iso-hybrid --bootloaders "syslinux grub-efi"  --debian-installer none --image-name steins-os-0.1-amd64  --iso-application "Steins;OS 0.1 — Gate of Steiner"  --iso-publisher "Steins;OS Project" --iso-volume STEINS_OS  --bootappend-live "boot=live components username=lab hostname=steins quiet splash locales=en_US.UTF-8"  --chroot-squashfs-compression-type zstd --chroot-squashfs-compression-level 6 --apt-recommends true --security true --updates true  --memtest none "$@"

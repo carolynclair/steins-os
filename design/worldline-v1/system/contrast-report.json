@@ -1,0 +1,147 @@
+[
+  {
+    "role": "body on canvas",
+    "foreground": "#eee9df",
+    "background": "#101820",
+    "ratio": 14.79,
+    "target": 4.5
+  },
+  {
+    "role": "body on raised",
+    "foreground": "#eee9df",
+    "background": "#1d2a35",
+    "ratio": 12.1,
+    "target": 4.5
+  },
+  {
+    "role": "secondary on raised",
+    "foreground": "#a9b6bf",
+    "background": "#1d2a35",
+    "ratio": 7.06,
+    "target": 4.5
+  },
+  {
+    "role": "subtle on raised",
+    "foreground": "#90a3af",
+    "background": "#1d2a35",
+    "ratio": 5.61,
+    "target": 4.5
+  },
+  {
+    "role": "selected text",
+    "foreground": "#eee9df",
+    "background": "#334657",
+    "ratio": 8.06,
+    "target": 4.5
+  },
+  {
+    "role": "input text",
+    "foreground": "#eee9df",
+    "background": "#0c1319",
+    "ratio": 15.46,
+    "target": 4.5
+  },
+  {
+    "role": "error text on raised",
+    "foreground": "#f3978b",
+    "background": "#1d2a35",
+    "ratio": 6.7,
+    "target": 4.5
+  },
+  {
+    "worldline": "alpha",
+    "role": "accent text / focus on raised",
+    "foreground": "#ec887d",
+    "background": "#1d2a35",
+    "ratio": 5.84,
+    "target": 4.5
+  },
+  {
+    "worldline": "alpha",
+    "role": "primary button text",
+    "foreground": "#101820",
+    "background": "#ec887d",
+    "ratio": 7.14,
+    "target": 4.5
+  },
+  {
+    "worldline": "steins-gate",
+    "role": "accent text / focus on raised",
+    "foreground": "#efad60",
+    "background": "#1d2a35",
+    "ratio": 7.54,
+    "target": 4.5
+  },
+  {
+    "worldline": "steins-gate",
+    "role": "primary button text",
+    "foreground": "#101820",
+    "background": "#efad60",
+    "ratio": 9.22,
+    "target": 4.5
+  },
+  {
+    "worldline": "hinamizawa",
+    "role": "accent text / focus on raised",
+    "foreground": "#b8ca81",
+    "background": "#1d2a35",
+    "ratio": 8.23,
+    "target": 4.5
+  },
+  {
+    "worldline": "hinamizawa",
+    "role": "primary button text",
+    "foreground": "#101820",
+    "background": "#b8ca81",
+    "ratio": 10.06,
+    "target": 4.5
+  },
+  {
+    "worldline": "hitogashima",
+    "role": "accent text / focus on raised",
+    "foreground": "#72c9dc",
+    "background": "#1d2a35",
+    "ratio": 7.74,
+    "target": 4.5
+  },
+  {
+    "worldline": "hitogashima",
+    "role": "primary button text",
+    "foreground": "#101820",
+    "background": "#72c9dc",
+    "ratio": 9.46,
+    "target": 4.5
+  },
+  {
+    "worldline": "lugunica",
+    "role": "accent text / focus on raised",
+    "foreground": "#b6a0ec",
+    "background": "#1d2a35",
+    "ratio": 6.43,
+    "target": 4.5
+  },
+  {
+    "worldline": "lugunica",
+    "role": "primary button text",
+    "foreground": "#101820",
+    "background": "#b6a0ec",
+    "ratio": 7.86,
+    "target": 4.5
+  },
+  {
+    "worldline": "mitakihara",
+    "role": "accent text / focus on raised",
+    "foreground": "#e6a7d4",
+    "background": "#1d2a35",
+    "ratio": 7.56,
+    "target": 4.5
+  },
+  {
+    "worldline": "mitakihara",
+    "role": "primary button text",
+    "foreground": "#101820",
+    "background": "#e6a7d4",
+    "ratio": 9.24,
+    "target": 4.5
+  }
+]

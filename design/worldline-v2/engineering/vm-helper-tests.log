@@ -1,0 +1,7 @@
+.......Formatting '/tmp/tmpu_i_ij6e/evidence/v2-vm-validation/runs/run-0bcb8f162e564c18/system.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16777216 backing_file=/tmp/tmpu_i_ij6e/evidence/v2-vm-validation/checkpoints/baseline/system.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+Formatting '/tmp/tmpu_i_ij6e/evidence/v2-vm-validation/runs/run-e1b79ff3cda44f0d/system.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16777216 backing_file=/tmp/tmpu_i_ij6e/evidence/v2-vm-validation/checkpoints/baseline/system.qcow2 backing_fmt=qcow2 lazy_refcounts=off refcount_bits=16
+.
+----------------------------------------------------------------------
+Ran 8 tests in 0.416s
+
+OK

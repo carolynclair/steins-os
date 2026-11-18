@@ -1,0 +1,37 @@
+name: Source checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source:
+    name: Source and design contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      STEINS_NO_APPLY: "1"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Check source and UI contracts
+        run: env -u DISPLAY -u WAYLAND_DISPLAY -u DBUS_SESSION_BUS_ADDRESS python3 tests/check_source.py
+      - name: Exercise six-world logic in temporary directories
+        run: env -u DISPLAY -u WAYLAND_DISPLAY -u DBUS_SESSION_BUS_ADDRESS python3 tests/check_worldlines.py
+      - name: Check shared appearance tokens
+        run: python3 prototype/surfaces-v4/tests/test_tokens.py
+      - name: Check panel frame and contrast contracts
+        run: python3 prototype/panel-v4/test_theme.py
+      - name: Check isolated lab serial framing
+        run: python3 prototype/integration-v4/test_serial.py

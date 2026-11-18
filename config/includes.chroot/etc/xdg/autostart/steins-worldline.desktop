@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Steins;OS Worldline
+Comment=Apply the saved worldline theme at login
+Exec=steins-worldline apply --quiet
+# steins-session owns startup ordering and starts the monitor exactly once.
+Hidden=true
+OnlyShowIn=XFCE;
+NoDisplay=true

@@ -1,0 +1,78 @@
+[
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "ListWorldlines",
+    "args": []
+  },
+  {
+    "method": "SetPreference",
+    "args": [
+      "meter",
+      "true"
+    ]
+  },
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "SetPreference",
+    "args": [
+      "motion",
+      "\"off\""
+    ]
+  },
+  {
+    "method": "SetDivergence",
+    "args": [
+      "2.198306"
+    ]
+  },
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "ApplyCurrent",
+    "args": []
+  },
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "OpenNavigator",
+    "args": []
+  },
+  {
+    "method": "disappear",
+    "args": []
+  },
+  {
+    "method": "reappear",
+    "args": []
+  },
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "ListWorldlines",
+    "args": []
+  },
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "GetState",
+    "args": []
+  },
+  {
+    "method": "GetState",
+    "args": []
+  }
+]

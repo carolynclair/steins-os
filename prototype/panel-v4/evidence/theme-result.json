@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "contract": "native Plasma nine-slice frames, non-blur opaque fallback, shared tokens",
+  "contrast": {
+    "text/input": 14.94,
+    "muted/input": 8.89,
+    "text/selection": 9.31,
+    "muted/panel": 8.24,
+    "alpha/digits": 7.37,
+    "steins-gate/digits": 8.91,
+    "hinamizawa/digits": 9.51,
+    "hitogashima/digits": 9.03,
+    "lugunica/digits": 8.36,
+    "mitakihara/digits": 8.49,
+    "focus/hover": 6.18
+  },
+  "popup_frames": {
+    "dialogs/background.svg": {
+      "center_opacity": 1,
+      "center_size": [
+        28,
+        28
+      ],
+      "content_margin": 4
+    },
+    "widgets/background.svg": {
+      "center_opacity": 1,
+      "center_size": [
+        28,
+        28
+      ],
+      "content_margin": 14
+    },
+    "opaque/dialogs/background.svg": {
+      "center_opacity": 1,
+      "center_size": [
+        28,
+        28
+      ],
+      "content_margin": 4
+    },
+    "opaque/widgets/background.svg": {
+      "center_opacity": 1,
+      "center_size": [
+        28,
+        28
+      ],
+      "content_margin": 14
+    },
+    "translucent/dialogs/background.svg": {
+      "center_opacity": 1,
+      "center_size": [
+        28,
+        28
+      ],
+      "content_margin": 4
+    },
+    "translucent/widgets/background.svg": {
+      "center_opacity": 1,
+      "center_size": [
+        28,
+        28
+      ],
+      "content_margin": 14
+    }
+  }
+}

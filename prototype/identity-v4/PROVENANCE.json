@@ -1,0 +1,260 @@
+{
+  "original_geometry": true,
+  "source": "Hand-authored SVG on a 24px grid; no reference artwork traced; no fonts bundled",
+  "canonical_icon_count": 35,
+  "alias_count": 61,
+  "current_emblem_preserved_sha256": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41",
+  "theme_emblem_sha256": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41",
+  "license": "Original icons CC-BY-4.0, Steins;OS contributors; project code/tokens MIT; inherited upstream themes retain their own licenses",
+  "icons": [
+    {
+      "name": "launcher",
+      "meaning": "Applications",
+      "sha256": "5d75c9b3cc363636b190c3f37b612eeede4fac4215b8a525f94e61e5bb31d117"
+    },
+    {
+      "name": "terminal",
+      "meaning": "Terminal",
+      "sha256": "9d79fe28c4e48a8ba7da60f6fb3deea2ee11f017b90a3520965ad88b3f2ca8e5"
+    },
+    {
+      "name": "folder",
+      "meaning": "Files",
+      "sha256": "0466eb722c252c4ad0ce50c78c64a850154aa1337a49f9dd384fbeb7b89d66fc"
+    },
+    {
+      "name": "folder-open",
+      "meaning": "Open folder",
+      "sha256": "857e0501dd6d67d531098a2c0fde749915bdddfe636a0a3d7c3c4898a4e8670d"
+    },
+    {
+      "name": "mail",
+      "meaning": "Mail",
+      "sha256": "2102304cc6ca2d8ad8e80210de379ebb8633e97173bccdca5ac33ea77632fe44"
+    },
+    {
+      "name": "worldlines",
+      "meaning": "Worldlines",
+      "sha256": "b8b6b086b504d52b96adffbed8e995aa6f86759f9e2685d6aa0c5f6ba8d70ad3"
+    },
+    {
+      "name": "settings",
+      "meaning": "Settings",
+      "sha256": "ab8b957d79db8d88a59ce6ec6cd67058eabcf1c46c59dc1ee03a9dd88b214647"
+    },
+    {
+      "name": "appearance",
+      "meaning": "Appearance",
+      "sha256": "73bf3ae608fd1aa34b4f93c0a5aa74f40691ddfe08a0b5ffef214b81e931dec8"
+    },
+    {
+      "name": "power",
+      "meaning": "Power",
+      "sha256": "a89d2b1ed3a0070fbb76358d2b1a85aeaa31a3bc077281ca5d8315b5ef84faa7"
+    },
+    {
+      "name": "reboot",
+      "meaning": "Restart",
+      "sha256": "9c40e38d00d3c664203ad33edf748404d05e34a793c393c4c384df2b35844668"
+    },
+    {
+      "name": "logout",
+      "meaning": "Sign out",
+      "sha256": "da31b7a927d43d394f2f0733788e39a74e44fe4a15af9d017cb9245289877829"
+    },
+    {
+      "name": "notification",
+      "meaning": "Notifications",
+      "sha256": "683add44711466ce9222fc75804d1e13ec115987cff735614823d23d4711698e"
+    },
+    {
+      "name": "network",
+      "meaning": "Network",
+      "sha256": "f0e13780ad394f1fe640c8dd9408548f73856c3586623631e027bf184197373a"
+    },
+    {
+      "name": "volume",
+      "meaning": "Volume",
+      "sha256": "677a40440518750b5a52246dec13ee303a2aac1d47ea1594c75e0417754b31ef"
+    },
+    {
+      "name": "volume-medium",
+      "meaning": "Medium volume",
+      "sha256": "c967fc5aedc6f9a743b616982a841b3a56a6feef244d63f80299f5d48aed092a"
+    },
+    {
+      "name": "volume-low",
+      "meaning": "Low volume",
+      "sha256": "24c0c33297d6212c4517de179e8e0a87520616230ffcfbd08f043ade7e4ffc73"
+    },
+    {
+      "name": "volume-muted",
+      "meaning": "Muted volume",
+      "sha256": "fd07b6a55a8ad6e0f4fc493c459a6640f25736615178bb4e77db2ec09ff6d72f"
+    },
+    {
+      "name": "home",
+      "meaning": "Home",
+      "sha256": "922dc4feba10a37f9e30d5477947a4011b7dc0bdc72c3ce50ed297edd53e6af8"
+    },
+    {
+      "name": "document",
+      "meaning": "Document",
+      "sha256": "f363e394ebed1b5c2a36f0334b7052762bd33bb9146edb88bfe67648948f09bf"
+    },
+    {
+      "name": "download",
+      "meaning": "Downloads",
+      "sha256": "79982079223556c058eaf9bf41a69d76f2c45f46389db0ced382978029d5f5da"
+    },
+    {
+      "name": "image",
+      "meaning": "Pictures",
+      "sha256": "121c7e1223a672bee1440a0e402cbc9a35ded54dd47b378b9888b38f2f2884ee"
+    },
+    {
+      "name": "audio",
+      "meaning": "Music",
+      "sha256": "5e200b1dfb92ddf7fe85f43b70d526db02014d09da95f64d2f1105ce2b972fc5"
+    },
+    {
+      "name": "video",
+      "meaning": "Videos",
+      "sha256": "64bddda14222e8fbd741c4f5230ed97ac4b6ca0e6ce08a9de6b60d9535eb649a"
+    },
+    {
+      "name": "trash",
+      "meaning": "Trash",
+      "sha256": "67ebe33c5aac81cec81449a162855f61aee9c1ede668a544d849b6b1477e53c5"
+    },
+    {
+      "name": "search",
+      "meaning": "Search",
+      "sha256": "71939e36129a6b4316eb7f06e21a0389efc1f6ab9723e5441ceae81058c85acd"
+    },
+    {
+      "name": "close",
+      "meaning": "Close",
+      "sha256": "c0ce746f775a7efacecfd0b2c0096e17fe53ac874bbc4c60b253572d01b093fe"
+    },
+    {
+      "name": "plus",
+      "meaning": "New item",
+      "sha256": "aad2b997130223b99fe6fff6be75a8a2609d11d155d277e9ee47addf0865a0ef"
+    },
+    {
+      "name": "chevron-down",
+      "meaning": "Expand",
+      "sha256": "e2c56db232eefb4caae9433fc452faefc9483aff52c99ce375f1c74d4e5a5dbd"
+    },
+    {
+      "name": "folder-home",
+      "meaning": "Home folder",
+      "sha256": "16529251a5699e7e28bc7648029a777437191bcf0bac44781749f40407ee55cc"
+    },
+    {
+      "name": "folder-documents",
+      "meaning": "Documents folder",
+      "sha256": "98d8d699d21c1fb07a0e76d748776804ff63ae4dc11f50aecdb26917f6ff2a6f"
+    },
+    {
+      "name": "folder-downloads",
+      "meaning": "Downloads folder",
+      "sha256": "fe64f8e6bbae484a734d47ef8891dc8939ee9419090924ede9b072744d9977d1"
+    },
+    {
+      "name": "folder-pictures",
+      "meaning": "Pictures folder",
+      "sha256": "26dea019ae3b7f5e070b0eac7f0edd7fda4b08fade470d01b15ba6c643894fc3"
+    },
+    {
+      "name": "folder-music",
+      "meaning": "Music folder",
+      "sha256": "b3a336d542cffdc15055f09ee283d0adc49b4ac1f59bcfc41fd2a6f444103386"
+    },
+    {
+      "name": "folder-videos",
+      "meaning": "Videos folder",
+      "sha256": "e0f5d7d15e1069e8786b7c4d46e3caf3a5897cc5672acb2a724b4de39ef597f7"
+    },
+    {
+      "name": "folder-network",
+      "meaning": "Network folder",
+      "sha256": "85b7c156e81ddfcd6d086a544f992f43637496b58dd8775d61f069430b9e6809"
+    }
+  ],
+  "aliases": {
+    "apps": {
+      "steins-launcher": "launcher",
+      "start-here": "launcher",
+      "utilities-terminal": "terminal",
+      "steins-terminal": "terminal",
+      "steins-terminal-v3": "terminal",
+      "steins-terminal-v4": "terminal",
+      "org.kde.konsole": "terminal",
+      "konsole": "terminal",
+      "system-file-manager": "folder",
+      "org.kde.dolphin": "folder",
+      "dolphin": "folder",
+      "steins-dmail": "mail",
+      "internet-mail": "mail",
+      "steins-navigator": "worldlines",
+      "steins-navigator-v4": "worldlines",
+      "steins-worldline": "worldlines",
+      "steins-worldlines": "worldlines",
+      "preferences-system": "settings",
+      "systemsettings": "settings",
+      "systemsettings5": "settings",
+      "systemsettings6": "settings",
+      "preferences-desktop-theme": "appearance",
+      "preferences-desktop": "settings"
+    },
+    "places": {
+      "folder": "folder",
+      "folder-open": "folder-open",
+      "user-home": "home",
+      "user-desktop": "home",
+      "folder-home": "folder-home",
+      "folder-documents": "folder-documents",
+      "folder-download": "folder-downloads",
+      "folder-downloads": "folder-downloads",
+      "folder-pictures": "folder-pictures",
+      "folder-music": "folder-music",
+      "folder-videos": "folder-videos",
+      "folder-network": "folder-network",
+      "user-trash": "trash",
+      "user-trash-full": "trash"
+    },
+    "actions": {
+      "system-shutdown": "power",
+      "system-reboot": "reboot",
+      "system-log-out": "logout",
+      "configure": "settings",
+      "preferences-other": "settings",
+      "edit-find": "search",
+      "window-close": "close",
+      "tab-close": "close",
+      "list-add": "plus",
+      "arrow-down": "chevron-down",
+      "mail-message-new": "mail"
+    },
+    "status": {
+      "notifications": "notification",
+      "notification-inactive": "notification",
+      "network-wireless": "network",
+      "network-wireless-connected-100": "network",
+      "audio-volume-high": "volume",
+      "audio-volume-medium": "volume-medium",
+      "audio-volume-low": "volume-low",
+      "audio-volume-muted": "volume-muted"
+    },
+    "mimetypes": {
+      "text-x-generic": "document",
+      "application-x-desktop": "launcher",
+      "image-x-generic": "image",
+      "audio-x-generic": "audio",
+      "video-x-generic": "video"
+    }
+  },
+  "default_selection": "None; package does not alter host or guest configuration"
+}

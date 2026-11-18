@@ -1,0 +1,143 @@
+// Original Steins;OS laboratory splash. No delay or external process is used.
+// Native Plymouth 24.004.60 script API; generated motion policy is public/system-wide.
+motion = "reduced";
+Window.SetBackgroundTopColor(0.055, 0.075, 0.09);
+Window.SetBackgroundBottomColor(0.055, 0.075, 0.09);
+Plymouth.SetRefreshRate(30);
+frame = 0;
+settled = 0;
+prompt_active = 0;
+status_text = "";
+last_message = "";
+width = 0;
+height = 0;
+logo_image = Image("logo.png");
+trace_image = Image("traces.png");
+logo_sprite = Sprite(logo_image);
+trace_sprite = Sprite(trace_image);
+trace_sprite.SetZ(-1);
+trace_sprite.SetOpacity(0);
+logo_sprite.SetOpacity(1);
+brand_image = Image.Text("STEINS;OS", 0.93, 0.92, 0.88, 1, "Sans 20");
+brand_sprite = Sprite(brand_image);
+message_sprite = Sprite();
+calibration_image = Image.Text("1.048596", 0.91, 0.64, 0.32, 1, "Monospace 13");
+calibration_sprite = Sprite(calibration_image);
+calibration_sprite.SetOpacity(0);
+for (i = 0; i < 12; i++) assembly[i] = Image("assembly-" + i + ".png");
+
+fun normal_message() {
+ mode = Plymouth.GetMode();
+ if (mode == "shutdown") return "SHUTTING DOWN LABORATORY";
+ if (mode == "reboot") return "RESTARTING LABORATORY";
+ if (mode == "updates") return "APPLYING SYSTEM UPDATES";
+ if (mode == "system-upgrade") return "APPLYING SYSTEM UPDATES";
+ if (mode == "firmware-upgrade") return "APPLYING FIRMWARE UPDATE";
+ if (mode == "system-reset") return "RESETTING SYSTEM";
+ return "INITIALISING LABORATORY";
+}
+
+fun layout() {
+ global.width = Window.GetWidth();
+ global.height = Window.GetHeight();
+ global.scale = 1;
+ if (global.width < 1024) global.scale = 0.75;
+ global.cx = global.width / 2;
+ global.cy = global.height * 0.40;
+ global.logo_sprite.SetX(global.cx - 160 * global.scale);
+ global.logo_sprite.SetY(global.cy - 160 * global.scale);
+ global.trace_sprite.SetX(global.cx - 240 * global.scale);
+ global.trace_sprite.SetY(global.cy - 160 * global.scale);
+ global.brand_sprite.SetX(global.cx - global.brand_image.GetWidth()/2);
+ global.brand_sprite.SetY(global.cy + 132 * global.scale);
+ global.calibration_sprite.SetX(global.cx - global.calibration_image.GetWidth()/2);
+ global.calibration_sprite.SetY(global.cy + 105 * global.scale);
+ global.message_sprite.SetX(global.cx - global.message_image.GetWidth()/2);
+ global.message_sprite.SetY(global.cy + 180 * global.scale);
+}
+
+fun message(text) {
+ global.last_message = text;
+ image = Image.Text(text, 0.76, 0.80, 0.82, 1, "Sans 12");
+ available = Window.GetWidth() - 48;
+ if (image.GetWidth() > available) image = image.Scale(available, image.GetHeight()*available/image.GetWidth());
+ global.message_image = image;
+ global.message_sprite.SetImage(image);
+ layout();
+}
+
+fun settle() {
+ global.settled = 1;
+ global.logo_sprite.SetImage(global.logo_image.Scale(320*global.scale, 320*global.scale));
+ global.logo_sprite.SetOpacity(1);
+ global.trace_sprite.SetOpacity(0);
+ global.calibration_sprite.SetOpacity(0);
+ Plymouth.SetRefreshRate(5);
+}
+
+fun display_message(text) {
+ global.status_text = text;
+ if (!global.prompt_active) {
+  settle();
+  message(text);
+ }
+}
+fun display_password(prompt, bullets) {
+ global.prompt_active = 1;
+ settle();
+ text = prompt + " ";
+ for (i = 0; i < bullets; i++) text += "*";
+ message(text);
+}
+fun display_question(prompt, entry) {
+ global.prompt_active = 1;
+ settle();
+ message(prompt + " " + entry);
+}
+fun display_normal() {
+ global.prompt_active = 0;
+ if (global.status_text != "") message(global.status_text);
+ else message(normal_message());
+}
+fun refresh() {
+ if ((Window.GetWidth() != global.width) || (Window.GetHeight() != global.height)) {
+  message(global.last_message);
+  global.trace_sprite.SetImage(global.trace_image.Scale(480*global.scale, 320*global.scale));
+  if (global.settled) settle();
+ }
+ if (global.settled) return;
+ global.frame++;
+ if (global.motion == "reduced") {
+  global.logo_sprite.SetOpacity(0.55 + global.frame*0.15);
+  if (global.frame >= 3) settle();
+  return;
+ }
+ if (global.frame < 5) {
+  global.trace_sprite.SetOpacity(global.frame*0.06);
+  global.logo_sprite.SetOpacity(0.08);
+ } else if (global.frame < 18) {
+  index = Math.Int((global.frame-5)*11/12);
+  global.logo_sprite.SetImage(global.assembly[index].Scale(320*global.scale, 320*global.scale));
+  global.logo_sprite.SetOpacity(0.80);
+  global.trace_sprite.SetOpacity(0.30);
+ } else if (global.frame < 25) {
+  global.logo_sprite.SetImage(global.logo_image.Scale(320*global.scale, 320*global.scale));
+  global.logo_sprite.SetOpacity(1);
+  // Public illustrative calibration, never a user's saved pre-login worldline.
+  global.calibration_sprite.SetOpacity((global.frame-18)/7);
+  global.trace_sprite.SetOpacity(0.24);
+ } else if (global.frame < 33) {
+  global.calibration_sprite.SetOpacity((33-global.frame)/8);
+  global.trace_sprite.SetOpacity((33-global.frame)*0.025);
+ } else settle();
+}
+Plymouth.SetDisplayMessageFunction(display_message);
+Plymouth.SetDisplayPasswordFunction(display_password);
+Plymouth.SetDisplayQuestionFunction(display_question);
+Plymouth.SetDisplayNormalFunction(display_normal);
+Plymouth.SetRefreshFunction(refresh);
+message(normal_message());
+trace_sprite.SetImage(trace_image.Scale(480*scale,320*scale));
+logo_sprite.SetImage(logo_image.Scale(320*scale,320*scale));
+if (motion == "off") settle();
+else logo_sprite.SetOpacity(0.15);

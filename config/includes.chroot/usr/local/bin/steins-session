@@ -1,0 +1,35 @@
+#!/bin/sh
+if command -v steins-worldline >/dev/null 2>&1; then
+ # apply isolates its steps and starts the monitor (conky) itself; a failure is reported on stderr.
+ steins-worldline apply --quiet || true
+ # Safety net: if no monitor is running (no usable pack, conky step failed), start the base widget once.
+ if ! pgrep -u "$(id -u)" -x conky >/dev/null 2>&1; then
+  conf="$HOME/.config/steins/conky.conf"
+  [ -f "$conf" ] || conf=/etc/steins/conky.conf
+  exec conky -c "$conf"
+ fi
+ exit 0
+fi
+# First-login defaults use XFCE 4.20's output/workspace keys, not legacy keys.
+if [ ! -f "$HOME/.config/steins-initialized" ]; then
+ for attempt in 1 2 3 4 5 6 7 8 9 10; do
+  outputs=$(xrandr --query 2>/dev/null | awk '$2 == "connected" {print $1}')
+  if [ -n "$outputs" ]; then
+   success=true
+   for output in $outputs; do
+    for workspace in 0 1 2 3; do
+     base="/backdrop/screen0/monitor${output}/workspace${workspace}"
+     xfconf-query -c xfce4-desktop -p "$base/last-image" --create -t string -s /usr/share/backgrounds/steins/worldline.png || success=false
+     xfconf-query -c xfce4-desktop -p "$base/image-style" --create -t int -s 5 || success=false
+    done
+   done
+   if "$success"; then
+    mkdir -p "$HOME/.config"
+    touch "$HOME/.config/steins-initialized"
+    break
+   fi
+  fi
+  sleep 2
+ done
+fi
+exec conky -c /etc/steins/conky.conf

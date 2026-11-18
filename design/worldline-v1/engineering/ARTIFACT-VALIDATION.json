@@ -1,0 +1,45 @@
+{
+  "status": "asset_validation_only",
+  "wave_checks": [
+    {
+      "file": "activation.wav",
+      "passed": true,
+      "encoded_peak_dbfs": -29.12,
+      "first_last_samples": [
+        0,
+        0
+      ]
+    },
+    {
+      "file": "meter.wav",
+      "passed": true,
+      "encoded_peak_dbfs": -29.12,
+      "first_last_samples": [
+        0,
+        0
+      ]
+    },
+    {
+      "file": "stabilise.wav",
+      "passed": true,
+      "encoded_peak_dbfs": -29.12,
+      "first_last_samples": [
+        0,
+        0
+      ]
+    },
+    {
+      "file": "shift-preview.wav",
+      "passed": true,
+      "encoded_peak_dbfs": -29.12,
+      "first_last_samples": [
+        0,
+        0
+      ]
+    }
+  ],
+  "repeat_generation_same_hashes": true,
+  "playback_performed": false,
+  "native_effect_or_service_tests_performed": false,
+  "notes": "Checked PCM structure, duration, quiet digital peak, zero start/end samples, SHA-256 and same-environment reproducibility. No subjective audio audition or runtime integration."
+}

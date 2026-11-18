@@ -1,0 +1,138 @@
+#!/usr/bin/python3
+"""About Steins;OS: overview, worldlines, what is real, credits. Compact enough for 1024x768."""
+import os
+import subprocess
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "lib", "steins"))
+import aboutlib  # noqa: E402
+import steinslib as sl  # noqa: E402
+
+import gi  # noqa: E402
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk  # noqa: E402
+
+
+def label(text, selectable=False, markup=False):
+    w = Gtk.Label()
+    w.set_markup(text) if markup else w.set_text(text)
+    w.set_xalign(0)
+    w.set_line_wrap(True)
+    w.set_max_width_chars(70)
+    w.set_selectable(selectable)
+    return w
+
+
+def page(*widgets):
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+    box.set_border_width(16)
+    for w in widgets:
+        box.pack_start(w, False, False, 0)
+    scroll = Gtk.ScrolledWindow()
+    scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+    scroll.add(box)
+    return scroll
+
+
+class About(Gtk.Window):
+    def __init__(self):
+        super().__init__(title="About Steins;OS")
+        self.set_default_size(680, 580)
+        self.set_icon_name("steins-os")
+        self.connect("key-press-event", self.on_key)
+        outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        self.add(outer)
+
+        head = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+        head.set_border_width(16)
+        kicker = label("FUTURE GADGET LABORATORY")
+        kicker.get_style_context().add_class("dim-label")
+        title = label('<span size="30000" weight="bold" foreground="#e99a45">Steins;OS</span>', markup=True)
+        title.set_selectable(False)
+        for w in (kicker, title, label("%s · %s preview" % (aboutlib.VERSION, aboutlib.CODENAME)),
+                  label(aboutlib.system_line())):
+            head.pack_start(w, False, False, 0)
+        div, pack = sl.current()
+        self.current = label(aboutlib.current_summary(div, pack))
+        head.pack_start(self.current, False, False, 0)
+        outer.pack_start(head, False, False, 0)
+
+        book = Gtk.Notebook()
+        book.set_tab_pos(Gtk.PositionType.TOP)
+        outer.pack_start(book, True, True, 0)
+        book.append_page(self.overview(), Gtk.Label(label="Overview"))
+        book.append_page(self.worldlines(), Gtk.Label(label="Worldlines"))
+        book.append_page(self.real(), Gtk.Label(label="Real or fiction"))
+        book.append_page(self.credits(), Gtk.Label(label="Status & credits"))
+
+        row = Gtk.Box(spacing=10)
+        row.set_border_width(12)
+        outer.pack_start(row, False, False, 0)
+        self.status = label("")
+        self.buttons = [self.button(row, "System information", ["xfce4-terminal", "--hold", "-e", "steins-info"]),
+                        self.button(row, "User guide", ["xdg-open", aboutlib.GUIDE]),
+                        self.button(row, "Divergence meter", ["steins-meter"])]
+        if aboutlib.is_live():
+            self.button(row, "Install Steins;OS", ["install-steins-os"])
+        close = Gtk.Button(label="Close")
+        close.connect("clicked", lambda _b: self.destroy())
+        row.pack_end(close, False, False, 0)
+        outer.pack_start(self.status, False, False, 6)
+        self.connect("destroy", Gtk.main_quit)
+        book.grab_focus()                # first Tab press moves through the pages; nothing starts selected
+
+    def button(self, row, title, command):
+        b = Gtk.Button(label=title)
+        b.connect("clicked", lambda _b: self.launch(title, command))
+        row.pack_start(b, False, False, 0)
+        return b
+
+    def launch(self, title, command):
+        try:
+            subprocess.Popen(command)
+            self.status.set_text("")
+        except OSError as e:               # a missing helper must not kill the window
+            self.status.set_text("Could not open %s: %s" % (title.lower(), e.strerror or e))
+
+    def on_key(self, _w, event):
+        from gi.repository import Gdk
+        if event.keyval == Gdk.KEY_Escape:
+            self.destroy()
+            return True
+        return False
+
+    def overview(self):
+        return page(
+            label("A Debian 13 and XFCE desktop in amber and graphite. The desktop colours follow a single "
+                  "local number, the divergence, which selects one of six worldlines."),
+            label("Open a terminal and run  %s  to change it. %s" % (aboutlib.shell_command_hint(), aboutlib.PERSISTENCE)),
+            label(aboutlib.ACCENT_NOTE))
+
+    def worldlines(self):
+        grid = Gtk.Grid(column_spacing=18, row_spacing=6)
+        for c, text in enumerate(("Worldline", "Number", "Reference", "Mood")):
+            h = label('<b>%s</b>' % text, markup=True)
+            grid.attach(h, c, 0, 1, 1)
+        for r, row in enumerate(aboutlib.worldline_rows(sl.load_packs()), start=1):
+            for c, text in enumerate(row):
+                grid.attach(label(text, selectable=True), c, r, 1, 1)
+        return page(label("Each whole number from 0 to 6 selects a world. The colours, wallpaper, terminal and "
+                          "top bar change together."), grid, label(aboutlib.DMAIL))
+
+    def real(self):
+        return page(label(aboutlib.REAL_VS_FICTION), label(aboutlib.DMAIL))
+
+    def credits(self):
+        return page(label(aboutlib.STATUS), label(aboutlib.DISCLAIMER),
+                    label("Built on Debian, Linux, GNU, XFCE, Calamares, LightDM and Plymouth. Fonts: Noto, DejaVu, "
+                          "Liberation. Icons: Papirus. Theme based on Greybird. Original artwork CC-BY-4.0; original "
+                          "code MIT. Licence texts are in /usr/share/doc."))
+
+
+def main():
+    About().show_all()
+    Gtk.main()
+
+
+if __name__ == "__main__":
+    main()

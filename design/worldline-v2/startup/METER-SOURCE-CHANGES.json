@@ -1,0 +1,17 @@
+{
+  "scope": "source only; no deployment by this component",
+  "files": [
+    {
+      "path": "config/includes.chroot/usr/local/bin/steins-meter",
+      "before_sha256": "43043fe6b8ed1462ae553dc7f6f4226d9f0a1b8e4aac189ebfd3d3b686c374d3",
+      "after_sha256": "004d527e873cba5766338caf71ec981e4d26848c252cb5fca22bcc9a6b00fee1"
+    },
+    {
+      "path": "config/includes.chroot/usr/local/lib/steins/meterlib.py",
+      "before_sha256": "1e4e198aaea8a23f03b5b90a091c1e2126a63927865a2fb399c8ae9c2836b601",
+      "after_sha256": "6a72505769c75777abeb534a053827d746c67218285ab8c13dba56202391c9cf"
+    }
+  ],
+  "headless_flow_tests_passed": 12,
+  "legacy_worldline_tests_passed": 49
+}

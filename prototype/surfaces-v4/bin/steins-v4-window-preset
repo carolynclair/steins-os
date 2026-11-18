@@ -1,0 +1,91 @@
+#!/usr/bin/python3
+"""Explicit guest-only Breeze/icon preset. Does not touch panels or shortcuts."""
+import argparse
+import datetime
+import json
+import os
+from pathlib import Path
+import shutil
+import socket
+import subprocess
+import sys
+
+FILES = ('kdeglobals', 'kwinrc')
+HOME = Path.home().resolve()
+CONFIG = HOME / '.config'
+STATE = HOME / '.local/state/steins-v4/surfaces'
+
+
+def guard():
+    if os.getuid() != 1000 or socket.gethostname() != 'steins-prototype':
+        raise SystemExit('Refused: this opt-in preset is restricted to uid 1000 in the steins-prototype VM.')
+    virt = subprocess.run(['systemd-detect-virt', '--vm'], capture_output=True, text=True)
+    if virt.returncode or virt.stdout.strip() not in ('kvm', 'qemu'):
+        raise SystemExit('Refused: the dedicated QEMU/KVM guest was not detected.')
+    for name in FILES:
+        if not (CONFIG / name).resolve().is_relative_to(HOME):
+            raise SystemExit('Refused: configuration target resolves outside the guest user home.')
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument('--apply', action='store_true')
+    mode.add_argument('--rollback', type=Path, metavar='BACKUP_DIRECTORY')
+    mode.add_argument('--status', action='store_true')
+    args = parser.parse_args()
+    if args.status:
+        print(json.dumps({'hostname': socket.gethostname(), 'uid': os.getuid(),
+                          'backup_root': str(STATE / 'backups'), 'targets': FILES,
+                          'changes': {'kwinrc': {'org.kde.kdecoration2.library': 'org.kde.breeze'},
+                                      'kdeglobals': {'Icons.Theme': 'SteinsLab'}},
+                          'preserved': ['window button layout', 'keyboard shortcuts', 'panel configuration', 'colour scheme']}, indent=2))
+        return
+    guard()
+    CONFIG.mkdir(parents=True, exist_ok=True)
+    if args.rollback:
+        backup = args.rollback.resolve()
+        backup_root = (STATE / 'backups').resolve()
+        if backup.parent != backup_root:
+            raise SystemExit('Refused: rollback must name one direct backup directory created by this helper.')
+        manifest = json.loads((backup / 'manifest.json').read_text())
+        if manifest.get('hostname') != 'steins-prototype' or set(manifest.get('files', {})) != set(FILES):
+            raise SystemExit('Refused: invalid preset backup manifest.')
+        # Validate all inputs before restoring either target.
+        for name in FILES:
+            if manifest['files'][name] and (not (backup / name).is_file() or (backup / name).is_symlink()):
+                raise SystemExit('Refused: incomplete preset backup.')
+        for name in FILES:
+            if manifest['files'][name]:
+                shutil.copy2(backup / name, CONFIG / name)
+            else:
+                (CONFIG / name).unlink(missing_ok=True)
+        print('Restored guest preset backup. Log out/in for all decoration changes.')
+        return
+    writer = shutil.which('kwriteconfig6')
+    if not writer:
+        raise SystemExit('kwriteconfig6 is missing; no files changed.')
+    backup = STATE / 'backups' / datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
+    backup.mkdir(parents=True, mode=0o700)
+    manifest = {'hostname': 'steins-prototype', 'files': {}}
+    for name in FILES:
+        source = CONFIG / name
+        manifest['files'][name] = source.exists()
+        if source.exists():
+            shutil.copy2(source, backup / name)
+    (backup / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    commands = [('kdeglobals', 'Icons', 'Theme', 'SteinsLab'),
+                ('kwinrc', 'org.kde.kdecoration2', 'library', 'org.kde.breeze')]
+    try:
+        for file, group, key, value in commands:
+            subprocess.run([writer, '--file', str(CONFIG / file), '--group', group, '--key', key, value], check=True)
+    except subprocess.CalledProcessError:
+        print('Preset command failed. Rollback: steins-v4-window-preset --rollback ' + str(backup), file=sys.stderr)
+        raise
+    print(json.dumps({'applied': True, 'backup': str(backup),
+                      'rollback': ['steins-v4-window-preset', '--rollback', str(backup)],
+                      'activation': 'Log out/in to refresh all native decoration and icon caches.'}, indent=2))
+
+
+if __name__ == '__main__':
+    main()

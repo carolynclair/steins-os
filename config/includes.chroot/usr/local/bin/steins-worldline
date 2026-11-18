@@ -1,0 +1,132 @@
+#!/usr/bin/python3
+"""steins-worldline: read/set the divergence and apply the matching worldline theme."""
+import argparse
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "lib", "steins"))
+import steinslib as sl  # noqa: E402
+
+
+def fail(message, code=3):
+    print("steins-worldline: %s" % message, file=sys.stderr)
+    return code
+
+
+def warn_pack_errors():
+    for problem in sl.pack_errors():
+        print("steins-worldline: warning: skipped pack %s" % problem, file=sys.stderr)
+
+
+def report(result, quiet=False):
+    """Print apply notes; failed steps always go to stderr, even with --quiet."""
+    for step, ok, detail in result.steps:
+        if ok and not quiet:
+            print("  " + detail)
+        elif not ok:
+            print("steins-worldline: %s failed: %s" % (step, detail), file=sys.stderr)
+    return 0 if result.ok else 1
+
+
+def cmd_list(args):
+    try:
+        packs = sl.load_packs()
+        current = sl.pick_pack(sl.get_divergence(), packs)
+    except RuntimeError as e:
+        warn_pack_errors()
+        return fail(e)
+    for p in packs:
+        mark = "*" if p.id == current.id else " "
+        print("%s %-24s %s  (range %s - %s)" % (mark, p.id, p.divergence, p.low, p.high))
+    warn_pack_errors()
+    return 0
+
+
+def cmd_get(args):
+    d, pack = sl.current()
+    print(d if args.number else "%s  %s" % (d, pack.name if pack else "(no worldline packs)"))
+    return 0
+
+
+def cmd_set(args):
+    if os.environ.get('STEINS_DESKTOP_BACKEND') == 'plasma' and not (args.dry_run or args.no_apply):
+        try:
+            state = sl.session_request('SetDivergence', sl.normalize(args.value))
+            print('divergence %s -> worldline %s' % (state['divergence'], state.get('name', 'Unknown')))
+            return report(sl.session_result(state))
+        except ValueError as error:
+            return fail(error, 2)
+        except RuntimeError as error:
+            return fail(error)
+    try:
+        d = sl.normalize(args.value) if args.dry_run else sl.set_divergence(args.value)
+    except ValueError as e:
+        return fail(e, 2)
+    except OSError as e:
+        return fail("cannot save divergence: %s" % e)
+    try:
+        pack = sl.pick_pack(d)
+    except RuntimeError as e:
+        warn_pack_errors()
+        return fail(e)
+    print("divergence %s -> worldline %s" % (d, pack.name))
+    if args.no_apply:
+        return 0
+    return report(sl.apply_pack(pack, dry_run=args.dry_run))
+
+
+def cmd_apply(args):
+    if os.environ.get('STEINS_DESKTOP_BACKEND') == 'plasma' and not args.dry_run:
+        try:
+            state = sl.session_request('ApplyCurrent')
+            if not args.quiet:
+                print('worldline %s (%s)' % (state.get('name', 'Unknown'), state['divergence']))
+            return report(sl.session_result(state), args.quiet)
+        except RuntimeError as error:
+            return fail(error)
+    d = sl.get_divergence()
+    try:
+        pack = sl.pick_pack(d)
+    except RuntimeError as e:
+        warn_pack_errors()
+        return fail(e)
+    result = sl.apply_pack(pack, dry_run=args.dry_run)
+    if not args.quiet:
+        print("worldline %s (%s)" % (pack.name, d))
+    return report(result, args.quiet)
+
+
+def cmd_id(args):
+    _, pack = sl.current()
+    if pack is None:
+        return fail("no usable worldline packs")
+    print(pack.id)
+    return 0
+
+
+def main():
+    ap = argparse.ArgumentParser(prog="steins-worldline", description=__doc__)
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("list", help="list worldline packs").set_defaults(fn=cmd_list)
+    g = sub.add_parser("get", help="show current divergence")
+    g.add_argument("--number", action="store_true", help="print the number only")
+    g.set_defaults(fn=cmd_get)
+    s = sub.add_parser("set", help="set divergence and apply the theme")
+    s.add_argument("value")
+    s.add_argument("--no-apply", action="store_true")
+    s.add_argument("--dry-run", action="store_true")
+    s.set_defaults(fn=cmd_set)
+    a = sub.add_parser("apply", help="apply the worldline for the saved divergence")
+    a.add_argument("--quiet", action="store_true")
+    a.add_argument("--dry-run", action="store_true")
+    a.set_defaults(fn=cmd_apply)
+    sub.add_parser("id", help="print the current worldline id").set_defaults(fn=cmd_id)
+    args = ap.parse_args()
+    try:
+        sys.exit(args.fn(args))
+    except KeyboardInterrupt:
+        sys.exit(130)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,42 @@
+{
+  "schema": "org.steinsos.design.transition-storyboard/1",
+  "status": "proposal_not_runtime",
+  "clock": "milliseconds_after_preparation_ready",
+  "full_duration_ms": 800,
+  "commit_target_ms": 400,
+  "preparation": {
+    "duration_ms": "variable",
+    "acknowledgement": "immediate_control_state",
+    "canonical_state_changes": false,
+    "cancel_available": true,
+    "audio": null
+  },
+  "full": [
+    {"stage": "activation", "start_ms": 0, "end_ms": 90, "label": "Activate", "visual": "Tube warmth and origin accent; source/destination readable", "audio": "audio/activation.wav"},
+    {"stage": "instability", "start_ms": 90, "end_ms": 220, "label": "Divergence moves", "visual": "One restrained roll/crossfade per cell; target remains preview", "audio": "audio/meter.wav"},
+    {"stage": "distortion", "start_ms": 220, "end_ms": 400, "label": "Reality bends", "visual": "One shallow native compositor ripple, target <=3 logical px displacement; optional <=1 px edge chromatic offset", "audio": null},
+    {"stage": "transformation", "start_ms": 400, "end_ms": 620, "label": "Worldline changes", "visual": "Commit once; shared shell tokens and supported environment/app surfaces transform", "audio": null},
+    {"stage": "stabilisation", "start_ms": 620, "end_ms": 800, "label": "Stabilise", "visual": "One confirmed number; steady idle; one accessible completion announcement", "audio": "audio/stabilise.wav"}
+  ],
+  "reduced": {
+    "duration_ms": 180,
+    "spatial_motion": false,
+    "digit_rolling": false,
+    "chromatic_split": false,
+    "flashing": false,
+    "treatment": "One confirmed digit replacement plus local accent/environment crossfade"
+  },
+  "off": {
+    "duration_ms": 0,
+    "treatment": "Immediate supported apply with truthful ordinary status"
+  },
+  "audio_default": "off",
+  "effect_default_until_qualified": "reduced_or_off",
+  "input_grab": false,
+  "application_restart": false,
+  "stored_scene_capture": false,
+  "real_email_triggers_shift": false,
+  "fallback": "Native effect unavailable => reduced/off; core state and use remain functional",
+  "failure_before_commit": "Keep old canonical number; show real error; no success cue",
+  "failure_after_commit": "Keep new canonical number; report partial apply; explicit reapply; no cinematic replay"
+}

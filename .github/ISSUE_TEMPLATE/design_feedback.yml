@@ -1,0 +1,33 @@
+name: Design and accessibility feedback
+description: Help refine the desktop, icons and six worldline atmospheres.
+title: "[Design] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One OS identity, six atmospheres. We prioritise familiar controls, readable text and a calm desktop.
+        Actual screenshots are especially useful; say explicitly if your image is a concept or mock-up.
+  - type: input
+    id: build
+    attributes:
+      label: Build, worldline and screen
+      placeholder: "V4 / Hinamizawa / panel / 1280×800 at 100%"
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What could work better?
+      description: Describe the readability, balance, spacing, recognition, focus or accessibility problem.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Explain the user benefit and how it fits the shared design tokens. Attach redacted screenshots if helpful.
+  - type: textarea
+    id: access
+    attributes:
+      label: Accessibility context
+      description: Keyboard navigation, reduced motion, contrast, screen reader, scaling or other relevant needs.

@@ -1,0 +1,96 @@
+{
+  "status": "Original design concepts; no mark selected or installed",
+  "preserved_current_sha256": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41",
+  "current_exact_copy": true,
+  "candidate_ids": [
+    "divergence-gate",
+    "phase-crossing",
+    "instrument-s"
+  ],
+  "rendered_sizes": [
+    16,
+    24,
+    32
+  ],
+  "svg_xml_valid": true,
+  "source": "Hand-authored SVG path geometry using standard Python, rendered with existing librsvg builder",
+  "references": "User-supplied visual inspiration inspected; no screenshot/logo art copied or traced",
+  "files": [
+    {
+      "file": "comparison-sheet.png",
+      "sha256": "541d68273e80bfd198d1c63a65b8044fb0efdb06228e96b4ee63390e0846e10a"
+    },
+    {
+      "file": "comparison-sheet.svg",
+      "sha256": "3fb8a6669dd1df4bb2bbaca0964e988f41a41b4fa3a811dadec1c91e66bf39a0"
+    },
+    {
+      "file": "current-monochrome.svg",
+      "sha256": "e39f589a14224d570e76ea3abecf8f2f2671215edaa5e7ebc7c23284ce79954e"
+    },
+    {
+      "file": "current.svg",
+      "sha256": "4015968f406dffb6efdb5cce43cbbf90d00ec1b528a4422db61a8b08eff08a41"
+    },
+    {
+      "file": "divergence-gate.svg",
+      "sha256": "612f08a290448145c38c44c56f7f45a10b7a875ff269faf58630f5b82ac06d86"
+    },
+    {
+      "file": "instrument-s.svg",
+      "sha256": "7710ccb8b7d981ba499cf1be611a8a5e0ad59919a929f424eede1ef76fc92922"
+    },
+    {
+      "file": "phase-crossing.svg",
+      "sha256": "4cd023abadd40b2b6489a671901c3221fbe5f4f05be919eda6d53aaf13b30021"
+    },
+    {
+      "file": "sizes/current-16.png",
+      "sha256": "37af5eafca5e3527a82ede6e0339ce27a98fe88c80c3c05f579b4f00e2bd3617"
+    },
+    {
+      "file": "sizes/current-24.png",
+      "sha256": "7455fd506b4e3fb20029f1f40b848957b5f82f38c23f74b1531173a23db5b7b1"
+    },
+    {
+      "file": "sizes/current-32.png",
+      "sha256": "69bd99d6525d38f68a496d28261d6ca92fec9713747f62df9bb093b3f2fb897c"
+    },
+    {
+      "file": "sizes/divergence-gate-16.png",
+      "sha256": "46efcca33f767b5b8ac159169d966d728dfb4a05e3ce249da1fa75583a331b18"
+    },
+    {
+      "file": "sizes/divergence-gate-24.png",
+      "sha256": "33cc499097d1cef206117de7bd4a84beb0c700aa8f033f829a12e3334ab79a59"
+    },
+    {
+      "file": "sizes/divergence-gate-32.png",
+      "sha256": "5053892070f6f20641effbbb81742c02213902423444710e9812a4f4fade0820"
+    },
+    {
+      "file": "sizes/instrument-s-16.png",
+      "sha256": "f8331dc6e5e1262710baea555ba0091ce07d7b946f7ea48e7f6bc492a0a11714"
+    },
+    {
+      "file": "sizes/instrument-s-24.png",
+      "sha256": "7e79d14b5e5c82fc0da6d21606e2ef42f4cb0c9b7a64da3b81069098c279cd2c"
+    },
+    {
+      "file": "sizes/instrument-s-32.png",
+      "sha256": "432bd307246e492c8dea097f0a3a0a7a97795d8d44b828400c8e6218d414cbc5"
+    },
+    {
+      "file": "sizes/phase-crossing-16.png",
+      "sha256": "3e502ad9cc3aaad61cf881893c162e2e2a296fdbb421c92beaf4dea4b4816ddf"
+    },
+    {
+      "file": "sizes/phase-crossing-24.png",
+      "sha256": "373220105876407b980c5e5689a12d90e9f8274f6442d8dfd8acfb0e697091a9"
+    },
+    {
+      "file": "sizes/phase-crossing-32.png",
+      "sha256": "59b9e7cd1123fb95cfe2f5b43fc5f1ddbd6255c362936d92fb851960013a8ece"
+    }
+  ]
+}

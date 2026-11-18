@@ -1,0 +1,11 @@
+@define-color theme_selected_bg_color #e99a45;
+@define-color theme_selected_fg_color #151b20;
+@define-color selected_bg_color #e99a45;
+@define-color selected_fg_color #151b20;
+selection { background-color: #e99a45; color: #151b20; }
+.view:selected, row:selected { background-color: #e99a45; color: #151b20; }
+button.suggested-action { background-image: none; background-color: #e99a45; color: #151b20; }
+.xfce4-panel { background-color: #151b20; color: #e7e2d6; }
+button:focus, entry:focus, combobox:focus, spinbutton:focus, treeview:focus, notebook tab:focus, switch:focus {
+ outline-style: solid; outline-width: 2px; outline-color: #e99a45; outline-offset: -2px;
+}

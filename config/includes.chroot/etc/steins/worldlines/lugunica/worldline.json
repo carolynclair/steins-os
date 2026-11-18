@@ -1,0 +1,37 @@
+{
+  "id": "lugunica",
+  "name": "Lugunica",
+  "divergence": "4.250801",
+  "range": [
+    4.0,
+    4.999999
+  ],
+  "palette": {
+    "bg": "#161824",
+    "bg_alt": "#11131c",
+    "fg": "#e6e6f0",
+    "accent": "#a99cf0",
+    "selection": "#6e5fc4",
+    "muted": "#9a9bb8"
+  },
+  "tagline": "SILVER MOON / COLD AIR / RETURN",
+  "terminal_palette": [
+    "#242c31",
+    "#d97b71",
+    "#93aa86",
+    "#a99cf0",
+    "#86a6b5",
+    "#b196ad",
+    "#89b5a7",
+    "#ddd7c8",
+    "#9a9bb8",
+    "#ec998c",
+    "#b5c79e",
+    "#a99cf0",
+    "#acc4d1",
+    "#ccb3c3",
+    "#b0d6c4",
+    "#f4eddf"
+  ],
+  "wallpaper": "wallpaper.svg"
+}

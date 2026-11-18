@@ -1,0 +1,89 @@
+[
+  {
+    "worldline": "steins-gate",
+    "file": "steins-gate.png",
+    "source": "design/worldline-v1/art/steins-gate.png",
+    "preserved_approved_asset": true,
+    "sha256": "0fef65f9a8fd763e1745739ed1b0ac84368ce47156910a779125ce4f831a1440",
+    "size": [
+      1672,
+      941
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors",
+    "purpose": "V3 prototype wallpaper; deployment qualified separately"
+  },
+  {
+    "worldline": "hinamizawa",
+    "file": "hinamizawa.png",
+    "source": "design/worldline-v1/art/hinamizawa.png",
+    "preserved_approved_asset": true,
+    "sha256": "5ba3560971f3c0a1fd2326dae6609ed96506fdb13c1ea575ec234ff0fea8a403",
+    "size": [
+      1672,
+      941
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors",
+    "purpose": "V3 prototype wallpaper; deployment qualified separately"
+  },
+  {
+    "worldline": "hitogashima",
+    "file": "hitogashima.png",
+    "source": "design/worldline-v1/art/hitogashima.png",
+    "preserved_approved_asset": true,
+    "sha256": "966e415f1b69c43023046fdc341ad414bb2bae0d3c59b1ccad4e0454f6593414",
+    "size": [
+      1672,
+      941
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors",
+    "purpose": "V3 prototype wallpaper; deployment qualified separately"
+  },
+  {
+    "worldline": "alpha",
+    "file": "alpha.png",
+    "source": "Built-in image_gen, original environment; no reference image",
+    "generated_source": "/home/developer/.codex/generated_images/01a134f5-1401-7ac3-83c0-8adc4767cd3d/exec-6bbf2408-3e91-4bb6-93e9-2c469c0afb3c.png",
+    "preserved_approved_asset": false,
+    "sha256": "dfe6e33dff0c1d14bc12a5f5b72d0fb8eee07da014817974bf13cb2863f3c87a",
+    "size": [
+      1672,
+      941
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors",
+    "purpose": "V3 prototype wallpaper; deployment qualified separately"
+  },
+  {
+    "worldline": "lugunica",
+    "file": "lugunica.png",
+    "source": "Built-in image_gen, original environment; no reference image",
+    "generated_source": "/home/developer/.codex/generated_images/01a134f5-1401-7ac3-83c0-8adc4767cd3d/exec-fa8eace3-6465-4352-a965-d1ed2c27c6d6.png",
+    "preserved_approved_asset": false,
+    "sha256": "e702fa6781f62aaf0a2b961eaa2bb8ec5cf98022ae3df88f69a2e389d4f3cb2d",
+    "size": [
+      1672,
+      941
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors",
+    "purpose": "V3 prototype wallpaper; deployment qualified separately"
+  },
+  {
+    "worldline": "mitakihara",
+    "file": "mitakihara.png",
+    "source": "Built-in image_gen, original environment; no reference image",
+    "generated_source": "/home/developer/.codex/generated_images/01a134f5-1401-7ac3-83c0-8adc4767cd3d/exec-cee218df-442e-4bcf-a753-c34e88ee284b.png",
+    "preserved_approved_asset": false,
+    "sha256": "91c7438a4e43ab0e4f7b09ff4cc74db0656705071c085e68209055fb76135523",
+    "size": [
+      1672,
+      941
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "Steins;OS contributors",
+    "purpose": "V3 prototype wallpaper; deployment qualified separately"
+  }
+]

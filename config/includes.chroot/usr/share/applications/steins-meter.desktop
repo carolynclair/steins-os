@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Divergence Meter
+Comment=Live divergence readout for the current worldline
+Exec=steins-meter
+Icon=steins-os
+Terminal=false
+Categories=Utility;
+Keywords=divergence;worldline;steins;

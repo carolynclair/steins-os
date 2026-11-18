@@ -1,0 +1,259 @@
+--- a/prototype/worldline/lib/worldline_service.py
++++ b/prototype/worldline/lib/worldline_service.py
+@@ -17,6 +17,10 @@
+ BUS = 'org.steinsos.Worldline1'
+ PATH = '/org/steinsos/Worldline'
+ DEFAULTS = {'meter': False, 'motion': 'reduced'}
++RETRY_DELAYS = (1, 2, 4, 8, 16)
++TRANSIENT_WALLPAPER_ERRORS = frozenset(
++    'org.freedesktop.DBus.Error.' + name
++    for name in ('ServiceUnknown', 'NameHasNoOwner', 'NoReply'))
+ 
+ 
+ def preferences():
+@@ -52,6 +56,10 @@
+         self.last = ''
+         self.result = None
+         self.meter = None
++        self._retry_source = None
++        self._retry_revision = None
++        self._retry_attempt = 0
++        self._retry_generation = 0
+         sl.state_dir().mkdir(parents=True, exist_ok=True)
+         self.monitor = Gio.File.new_for_path(str(sl.state_dir())).monitor_directory(Gio.FileMonitorFlags.NONE, None)
+         self.monitor.connect('changed', lambda *args: self.queue_check())
+@@ -73,6 +81,8 @@
+ 
+     def apply(self, state=None, wallpaper=None):
+         state = state or snapshot()
++        if self._retry_revision is not None and self._retry_revision != state['revision']:
++            self._cancel_retry()
+         try:
+             pack = sl.pick_pack(state['divergence'])
+             result = (steinsplasma.apply_prepared(pack, wallpaper) if wallpaper
+@@ -85,11 +95,58 @@
+         state['applied'] = not errors
+         state['errors'] = errors
+         self.result = state
++        self._update_retry(state['revision'], errors)
+         self.sync_meter(state['preferences']['meter'])
+         self.StateChanged(dump(state))
+         self.ApplyFinished(dump(state))
+         logging.info('worldline %s applied=%s errors=%s', state['id'], state['applied'], errors)
+         return dump(state)
++
++    def _cancel_retry(self):
++        # A removed source may already have queued a callback. Invalidate that too.
++        self._retry_generation += 1
++        if self._retry_source is not None:
++            GLib.source_remove(self._retry_source)
++        self._retry_source = None
++        self._retry_revision = None
++        self._retry_attempt = 0
++
++    def _update_retry(self, revision, errors):
++        # The session bus can exist before plasmashell owns its name at login.
++        # Retry only this narrow dependency failure, never arbitrary file/GTK errors.
++        transient = bool(errors) and all(
++            error['step'] == 'wallpaper' and
++            error['message'].partition(':')[0].strip() in TRANSIENT_WALLPAPER_ERRORS
++            for error in errors)
++        if not transient:
++            self._cancel_retry()
++            return
++        if self._retry_revision != revision:
++            self._cancel_retry()
++            self._retry_revision = revision
++        if self._retry_source is not None or self._retry_attempt >= len(RETRY_DELAYS):
++            return
++        delay = RETRY_DELAYS[self._retry_attempt]
++        self._retry_attempt += 1
++        self._retry_generation += 1
++        generation = self._retry_generation
++
++        def retry():
++            if generation != self._retry_generation:
++                return False
++            self._retry_source = None
++            self._retry_generation += 1  # This callback is single-use, even if queued twice.
++            current = snapshot()
++            if current['revision'] != revision:
++                self._cancel_retry()
++                self.check()             # Apply the latest state, never the stale destination.
++            else:
++                self.apply(current)      # Reapply only; do not rewrite divergence.
++            return False
++
++        self._retry_source = GLib.timeout_add_seconds(delay, retry)
++        logging.info('Transient wallpaper dependency; retry %s/%s in %ss',
++                     self._retry_attempt, len(RETRY_DELAYS), delay)
+ 
+     def sync_meter(self, visible):
+         import subprocess
+@@ -153,6 +210,7 @@
+     try:
+         loop.run()
+     finally:
++        service._cancel_retry()
+         service.sync_meter(False)
+ 
+ 
+--- a/prototype/worldline/tests/test_service.py
++++ b/prototype/worldline/tests/test_service.py
+@@ -17,6 +17,22 @@
+ from dbus.mainloop.glib import DBusGMainLoop
+ 
+ 
++class Timers:
++    """Deterministic timer dispatch: no real sleeps or desktop loop are needed."""
++    def __init__(self):
++        self.next_id = 0
++        self.sources = {}
++    def add(self, delay, callback, *args):
++        self.next_id += 1
++        self.sources[self.next_id] = (delay, callback, args)
++        return self.next_id
++    def remove(self, source):
++        return self.sources.pop(source, None) is not None
++    def fire(self, source):
++        delay, callback, args = self.sources.pop(source)
++        return callback(*args)
++
++
+ class ServiceTests(unittest.TestCase):
+     def setUp(self):
+         self.tmp = tempfile.TemporaryDirectory()
+@@ -25,6 +41,13 @@
+                     'STEINS_STATE_DIR': str(self.home / 'state'),
+                     'STEINS_ETC_DIR': str(ROOT / 'config/includes.chroot/etc/steins')})
+         self.env.start()
++        self.timers = Timers()
++        self.timer_patches = [
++            patch.object(ws.GLib, 'timeout_add_seconds', side_effect=self.timers.add),
++            patch.object(ws.GLib, 'idle_add', side_effect=lambda fn: self.timers.add(0, fn)),
++            patch.object(ws.GLib, 'source_remove', side_effect=self.timers.remove),
++        ]
++        for p in self.timer_patches: p.start()
+         DBusGMainLoop(set_as_default=True)
+         self.bus = dbus.SessionBus(private=True)
+         self.service = ws.Service(self.bus)
+@@ -38,9 +61,119 @@
+         self.apply_mock = self.apply.start()
+ 
+     def tearDown(self):
++        self.service._cancel_retry()
+         self.service.remove_from_connection()
++        # Release both Object/Service references while the private bus is open.
++        # Fake timer call histories can otherwise keep the name alive past close().
++        self.service.name = None
++        self.service._name = None
+         self.bus.close()
+         self.apply.stop(); self.prepare.stop(); self.env.stop(); self.tmp.cleanup()
++        for p in reversed(self.timer_patches): p.stop()
++
++    def transient(self, name='ServiceUnknown'):
++        result = sl.ApplyResult()
++        result.add('wallpaper', False, 'org.freedesktop.DBus.Error.' + name + ': plasmashell not ready')
++        return result
++
++    def test_startup_dependency_recovers_without_rewriting_divergence(self):
++        sl.set_divergence('3.072100')
++        with patch.object(ws.steinsplasma, 'apply_pack', side_effect=[self.transient(), sl.ApplyResult()]) as apply, \
++                patch.object(sl, 'set_divergence', wraps=sl.set_divergence) as save:
++            self.service.check()
++            revision = self.service.last
++            self.assertFalse(json.loads(self.service.GetState())['applied'])
++            source = self.service._retry_source
++            self.assertEqual(self.timers.sources[source][0], 1)
++            self.timers.fire(source)
++            self.assertTrue(json.loads(self.service.GetState())['applied'])
++            self.assertEqual(self.service.last, revision)
++            self.assertEqual(sl.get_divergence(), '3.072100')
++            self.assertEqual(apply.call_count, 2)
++            save.assert_not_called()
++            self.assertIsNone(self.service._retry_source)
++
++    def test_retry_budget_is_bounded_and_checks_do_not_restart_it(self):
++        with patch.object(ws.steinsplasma, 'apply_pack', return_value=self.transient()) as apply:
++            self.service.check()
++            for delay in (1, 2, 4, 8, 16):
++                source = self.service._retry_source
++                self.assertEqual(self.timers.sources[source][0], delay)
++                self.timers.fire(source)
++            self.assertIsNone(self.service._retry_source)
++            self.assertFalse(json.loads(self.service.GetState())['applied'])
++            self.service.check(); self.service.check()
++            self.assertEqual(apply.call_count, 6)  # Initial attempt plus five retries.
++
++    def test_new_revision_invalidates_queued_retry(self):
++        sl.set_divergence('1.048596')
++        with patch.object(ws.steinsplasma, 'apply_pack', side_effect=[self.transient(), sl.ApplyResult()]) as apply:
++            self.service.check()
++            source = self.service._retry_source
++            queued = self.timers.sources[source][1]
++            sl.set_divergence('2.198306')
++            self.service.check()
++            self.assertNotIn(source, self.timers.sources)
++            queued()  # Simulate a callback already queued when source_remove ran.
++            self.assertEqual(apply.call_count, 2)
++            self.assertEqual(json.loads(self.service.GetState())['id'], 'hinamizawa')
++            self.assertTrue(json.loads(self.service.GetState())['applied'])
++
++    def test_pending_retry_applies_latest_external_state_not_old_destination(self):
++        sl.set_divergence('1.048596')
++        with patch.object(ws.steinsplasma, 'apply_pack', side_effect=[self.transient(), sl.ApplyResult()]) as apply:
++            self.service.check()
++            source = self.service._retry_source
++            sl.set_divergence('3.072100')
++            self.timers.fire(source)
++            self.assertEqual(apply.call_args.args[0].id, 'hitogashima')
++            self.assertEqual(json.loads(self.service.GetState())['id'], 'hitogashima')
++
++    def test_manual_success_cancels_pending_retry_and_stale_callback(self):
++        with patch.object(ws.steinsplasma, 'apply_pack', side_effect=[self.transient(), sl.ApplyResult()]) as apply:
++            self.service.check()
++            source = self.service._retry_source
++            queued = self.timers.sources[source][1]
++            self.service.ApplyCurrent()
++            self.assertNotIn(source, self.timers.sources)
++            queued()
++            self.assertEqual(apply.call_count, 2)
++            self.assertIsNone(self.service._retry_source)
++
++    def test_manual_transient_failure_keeps_only_one_pending_timer(self):
++        with patch.object(ws.steinsplasma, 'apply_pack', return_value=self.transient()):
++            self.service.check()
++            source = self.service._retry_source
++            for _ in range(3): self.service.ApplyCurrent()
++            self.assertEqual(self.service._retry_source, source)
++            self.assertEqual(self.service._retry_attempt, 1)
++
++    def test_permanent_or_mixed_errors_do_not_schedule_retries(self):
++        for step, message in [('GTK selection', 'Permission denied'),
++                              ('wallpaper', 'Invalid image'), ('prepare', 'Renderer unavailable')]:
++            failure = sl.ApplyResult(); failure.add(step, False, message)
++            with patch.object(ws.steinsplasma, 'apply_pack', return_value=failure):
++                self.service.ApplyCurrent()
++            self.assertIsNone(self.service._retry_source)
++        mixed = self.transient(); mixed.add('GTK selection', False, 'Permission denied')
++        with patch.object(ws.steinsplasma, 'apply_pack', return_value=mixed):
++            self.service.ApplyCurrent()
++        self.assertIsNone(self.service._retry_source)
++
++    def test_supported_transient_names_and_new_revision_budget(self):
++        for name in ('ServiceUnknown', 'NameHasNoOwner', 'NoReply'):
++            with patch.object(ws.steinsplasma, 'apply_pack', return_value=self.transient(name)):
++                self.service.ApplyCurrent()
++            self.assertIsNotNone(self.service._retry_source)
++            self.service._cancel_retry()
++        with patch.object(ws.steinsplasma, 'apply_pack', return_value=self.transient()):
++            self.service.ApplyCurrent()
++            while self.service._retry_source is not None:
++                self.timers.fire(self.service._retry_source)
++            sl.set_divergence('2.198306')
++            self.service.check()
++            self.assertEqual(self.service._retry_attempt, 1)
++            self.assertEqual(self.timers.sources[self.service._retry_source][0], 1)
+ 
+     def test_preserves_existing_numeric_state(self):
+         sl.set_divergence('2.198306')
