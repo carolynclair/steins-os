@@ -86,9 +86,15 @@ The next release milestone is a **rebuilt Plasma ISO with a complete install →
 
 When reporting a problem, include the track/version, VM or hardware details, steps to reproduce, expected behavior and a screenshot or relevant log with personal information removed. Preserve failed results; they help define what the project can honestly support.
 
+Read the [contribution guide](CONTRIBUTING.md), use the repository's issue forms,
+and follow the [security reporting policy](SECURITY.md) for sensitive findings.
+The [source-publication notes](docs/PUBLICATION.md) explain what is included.
+
 ## Licenses and attribution
 
 Original project code is generally [MIT](LICENSE); original wallpapers and the icon family use **CC BY 4.0**, with attribution to Steins;OS contributors. Component notices take precedence. The terminal links QTermWidget and its distributed binary is **GPL-2.0-or-later**; its frontend source and build instructions are included. Debian, KDE, Thunderbird, fonts and inherited icons retain their own licenses.
+
+See [licensing and credits](LICENSING.md) for component-specific terms.
 
 Steins;OS is unofficial and is not endorsed by the rights holders of *Steins;Gate* or the other referenced works. No official character artwork, anime screenshots, music or voice clips are included.
 

@@ -62,8 +62,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6981,
-      "sha256": "b53a282dc241be191c9e22de5a35d21767ee9890a056064c9fa22c51272172bb"
+      "bytes": 7295,
+      "sha256": "96409e456084e17690b36ad3afd2bad51ab486e3ec3c8f99aaf6c02ec2b7d3d2"
     },
     {
       "path": "SECURITY.md",
@@ -3882,8 +3882,8 @@
     },
     {
       "path": "tests/check_ui.py",
-      "bytes": 10199,
-      "sha256": "ddb6853a2fa3fd01e346b179ee00efcd9b9fb33b0edb961f28fe7e8e7e627ad9"
+      "bytes": 10321,
+      "sha256": "25c78ad71d10c75dda0241fc7300bc1aa6d6e9e3d7ffc751c59f8657a9181abb"
     },
     {
       "path": "tests/check_worldlines.py",

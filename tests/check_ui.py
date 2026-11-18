@@ -108,9 +108,11 @@ class About(unittest.TestCase):
                 "w2=mod.About();w2.launch('x',['/nonexistent/binary']);assert 'Could not open' in w2.status.get_text()\n"
                 "print('ok')\n") % str(BIN / "steins-about")
         try:
-            import gi  # noqa: F401
-        except ImportError:
-            self.skipTest("python3-gi not installed")
+            import gi
+            gi.require_version("Gtk", "3.0")
+            from gi.repository import Gtk, Gdk  # noqa: F401
+        except (ImportError, ValueError):
+            self.skipTest("needs PyGObject with GTK 3 introspection")
         r = subprocess.run(["xvfb-run", "-a", sys.executable, "-c", code], capture_output=True, text=True, timeout=60,
                            env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1"))
         self.assertEqual(r.returncode, 0, r.stderr)
