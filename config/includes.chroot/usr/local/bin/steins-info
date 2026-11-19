@@ -142,13 +142,18 @@ if ! $plain; then
 fi
 
 printf '\n'
-if $plain; then
+# The side-by-side layout needs about 88 columns; narrower terminals get the list alone.
+columns=$( { stty size < /dev/tty; } 2>/dev/null | cut -d' ' -f2)
+case $columns in ''|*[!0-9]*) columns=${COLUMNS:-80} ;; esac
+if $plain || [ "$columns" -lt 88 ]; then
     sed 's/^/  /' "$lines_file"
 else
+    # Pause auto-wrap so an unusually long value is clipped, not wrapped under the emblem.
+    printf '\033[?7l'
     # The Steins;OS emblem: a measuring ring around the divergence "Z".
     # r = ring (worldline muted), z = mark (worldline accent).
     emblem_file=$(mktemp "${TMPDIR:-/tmp}/steins-emblem.XXXXXX") || exit 1
-    trap 'rm -f "$lines_file" "$emblem_file"' EXIT HUP INT TERM
+    trap 'printf "\\033[?7h"; rm -f "$lines_file" "$emblem_file"' EXIT HUP INT TERM
     cat > "$emblem_file" <<'EMBLEM'
        r▄▄▄▄▄▄▄▄
     r▄▛▀▘      ▝▀▜▄
@@ -173,5 +178,6 @@ EMBLEM
         printf '  %s%s\033[32G%s\n' "$art" "$N" "$text"
         i=$((i + 1))
     done
+    printf '\033[?7h'
 fi
 printf '\n'

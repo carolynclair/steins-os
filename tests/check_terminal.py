@@ -4,14 +4,17 @@
 The prompt tests drive a real interactive Bash on a pseudo-terminal with a
 temporary HOME. Nothing is installed and no user or system file is touched.
 """
+import fcntl
 import os
 import pty
 import re
 import select
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
+import termios
 import time
 import unittest
 from pathlib import Path
@@ -198,7 +201,7 @@ class Prompt(PromptBase):
         shell = self.shell()
         # Assigning SECONDS moves bash's clock; the PS0 timer then sees 75 s pass instantly.
         out = shell.run("echo DONE; SECONDS=75", "DONE")
-        self.assertIn("took 1m 15s", ANSI.sub("", out))
+        self.assertRegex(ANSI.sub("", out), r"took 1m 1[0-5]s")   # 75 s minus the shell's own age
         out = shell.run("echo AGAIN", "AGAIN")
         self.assertNotIn("took", ANSI.sub("", out.split("AGAIN", 1)[1]))
 
@@ -288,10 +291,12 @@ class Info(unittest.TestCase):
         self.assertEqual(self.run_info("--help").returncode, 0)
         self.assertEqual(self.run_info("--bogus").returncode, 2)
 
-    def test_colour_layout_on_a_terminal(self):
+    def tty_info(self, columns):
+        """Run steins-info on a PTY of the given width; return its raw output."""
         with tempfile.TemporaryDirectory() as home:
             pid, fd = pty.fork()
             if pid == 0:
+                fcntl.ioctl(0, termios.TIOCSWINSZ, struct.pack("HHHH", 40, columns, 0, 0))
                 os.execvpe("sh", ["sh", str(INFO)], {"PATH": os.environ["PATH"], "HOME": home,
                                                     "TERM": "xterm-256color", "SHELL": "/bin/bash"})
             data = b""
@@ -305,15 +310,28 @@ class Info(unittest.TestCase):
                 data += chunk
             os.waitpid(pid, 0)
             os.close(fd)
-        out = data.decode("utf-8", "replace")
+        return data.decode("utf-8", "replace")
+
+    def test_colour_layout_on_a_wide_terminal(self):
+        out = self.tty_info(120)
         plain = ANSI.sub("", out)
         self.assertIn("\x1b[33m", out)                 # accent from the worldline palette
         self.assertIn("\x1b[32G", out)                 # info column aligned by column move
+        self.assertIn("\x1b[?7l", out)                 # long values are clipped, never wrapped under the emblem
+        self.assertTrue(out.rstrip().endswith("\x1b[?7h") or "\x1b[?7h" in out.split("\x1b[?7l", 1)[1])
         self.assertRegex(plain, r"[▄▀█]")              # emblem rendered
         self.assertNotRegex(plain, r"[rz][▄▀█▌▐▗▖▘▝▙▛▜▟]")   # colour markers never leak
         for i in range(8):
             self.assertIn("\x1b[4%dm" % i, out)        # palette swatches
             self.assertIn("\x1b[10%dm" % i, out)
+
+    def test_narrow_terminal_drops_the_emblem_but_keeps_colour(self):
+        out = self.tty_info(80)
+        plain = ANSI.sub("", out)
+        self.assertIn("\x1b[33m", out)
+        self.assertNotRegex(plain, r"[▄▀▌▐▗▖▘▝▙▛▜▟]")
+        self.assertNotIn("\x1b[?7l", out)
+        self.assertRegex(plain, r"(?m)^  Kernel +\S")
 
 
 class Profile(unittest.TestCase):

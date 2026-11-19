@@ -6,7 +6,7 @@ This note covers the terminal shipped in the installable XFCE image: `xfce4-term
 
 | Layer | Source | Follows the worldline |
 | --- | --- | --- |
-| Default profile: JetBrains Mono 11 at 1.1 line height, block cursor, 10,000 lines of scrollback, shell-set window title, no menubar or toolbar, login shell | `config/includes.chroot/etc/skel/.config/xfce4/terminal/terminalrc` | Colours only |
+| Default profile: JetBrains Mono 11 at 1.1 line height, block cursor, 10,000 lines of scrollback, shell-set window title, no menubar or toolbar, login shell | `TERMINAL_PROFILE` in `steinslib.py` (fills absent xfconf properties) and the matching `/etc/skel/.config/xfce4/terminal/terminalrc` | Colours only |
 | Frame: graphite tab strip, accent underline on the selected tab, slim dark scrollbar | `packaging/theme-overrides.css` (Steins-Lab theme) | Accent and surface via the user block below |
 | Text margin, selected-tab accent, scrollbar surface | `gtk_css()` in `steinslib.py`, written to `~/.config/gtk-3.0/gtk.css` | Yes |
 | Foreground, background, cursor and cursor text, selection, tab activity, 16 ANSI colours | `_write_terminal()` in `steinslib.py` (terminalrc and xfconf) | Yes |
@@ -28,7 +28,11 @@ The text margin must live in the user stylesheet: `xfce4-terminal` installs its 
 
 The package version is 0.1.0-9. `/etc/profile.d/steins.sh`, `/etc/skel/...terminalrc` and `/etc/steins/theme-overrides.css` are conffiles. Unedited copies are replaced on upgrade; locally edited copies follow normal dpkg conffile handling. The theme regenerates through the existing `steins-branding` trigger.
 
-Existing users get the new prompt, greeting, frame and colour keys at their next login. Their saved terminal profile, including font and cursor, is not rewritten. New users, including the account Calamares creates, get the full default profile from `/etc/skel`.
+`steins-worldline apply` runs at every login. It always writes the worldline colours. It also writes the profile defaults (font, login shell, no menubar, cursor, scrollback, title) for any property absent from the user's `xfce4-terminal` xfconf channel. xfce4-terminal stores only settings changed in Preferences, so anything a user chose stays theirs. If the channel cannot be read, no defaults are written.
+
+This is required, not cosmetic. The first session's apply creates the xfconf channel before the terminal first runs, so xfce4-terminal never migrates `/etc/skel`'s `terminalrc`. A real live-ISO session showed this on `main`: menubar visible, no login shell and therefore no profile.d greeting. The skeleton file remains as a fallback for sessions without the apply step. As a result, existing users also receive the profile at their next login, minus anything they had customised.
+
+The `steins-info` side-by-side layout needs 88 columns. Narrower terminals get the coloured list without the emblem, and auto-wrap is paused while the emblem prints.
 
 ## Verification
 
