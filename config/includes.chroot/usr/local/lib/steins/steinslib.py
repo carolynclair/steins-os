@@ -347,6 +347,10 @@ def gtk_css(pack):
         ".xfce4-panel, .xfce4-panel.panel { background-image: none; background-color: %s; color: %s; }" % (bg2, p["fg"]),
         "entry:focus { border-color: %s; }" % acc,
         "progressbar progress, scale highlight { background-color: %s; }" % acc,
+        "vte-terminal { padding: 10px 16px 8px 16px; }",
+        "#xfce4-terminal-notebook > header.top > tabs > tab:checked { background-color: %s; border-bottom-color: %s; }" % (bg2, acc),
+        "#xfce4-terminal-notebook scrollbar, #xfce4-terminal-notebook scrollbar trough { background-color: %s; }" % bg2,
+        "#xfce4-terminal-notebook scrollbar slider:active { background-color: %s; }" % acc,
         "%s */" % CSS_END,
         "",
     ])
@@ -383,10 +387,25 @@ def _write_gtk_css(pack, home, dry):
     return "gtk.css -> %s" % target
 
 
+# terminalrc key -> xfce4-terminal xfconf property (XFCE 4.20 reads the channel).
+_TERMINAL_PROPERTIES = {
+    "ColorForeground": "color-foreground", "ColorBackground": "color-background",
+    "ColorCursor": "color-cursor", "ColorPalette": "color-palette",
+    "ColorCursorForeground": "color-cursor-foreground", "ColorCursorUseDefault": "color-cursor-use-default",
+    "ColorSelection": "color-selection", "ColorSelectionBackground": "color-selection-background",
+    "ColorSelectionUseDefault": "color-selection-use-default", "TabActivityColor": "tab-activity-color",
+}
+
+
 def _write_terminal(pack, home, dry):
     target = home / ".config" / "xfce4" / "terminal" / "terminalrc"
     p = pack.palette
-    wanted = {"ColorForeground": p["fg"], "ColorBackground": p["bg_alt"], "ColorCursor": p["accent"]}
+    # Only colours follow the worldline. Font, cursor shape, scrollback and the
+    # other profile choices come from the skeleton profile and stay the user's.
+    wanted = {"ColorForeground": p["fg"], "ColorBackground": p["bg_alt"], "ColorCursor": p["accent"],
+              "ColorCursorForeground": p["bg_alt"], "ColorCursorUseDefault": "FALSE",
+              "ColorSelection": "#ffffff", "ColorSelectionBackground": p["selection"],
+              "ColorSelectionUseDefault": "FALSE", "TabActivityColor": p["accent"]}
     if pack.terminal_palette:
         wanted["ColorPalette"] = ";".join(pack.terminal_palette)
     if dry:
@@ -409,12 +428,12 @@ def _write_terminal(pack, home, dry):
     atomic_write(target, "\n".join(out) + "\n")
     # XFCE 4.20 migrates terminalrc once, then reads the xfconf channel.
     if os.environ.get("DISPLAY") and shutil.which("xfconf-query"):
-        properties = {"ColorForeground": "color-foreground", "ColorBackground": "color-background",
-                      "ColorCursor": "color-cursor", "ColorPalette": "color-palette"}
         failed = []
         for key, val in wanted.items():
-            ok, msg = _run(["xfconf-query", "-c", "xfce4-terminal", "-p", "/" + properties[key],
-                            "--create", "-t", "string", "-s", val])
+            prop = _TERMINAL_PROPERTIES[key]
+            kind, val = ("bool", val.lower()) if val in ("TRUE", "FALSE") else ("string", val)
+            ok, msg = _run(["xfconf-query", "-c", "xfce4-terminal", "-p", "/" + prop,
+                            "--create", "-t", kind, "-s", val])
             if not ok:
                 failed.append(msg)
         if failed:

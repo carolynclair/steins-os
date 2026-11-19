@@ -23,7 +23,7 @@ epoch = os.environ.get('SOURCE_DATE_EPOCH') or (ROOT / 'packaging/SOURCE_DATE_EP
 definitions = {
     'steins-artwork': ('Original Steins;OS laboratory artwork and boot splash', ''),
     'steins-desktop': ('Steins;OS XFCE defaults, worldlines and native tools',
-        'steins-artwork (>= 0.1), steins-branding (>= 0.1), python3, python3-gi, gir1.2-gtk-3.0, xfce4, xfce4-terminal, xfce4-whiskermenu-plugin, conky-all, librsvg2-bin, papirus-icon-theme, dmz-cursor-theme, fonts-dejavu, fonts-noto-core'),
+        'steins-artwork (>= 0.1), steins-branding (>= 0.1), python3, python3-gi, gir1.2-gtk-3.0, xfce4, xfce4-terminal, xfce4-whiskermenu-plugin, conky-all, librsvg2-bin, papirus-icon-theme, dmz-cursor-theme, fonts-dejavu, fonts-jetbrains-mono, fonts-noto-core'),
     'steins-branding': ('Steins;OS identity, greeter and generated theme integration',
         'steins-artwork (>= 0.1), base-files, python3, python3-yaml, greybird-gtk-theme, lightdm-gtk-greeter, plymouth, initramfs-tools'),
     'steins-live-installer': ('Steins;OS live installer branding and launcher',

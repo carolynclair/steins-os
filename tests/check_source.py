@@ -23,3 +23,5 @@ assert 'SetDisplayPasswordFunction' in (o/'usr/share/plymouth/themes/steins/stei
 print('PASS: shell/Python/XML/SVG syntax, package prerequisites, installer launcher, install confirmation, boot password rendering')
 subprocess.run([sys.executable,str(r/'tests/check_ui.py')],check=True,env={**__import__('os').environ,'PYTHONDONTWRITEBYTECODE':'1'})
 print('PASS: UI contract tests (tests/check_ui.py)')
+subprocess.run([sys.executable,str(r/'tests/check_terminal.py')],check=True,env={**__import__('os').environ,'PYTHONDONTWRITEBYTECODE':'1'})
+print('PASS: terminal profile, styling, prompt and steins-info tests (tests/check_terminal.py)')

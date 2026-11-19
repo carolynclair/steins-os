@@ -123,10 +123,18 @@ class Apply(Env):
         with patch.dict(os.environ, {"DISPLAY": ":0"}), patch.object(sl.shutil, "which", return_value="/usr/bin/xfconf-query"), patch.object(sl.subprocess, "run") as run:
             sl._write_terminal(pack, self.home, False)
         calls = [call.args[0] for call in run.call_args_list]
-        self.assertEqual(len(calls), 4)
+        self.assertEqual(len(calls), 10)
         background = next(c for c in calls if "/color-background" in c)
         self.assertEqual(background[-1], pack.palette["bg_alt"])
         self.assertTrue(all("xfce4-terminal" in c for c in calls))
+        by_property = {c[c.index("-p") + 1]: c for c in calls}
+        self.assertEqual(by_property["/color-selection-background"][-1], pack.palette["selection"])
+        self.assertEqual(by_property["/tab-activity-color"][-1], pack.palette["accent"])
+        self.assertEqual(by_property["/color-cursor-foreground"][-1], pack.palette["bg_alt"])
+        # Booleans are typed as xfconf booleans, everything else as strings.
+        self.assertEqual(by_property["/color-selection-use-default"][-4:], ["-t", "bool", "-s", "false"])
+        self.assertEqual(by_property["/color-cursor-use-default"][-4:], ["-t", "bool", "-s", "false"])
+        self.assertEqual(by_property["/color-palette"][-4:-2], ["-t", "string"])
 
     def test_apply_writes_user_files(self):
         term = self.home / ".config/xfce4/terminal/terminalrc"
@@ -146,6 +154,10 @@ class Apply(Env):
         self.assertIn("FontName=Foo 11", t)                       # untouched keys kept
         self.assertIn("ColorBackground=" + pack.palette["bg_alt"], t)
         self.assertIn("ColorCursor=" + pack.palette["accent"], t)
+        self.assertIn("ColorSelectionBackground=" + pack.palette["selection"], t)
+        self.assertIn("TabActivityColor=" + pack.palette["accent"], t)
+        self.assertEqual(t.count("ColorBackground="), 1)           # replaced, never duplicated
+        self.assertIn("vte-terminal { padding:", css.read_text())   # terminal margin follows the user block
         conky = (self.home / ".config/steins/conky.conf").read_text()
         self.assertNotIn("1.048596", conky)
         self.assertIn("cat " + str(sl.state_file()), conky)

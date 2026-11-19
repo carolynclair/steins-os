@@ -1,11 +1,177 @@
 #!/bin/sh
-printf '\n  STEINS;OS / GATE OF STEINER\n  --------------------------\n'
-printf '  Kernel     %s\n' "$(uname -r)"
-printf '  Machine    %s\n' "$(uname -m)"
-printf '  Host       %s\n' "$(hostname)"
-printf '  Uptime     %s\n' "$(uptime -p)"
-printf '  Desktop    %s\n' "${XDG_CURRENT_DESKTOP:-console}"
-printf '  Base       Debian 13 (trixie)\n\n'
-free -h
+# steins-info: a compact Steins;OS system summary for the terminal.
+# Read-only: it reports local facts and never changes the worldline.
+# Colours are ANSI indices, so they follow the terminal's worldline palette.
+# Options: --plain (no colour or emblem), --help. NO_COLOR is honoured.
+
+plain=false
+case ${1:-} in
+    --plain) plain=true ;;
+    -h|--help) printf 'Usage: steins-info [--plain]\nShow a short Steins;OS system summary.\n'; exit 0 ;;
+    '') ;;
+    *) printf 'steins-info: unknown option %s\n' "$1" >&2; exit 2 ;;
+esac
+[ -t 1 ] || plain=true
+[ -n "${NO_COLOR:-}" ] && plain=true
+[ "${TERM:-dumb}" = dumb ] && plain=true
+
+if $plain; then
+    A='' C='' M='' B='' N=''
+else
+    A=$(printf '\033[33m') C=$(printf '\033[36m') M=$(printf '\033[90m') B=$(printf '\033[1m') N=$(printf '\033[0m')
+fi
+
+# ------------------------------------------------------------------ facts
+os_name() {
+    pretty=Linux
+    [ -r /etc/os-release ] && pretty=$( . /etc/os-release; printf '%s' "${PRETTY_NAME:-${NAME:-Linux}}" )
+    printf '%s' "$pretty"
+    case $pretty in
+        *Debian*) ;;
+        *) [ -r /etc/debian_version ] && printf ' %s· Debian %s%s' "$M" "$(cat /etc/debian_version)" "$N" ;;
+    esac
+}
+
+worldline() {
+    command -v steins-worldline >/dev/null 2>&1 || return 1
+    line=$(steins-worldline get 2>/dev/null) || return 1
+    number=${line%% *}
+    name=$(printf '%s' "${line#"$number"}" | sed 's/^ *//')
+    printf '%s%s%s  %s%s%s' "$A" "${name:-Unknown}" "$N" "$M" "$number" "$N"
+}
+
+uptime_text() {
+    up=$(uptime -p 2>/dev/null) && { printf '%s' "${up#up }"; return; }
+    seconds=$(cut -d. -f1 /proc/uptime 2>/dev/null) || return 1
+    printf '%dh %dm' $((seconds / 3600)) $((seconds % 3600 / 60))
+}
+
+shell_text() {
+    name=${SHELL##*/}
+    [ -n "$name" ] || return 1
+    version=$("$SHELL" --version 2>/dev/null | head -n1 | grep -oE '[0-9]+\.[0-9]+(\.[0-9]+)?' | head -n1)
+    printf '%s %s' "$name" "$version"
+}
+
+terminal_text() {
+    pid=$PPID depth=0
+    while [ "$depth" -lt 8 ] && [ -r "/proc/$pid/comm" ]; do
+        comm=$(cat "/proc/$pid/comm")
+        case $comm in
+            bash|sh|dash|zsh|fish|ksh|mksh|su|sudo|login|steins-info|tmux*|screen) ;;
+            *) printf '%s' "$comm"; return 0 ;;
+        esac
+        pid=$(sed 's/^.*) [A-Za-z] \([0-9]*\).*/\1/' "/proc/$pid/stat" 2>/dev/null)
+        [ -n "$pid" ] && [ "$pid" -gt 1 ] || break
+        depth=$((depth + 1))
+    done
+    [ -n "${TERM_PROGRAM:-}" ] && { printf '%s' "$TERM_PROGRAM"; return 0; }
+    return 1
+}
+
+cpu_text() {
+    model=$(sed -n 's/^model name[[:space:]]*: //p' /proc/cpuinfo 2>/dev/null | head -n1 |
+        sed -e 's/([RT]M)//g' -e 's/ CPU//' -e 's/ @.*//' -e 's/  */ /g')
+    count=$(getconf _NPROCESSORS_ONLN 2>/dev/null)
+    [ -n "$model" ] || return 1
+    printf '%s%s' "$model" "${count:+ $M($count)$N}"
+}
+
+memory_text() {
+    awk -v m="$M" -v n="$N" '/^MemTotal:/ {t=$2} /^MemAvailable:/ {a=$2}
+        END { if (t) printf "%.1f GiB %s/%s %.1f GiB", (t-a)/1048576, m, n, t/1048576; else exit 1 }' /proc/meminfo
+}
+
+disk_text() {
+    df -hP / 2>/dev/null | awk -v m="$M" -v n="$N" 'NR==2 { printf "%s %s/%s %s %s(%s)%s", $3, m, n, $2, m, $5, n }'
+}
+
+display_text() {
+    [ -n "${DISPLAY:-}" ] && command -v xrandr >/dev/null 2>&1 || return 1
+    xrandr --current 2>/dev/null | awk '/\*/ { print $1; found=1; exit } END { exit !found }'
+}
+
+packages_text() {
+    command -v dpkg-query >/dev/null 2>&1 || return 1
+    printf '%s %s(dpkg)%s' "$(dpkg-query -f '.\n' -W 2>/dev/null | wc -l)" "$M" "$N"
+}
+
+desktop_text() {
+    value=${XDG_CURRENT_DESKTOP:-${DESKTOP_SESSION:-}}
+    [ -n "$value" ] || { [ -n "${DISPLAY:-}${WAYLAND_DISPLAY:-}" ] || { printf 'console'; return 0; }; return 1; }
+    printf '%s' "$value"
+}
+
+# ------------------------------------------------------------------ layout
+lines_file=$(mktemp "${TMPDIR:-/tmp}/steins-info.XXXXXX") || exit 1
+trap 'rm -f "$lines_file"' EXIT HUP INT TERM
+
+row() {   # row LABEL COMMAND...
+    label=$1; shift
+    value=$("$@" 2>/dev/null) || return 0
+    [ -n "$value" ] || return 0
+    printf '%s%-10s%s %s\n' "$C" "$label" "$N" "$value" >> "$lines_file"
+}
+
+user=$(id -un 2>/dev/null || printf '%s' "${USER:-user}")
+host=$(hostname 2>/dev/null || cat /proc/sys/kernel/hostname)
+header="$user@$host"
+printf '%s%s%s%s\n' "$B" "$A" "$header" "$N" >> "$lines_file"
+printf '%s%s%s\n' "$M" "$(printf '%s' "$header" | sed 's/./─/g')" "$N" >> "$lines_file"
+row OS os_name
+row Worldline worldline
+row Kernel uname -r
+row Uptime uptime_text
+row Packages packages_text
+row Shell shell_text
+row Desktop desktop_text
+row Display display_text
+row Terminal terminal_text
+row CPU cpu_text
+row Memory memory_text
+row 'Disk /' disk_text
+
+if ! $plain; then
+    printf '\n' >> "$lines_file"
+    swatch=''
+    for i in 0 1 2 3 4 5 6 7; do swatch="$swatch$(printf '\033[4%sm   ' "$i")"; done
+    printf '%s\033[0m\n' "$swatch" >> "$lines_file"
+    swatch=''
+    for i in 0 1 2 3 4 5 6 7; do swatch="$swatch$(printf '\033[10%sm   ' "$i")"; done
+    printf '%s\033[0m\n' "$swatch" >> "$lines_file"
+fi
+
 printf '\n'
-df -h /
+if $plain; then
+    sed 's/^/  /' "$lines_file"
+else
+    # The Steins;OS emblem: a measuring ring around the divergence "Z".
+    # r = ring (worldline muted), z = mark (worldline accent).
+    emblem_file=$(mktemp "${TMPDIR:-/tmp}/steins-emblem.XXXXXX") || exit 1
+    trap 'rm -f "$lines_file" "$emblem_file"' EXIT HUP INT TERM
+    cat > "$emblem_file" <<'EMBLEM'
+       r▄▄▄▄▄▄▄▄
+    r▄▛▀▘      ▝▀▜▄
+  r▗▀ z▐██████████▌ r▀▖
+ r▐▘     z█    ▄█▀   r▝▌
+ r▌      z▝ ▗▄▛▘      r▐
+ r▌      z▗▟▛▘ ▖      r▐
+ r▐▖   z▄█▀    █     r▗▌
+  r▝▄ z▐██████████▌ r▄▘
+    r▀▙▄▖      ▗▄▟▀
+       r▀▀▀▀▀▀▀▀
+EMBLEM
+    total=$(wc -l < "$lines_file")
+    rows=$(wc -l < "$emblem_file")
+    [ "$total" -gt "$rows" ] || total=$rows
+    i=1
+    while [ "$i" -le "$total" ]; do
+        art=$(sed -n "${i}p" "$emblem_file")
+        text=$(sed -n "${i}p" "$lines_file")
+        art=$(printf '%s' "$art" | sed -e "s/r/$M/g" -e "s/z/$A/g")
+        # Move to a fixed column instead of measuring glyph widths (locale-independent).
+        printf '  %s%s\033[32G%s\n' "$art" "$N" "$text"
+        i=$((i + 1))
+    done
+fi
+printf '\n'
