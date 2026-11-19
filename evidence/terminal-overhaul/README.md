@@ -21,3 +21,14 @@ These were captured from QEMU 8.2 in software emulation (no KVM): BIOS boot, 4 v
 | `first-login-main-vs-branch.png` | `main` / `d5560bc` | Container reproduction of the same first-login sequence (channel saved before the terminal starts), shown at 900 × 560. |
 
 Local build note: the build container's TLS-intercepting proxy CA is not trusted inside the live-build chroot. `firmware-b43-installer` and `firmware-b43legacy-installer` therefore cannot download firmware during the build. For these local verification ISOs only, two empty same-name stand-in packages were placed in `config/packages.chroot`; they are not committed. The project hook `0900-steins.hook.chroot` purges both packages anyway, and the image check confirmed neither is installed.
+
+## Installed system (UEFI, offline)
+
+ISO built from `871dbfc` (passes `tests/check_image.sh`). It was booted in QEMU software emulation with OVMF UEFI firmware, 4 vCPUs, 4 GiB, a blank 20 GiB virtio disk and no network. Calamares used the default location and keyboard and "Erase disk" (GPT: 300 MiB EFI plus ext4), with a test account `tester` on host `steins-test`. Installation completed ("All done."). The guest was then powered off and the ISO removed. The disk booted alone through UEFI to the Steins;OS splash and greeter, and the installer-created account logged in.
+
+| File | Notes |
+| --- | --- |
+| `installed-uefi-steins-gate.png` | First terminal of the installer-created account: profile, greeting, prompt, `exit 1`, `took 6s`. `steins-info` shows Steins;OS 0.1. `steins-desktop 0.1.0-9` and `fonts-jetbrains-mono` are installed. |
+| `installed-uefi-hitogashima.png` | After `steins-worldline set 3.072100` and a new terminal: background, prompt, emblem, swatches and greeting follow the world. |
+
+The installer printed a Python `SyntaxWarning: invalid escape sequence '\$'`. It comes from Debian's Calamares `bootloader/main.py:392`, upstream and unrelated to Steins;OS; the install succeeded.
