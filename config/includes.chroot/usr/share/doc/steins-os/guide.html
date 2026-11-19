@@ -35,7 +35,7 @@ th{color:var(--muted);font-weight:600}
 <p>Gate of Steiner · 0.1 development preview · works offline</p>
 <nav aria-label="Contents"><ul>
 <li><a href="#welcome">Welcome</a></li><li><a href="#worldlines">Six worldlines</a></li>
-<li><a href="#terminal">The ibm5100 terminal</a></li><li><a href="#real">Real or fiction</a></li>
+<li><a href="#shell">The everyday terminal</a></li><li><a href="#terminal">The ibm5100 terminal</a></li><li><a href="#real">Real or fiction</a></li>
 <li><a href="#meter">The optional meter</a></li><li><a href="#persistence">Saving and reopening apps</a></li>
 <li><a href="#install">Install</a></li><li><a href="#accounts">Accounts</a></li>
 <li><a href="#updates">Updates and software</a></li><li><a href="#recovery">Recovery and limits</a></li>
@@ -57,6 +57,10 @@ th{color:var(--muted);font-weight:600}
 <tr><td>5.x</td><td><span class="sw" style="background:#f08ab8"></span>Mitakihara</td><td><code>5.093001</code></td><td>City, clockwork, again</td></tr>
 </table></div>
 <p>Wallpapers are original abstract artwork. Swatches show each world's accent colour.</p>
+
+<h2 id="shell">The everyday terminal</h2>
+<p>Terminal in the menu opens an ordinary Bash shell. Its colours follow the current world. The prompt shows your user and computer, the folder, the Git branch when you are inside a repository, the exit code when a command fails and how long a command took when it ran for five seconds or more. Run <code>steins-info</code> for a short system summary.</p>
+<p>The prompt replaces only Debian's standard prompt; a prompt you set in <code>~/.bashrc</code> is kept. To keep Debian's prompt, add <code>export STEINS_PROMPT=off</code> to <code>~/.profile</code>. <code>STEINS_GREETING=off</code> or an empty <code>~/.hushlogin</code> file hides the greeting line. Font, cursor and scrollback are in the terminal's own Preferences and stay as you set them.</p>
 
 <h2 id="terminal">The ibm5100 terminal</h2>
 <p>Open a terminal and run <code>ibm5100</code>, a retro amber console. Useful commands:</p>
