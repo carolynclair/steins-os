@@ -9,7 +9,8 @@
 #   STEINS_GREETING=off   no greeting line (an empty ~/.hushlogin works too)
 #
 # Colours are ANSI indices, so the terminal's worldline palette recolours them:
-# 3 = worldline accent (user/host, chevron), 6 = cyan (path), 8 = worldline muted.
+# 3 = worldline accent (user/host, chevron), 6 = cyan (path), 8 = worldline muted
+# (labels, timing); the branch uses the normal foreground.
 
 [ -n "${BASH_VERSION:-}" ] || return 0
 case $- in *i*) ;; *) return 0 ;; esac
@@ -88,7 +89,7 @@ __steins_prompt_build() {
     [ "${EUID:-1}" = 0 ] && who='\[\e[31m\]\u@\h\[\e[0m\]'
     PS1=$title'${debian_chroot:+\[\e[90m\]($debian_chroot)\[\e[0m\] }'$who
     PS1+=' \[\e[36m\]\w\[\e[0m\]'
-    PS1+='${__steins_ps_git:+ \[\e[90m\]on \[\e[0m\]\[\e[33m\]$__steins_ps_git\[\e[0m\]}'
+    PS1+='${__steins_ps_git:+ \[\e[90m\]on \[\e[0m\]$__steins_ps_git\[\e[0m\]}'
     PS1+='${__steins_ps_took:+ \[\e[90m\]took $__steins_ps_took\[\e[0m\]}'
     PS1+='${__steins_ps_status:+ \[\e[31m\]exit $__steins_ps_status\[\e[0m\]}'
     PS1+=' \[\e[${__steins_ps_chevron:-33}m\]'$glyph'\[\e[0m\] '
