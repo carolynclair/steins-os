@@ -347,6 +347,10 @@ def gtk_css(pack):
         ".xfce4-panel, .xfce4-panel.panel { background-image: none; background-color: %s; color: %s; }" % (bg2, p["fg"]),
         "entry:focus { border-color: %s; }" % acc,
         "progressbar progress, scale highlight { background-color: %s; }" % acc,
+        "vte-terminal { padding: 10px 16px 8px 16px; }",
+        "#xfce4-terminal-notebook > header.top > tabs > tab:checked { background-color: %s; border-bottom-color: %s; }" % (bg2, acc),
+        "#xfce4-terminal-notebook scrollbar, #xfce4-terminal-notebook scrollbar trough { background-color: %s; }" % bg2,
+        "#xfce4-terminal-notebook scrollbar slider:active { background-color: %s; }" % acc,
         "%s */" % CSS_END,
         "",
     ])
@@ -383,10 +387,65 @@ def _write_gtk_css(pack, home, dry):
     return "gtk.css -> %s" % target
 
 
+# terminalrc key -> (xfce4-terminal xfconf property, xfconf type). XFCE 4.20 reads the channel.
+_TERMINAL_PROPERTIES = {
+    "ColorForeground": ("color-foreground", "string"), "ColorBackground": ("color-background", "string"),
+    "ColorCursor": ("color-cursor", "string"), "ColorPalette": ("color-palette", "string"),
+    "ColorCursorForeground": ("color-cursor-foreground", "string"),
+    "ColorCursorUseDefault": ("color-cursor-use-default", "bool"),
+    "ColorSelection": ("color-selection", "string"),
+    "ColorSelectionBackground": ("color-selection-background", "string"),
+    "ColorSelectionUseDefault": ("color-selection-use-default", "bool"),
+    "TabActivityColor": ("tab-activity-color", "string"),
+    "CommandLoginShell": ("command-login-shell", "bool"), "FontName": ("font-name", "string"),
+    "FontUseSystem": ("font-use-system", "bool"), "CellHeightScale": ("cell-height-scale", "double"),
+    "ColorBoldIsBright": ("color-bold-is-bright", "bool"), "TitleMode": ("title-mode", "string"),
+    "MiscMenubarDefault": ("misc-menubar-default", "bool"), "MiscToolbarDefault": ("misc-toolbar-default", "bool"),
+    "MiscNewTabAdjacent": ("misc-new-tab-adjacent", "bool"), "MiscCursorShape": ("misc-cursor-shape", "string"),
+    "MiscCursorBlinks": ("misc-cursor-blinks", "bool"), "MiscDefaultGeometry": ("misc-default-geometry", "string"),
+    "MiscHyperlinksEnabled": ("misc-hyperlinks-enabled", "bool"), "MiscMouseAutohide": ("misc-mouse-autohide", "bool"),
+    "ScrollingLines": ("scrolling-lines", "uint"),
+}
+
+# The Steins;OS terminal profile. Written only where the user has no value of
+# their own: xfce4-terminal stores only settings changed in Preferences, so an
+# absent property has never been chosen. Needed because the first session's
+# apply creates the xfconf channel before the terminal first runs, and
+# xfce4-terminal then never migrates /etc/skel's terminalrc.
+TERMINAL_PROFILE = {
+    "CommandLoginShell": "TRUE", "FontName": "JetBrains Mono 11", "FontUseSystem": "FALSE",
+    "CellHeightScale": "1.100000", "ColorBoldIsBright": "FALSE", "TitleMode": "TERMINAL_TITLE_REPLACE",
+    "MiscMenubarDefault": "FALSE", "MiscToolbarDefault": "FALSE", "MiscNewTabAdjacent": "TRUE",
+    "MiscCursorShape": "TERMINAL_CURSOR_SHAPE_BLOCK", "MiscCursorBlinks": "TRUE",
+    "MiscDefaultGeometry": "100x30", "MiscHyperlinksEnabled": "TRUE", "MiscMouseAutohide": "TRUE",
+    "ScrollingLines": "10000",
+}
+
+
+def _xfconf_terminal_properties():
+    """Property names already in the xfce4-terminal channel, or None if unknown."""
+    try:
+        proc = subprocess.run(["xfconf-query", "-c", "xfce4-terminal", "-l"],
+                              capture_output=True, text=True, timeout=10)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    out = proc.stdout if isinstance(proc.stdout, str) else ""
+    if proc.returncode != 0:
+        # An empty or missing channel is reported as an error; that is "no properties".
+        err = proc.stderr if isinstance(proc.stderr, str) else ""
+        return set() if ("does not exist" in err or "no properties" in err) else None
+    return {line.strip().lstrip("/") for line in out.splitlines() if line.strip()}
+
+
 def _write_terminal(pack, home, dry):
     target = home / ".config" / "xfce4" / "terminal" / "terminalrc"
     p = pack.palette
-    wanted = {"ColorForeground": p["fg"], "ColorBackground": p["bg_alt"], "ColorCursor": p["accent"]}
+    # Colours follow the worldline and are always replaced. Profile defaults
+    # (font, cursor, scrollback, login shell) are only filled in when absent.
+    wanted = {"ColorForeground": p["fg"], "ColorBackground": p["bg_alt"], "ColorCursor": p["accent"],
+              "ColorCursorForeground": p["bg_alt"], "ColorCursorUseDefault": "FALSE",
+              "ColorSelection": "#ffffff", "ColorSelectionBackground": p["selection"],
+              "ColorSelectionUseDefault": "FALSE", "TabActivityColor": p["accent"]}
     if pack.terminal_palette:
         wanted["ColorPalette"] = ";".join(pack.terminal_palette)
     if dry:
@@ -403,22 +462,29 @@ def _write_terminal(pack, home, dry):
             seen.add(key)
         else:
             out.append(line)
-    for key, val in wanted.items():
+            if "=" in line:
+                seen.add(key)
+    for key, val in list(wanted.items()) + list(TERMINAL_PROFILE.items()):
         if key not in seen:
             out.append("%s=%s" % (key, val))
+            seen.add(key)
     atomic_write(target, "\n".join(out) + "\n")
-    # XFCE 4.20 migrates terminalrc once, then reads the xfconf channel.
     if os.environ.get("DISPLAY") and shutil.which("xfconf-query"):
-        properties = {"ColorForeground": "color-foreground", "ColorBackground": "color-background",
-                      "ColorCursor": "color-cursor", "ColorPalette": "color-palette"}
+        updates = dict(wanted)
+        existing = _xfconf_terminal_properties()
+        if existing is not None:
+            updates.update({k: v for k, v in TERMINAL_PROFILE.items() if _TERMINAL_PROPERTIES[k][0] not in existing})
         failed = []
-        for key, val in wanted.items():
-            ok, msg = _run(["xfconf-query", "-c", "xfce4-terminal", "-p", "/" + properties[key],
-                            "--create", "-t", "string", "-s", val])
+        for key, val in updates.items():
+            prop, kind = _TERMINAL_PROPERTIES[key]
+            if kind == "bool":
+                val = val.lower()
+            ok, msg = _run(["xfconf-query", "-c", "xfce4-terminal", "-p", "/" + prop,
+                            "--create", "-t", kind, "-s", val])
             if not ok:
                 failed.append(msg)
         if failed:
-            raise RuntimeError("terminalrc saved, but %d of %d xfconf updates failed (%s)" % (len(failed), len(wanted), failed[0]))
+            raise RuntimeError("terminalrc saved, but %d of %d xfconf updates failed (%s)" % (len(failed), len(updates), failed[0]))
     return "terminalrc -> %s" % target
 
 

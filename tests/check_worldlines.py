@@ -122,11 +122,74 @@ class Apply(Env):
         pack = sl.pick_pack("2.198306")
         with patch.dict(os.environ, {"DISPLAY": ":0"}), patch.object(sl.shutil, "which", return_value="/usr/bin/xfconf-query"), patch.object(sl.subprocess, "run") as run:
             sl._write_terminal(pack, self.home, False)
-        calls = [call.args[0] for call in run.call_args_list]
-        self.assertEqual(len(calls), 4)
+        calls = [call.args[0] for call in run.call_args_list if "-s" in call.args[0]]
+        self.assertEqual(len(calls), 10)          # mocked listing is unreadable: colours only
         background = next(c for c in calls if "/color-background" in c)
         self.assertEqual(background[-1], pack.palette["bg_alt"])
         self.assertTrue(all("xfce4-terminal" in c for c in calls))
+        by_property = {c[c.index("-p") + 1]: c for c in calls}
+        self.assertEqual(by_property["/color-selection-background"][-1], pack.palette["selection"])
+        self.assertEqual(by_property["/tab-activity-color"][-1], pack.palette["accent"])
+        self.assertEqual(by_property["/color-cursor-foreground"][-1], pack.palette["bg_alt"])
+        # Booleans are typed as xfconf booleans, everything else as strings.
+        self.assertEqual(by_property["/color-selection-use-default"][-4:], ["-t", "bool", "-s", "false"])
+        self.assertEqual(by_property["/color-cursor-use-default"][-4:], ["-t", "bool", "-s", "false"])
+        self.assertEqual(by_property["/color-palette"][-4:-2], ["-t", "string"])
+
+    def test_terminal_profile_defaults_fill_only_absent_properties(self):
+        # First session: apply creates the xfconf channel before the terminal ever
+        # runs, so xfce4-terminal never migrates /etc/skel's terminalrc. The profile
+        # must therefore come from apply, without overriding a user's own choices.
+        pack = sl.pick_pack("1.048596")
+
+        def fake(cmd, **kwargs):
+            listed = "/font-name\n/misc-menubar-default\n" if cmd[-1] == "-l" else ""
+            return subprocess.CompletedProcess(cmd, 0, listed, "")
+
+        with patch.dict(os.environ, {"DISPLAY": ":0"}), patch.object(sl.shutil, "which", return_value="/usr/bin/xfconf-query"), \
+                patch.object(sl.subprocess, "run", side_effect=fake) as run:
+            sl._write_terminal(pack, self.home, False)
+        sets = {c.args[0][c.args[0].index("-p") + 1]: c.args[0] for c in run.call_args_list if "-s" in c.args[0]}
+        self.assertNotIn("/font-name", sets)                     # the user's font stays
+        self.assertNotIn("/misc-menubar-default", sets)          # and their menubar choice
+        self.assertEqual(sets["/command-login-shell"][-4:], ["-t", "bool", "-s", "true"])
+        self.assertEqual(sets["/scrolling-lines"][-4:], ["-t", "uint", "-s", "10000"])
+        self.assertEqual(sets["/cell-height-scale"][-4:], ["-t", "double", "-s", "1.100000"])
+        self.assertEqual(sets["/title-mode"][-1], "TERMINAL_TITLE_REPLACE")
+        self.assertEqual(sets["/color-background"][-1], pack.palette["bg_alt"])   # colours always follow
+
+    def test_terminal_profile_defaults_skipped_when_channel_unreadable(self):
+        pack = sl.pick_pack("1.048596")
+
+        def fake(cmd, **kwargs):
+            if cmd[-1] == "-l":
+                return subprocess.CompletedProcess(cmd, 1, "", "Cannot connect to the session bus")
+            return subprocess.CompletedProcess(cmd, 0, "", "")
+
+        with patch.dict(os.environ, {"DISPLAY": ":0"}), patch.object(sl.shutil, "which", return_value="/usr/bin/xfconf-query"), \
+                patch.object(sl.subprocess, "run", side_effect=fake) as run:
+            sl._write_terminal(pack, self.home, False)
+        props = [c.args[0][c.args[0].index("-p") + 1] for c in run.call_args_list if "-s" in c.args[0]]
+        self.assertNotIn("/font-name", props)                    # unknown state: never guess over the user
+        self.assertIn("/color-background", props)
+
+    def test_terminalrc_profile_defaults_respect_existing_keys(self):
+        term = self.home / ".config/xfce4/terminal/terminalrc"
+        term.parent.mkdir(parents=True)
+        term.write_text("[Configuration]\nFontName=Foo 11\nMiscMenubarDefault=TRUE\n")
+        sl._write_terminal(sl.pick_pack("1.048596"), self.home, False)
+        text = term.read_text()
+        self.assertIn("FontName=Foo 11", text)
+        self.assertIn("MiscMenubarDefault=TRUE", text)
+        self.assertEqual(text.count("FontName="), 1)
+        self.assertIn("CommandLoginShell=TRUE", text)
+
+    def test_profile_defaults_match_the_skeleton_profile(self):
+        skel = dict(line.split("=", 1) for line in
+                    (OVERLAY / "etc/skel/.config/xfce4/terminal/terminalrc").read_text().splitlines()[1:] if "=" in line)
+        for key, value in sl.TERMINAL_PROFILE.items():
+            self.assertEqual(skel.get(key), value, key)
+            self.assertIn(key, sl._TERMINAL_PROPERTIES)
 
     def test_apply_writes_user_files(self):
         term = self.home / ".config/xfce4/terminal/terminalrc"
@@ -146,6 +209,10 @@ class Apply(Env):
         self.assertIn("FontName=Foo 11", t)                       # untouched keys kept
         self.assertIn("ColorBackground=" + pack.palette["bg_alt"], t)
         self.assertIn("ColorCursor=" + pack.palette["accent"], t)
+        self.assertIn("ColorSelectionBackground=" + pack.palette["selection"], t)
+        self.assertIn("TabActivityColor=" + pack.palette["accent"], t)
+        self.assertEqual(t.count("ColorBackground="), 1)           # replaced, never duplicated
+        self.assertIn("vte-terminal { padding:", css.read_text())   # terminal margin follows the user block
         conky = (self.home / ".config/steins/conky.conf").read_text()
         self.assertNotIn("1.048596", conky)
         self.assertIn("cat " + str(sl.state_file()), conky)

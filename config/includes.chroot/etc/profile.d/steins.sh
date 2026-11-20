@@ -1,5 +1,11 @@
-[ -n "${STEINS_GREETING_SHOWN:-}" ] && return
-STEINS_GREETING_SHOWN=1
+# Steins;OS interactive shell integration (login shells; the terminal opens them).
+# Bash gets the Steins;OS prompt and a one-line greeting from
+# /usr/share/steins/shell/prompt.bash. Nothing runs for scripts or other shells.
+# Opt out per user with STEINS_PROMPT=off / STEINS_GREETING=off, or ~/.hushlogin.
 case $- in
-*i*) [ -n "${BASH_VERSION:-}" ] && printf '\033[38;5;179m  [ S ; O S ]   FUTURE GADGET LABORATORY\033[0m\n  Observe. Question. Create.  |  steins-info\n' ;;
+*i*)
+    if [ -n "${BASH_VERSION:-}" ] && [ -r /usr/share/steins/shell/prompt.bash ]; then
+        . /usr/share/steins/shell/prompt.bash
+    fi
+    ;;
 esac

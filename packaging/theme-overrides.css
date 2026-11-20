@@ -9,3 +9,36 @@ button.suggested-action { background-image: none; background-color: #e99a45; col
 button:focus, entry:focus, combobox:focus, spinbutton:focus, treeview:focus, notebook tab:focus, switch:focus {
  outline-style: solid; outline-width: 2px; outline-color: #e99a45; outline-offset: -2px;
 }
+
+/* Terminal (xfce4-terminal): a quiet graphite frame around the shell.
+   Structure only. steins-worldline adds the text margin and the worldline
+   accent in each user's gtk.css: xfce4-terminal's own stylesheet outranks
+   theme rules for the terminal widget itself. */
+#xfce4-terminal-notebook { background-color: #0f1418; }
+#xfce4-terminal-notebook > header.top {
+ background-image: none; background-color: #0f1418; border: none;
+ box-shadow: inset 0 -1px rgba(231, 226, 214, 0.06); padding: 0 6px;
+}
+#xfce4-terminal-notebook > header.top > tabs > tab {
+ background-image: none; background-color: transparent; border: none; box-shadow: none;
+ border-radius: 0; margin: 0 2px; padding: 5px 12px; min-height: 22px;
+ color: rgba(231, 226, 214, 0.55);
+ border-bottom: 2px solid transparent;
+}
+#xfce4-terminal-notebook > header.top > tabs > tab:hover { color: rgba(231, 226, 214, 0.85); background-color: rgba(231, 226, 214, 0.04); }
+#xfce4-terminal-notebook > header.top > tabs > tab:checked {
+ color: #e7e2d6; background-color: #141a1e; border-bottom-color: #e99a45;
+}
+#xfce4-terminal-notebook > header.top > tabs > tab button.flat {
+ min-width: 16px; min-height: 16px; padding: 1px; margin-left: 6px; opacity: 0.55;
+}
+#xfce4-terminal-notebook > header.top > tabs > tab button.flat:hover { opacity: 1; background-color: rgba(231, 226, 214, 0.08); }
+#xfce4-terminal-notebook scrollbar, #xfce4-terminal-notebook scrollbar trough {
+ background-image: none; background-color: #141a1e; border: none; box-shadow: none;
+}
+#xfce4-terminal-notebook scrollbar slider {
+ min-width: 6px; min-height: 40px; margin: 3px; border: none; border-radius: 3px;
+ background-image: none; background-color: rgba(231, 226, 214, 0.18);
+}
+#xfce4-terminal-notebook scrollbar slider:hover { background-color: rgba(231, 226, 214, 0.32); }
+#xfce4-terminal-notebook scrollbar slider:active { background-color: #e99a45; }
