@@ -66,11 +66,19 @@ class Service(dbus.service.Object):
         self.monitor = Gio.File.new_for_path(str(sl.state_dir())).monitor_directory(Gio.FileMonitorFlags.NONE, None)
         self.monitor.connect('changed', lambda *args: self.queue_check())
         self.pending = False
+        self.ready = False
+        # Let Plasma finish creating its first activity and panel before
+        # changing the color scheme and wallpaper through the running shell.
+        # D-Bus reads and explicit user actions are available immediately.
+        GLib.timeout_add_seconds(10, self.start_monitoring)
+
+    def start_monitoring(self):
+        self.ready = True
         GLib.timeout_add_seconds(3, lambda: (self.check(), True)[1])
-        GLib.idle_add(self.check)
+        return self.check()
 
     def queue_check(self):
-        if not self.pending:
+        if self.ready and not self.pending:
             self.pending = True
             GLib.timeout_add(150, self.check)
 

@@ -35,7 +35,6 @@ def tubes(number):
 def boot():
     d, pack = sl.current()
     out("5100-CLASS PORTABLE COMPUTER  /  STEINS;OS EMULATION", 0.02)
-    out("(UNOFFICIAL FAN TERMINAL - NOT AFFILIATED WITH ANY RIGHTS HOLDER)", 0.004, DIM)
     out("")
     for line in ("MEMORY CHECK .......... OK", "APL INTERPRETER ....... LOADED", "OBSERVER LINK ......... STANDBY"):
         out(line, 0.01)

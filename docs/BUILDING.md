@@ -1,6 +1,6 @@
 # Build from source
 
-The default image inputs still build the **Debian 13 amd64 XFCE track**. The V4 Plasma desktop is a separate experimental package set; running the ISO command below does not automatically include V4.
+The default image inputs build the **Debian 13 amd64 XFCE track**. The [V4 Plasma installer build](../prototype/iso-v4/README.md) uses a separate set of packages and live-build inputs.
 
 Use a disposable Linux amd64 build host or builder VM with Docker and at least 30 GiB free. Keep important workstation files outside the build environment. The live-build stage needs a privileged container for mounts and chroots; a privileged Docker container has elevated host capabilities.
 

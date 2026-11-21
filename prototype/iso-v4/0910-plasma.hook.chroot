@@ -1,0 +1,48 @@
+#!/bin/sh
+set -eu
+
+dpkg-query -W steins-plasma-prototype steins-identity-v4 steins-panel-v4 steins-surfaces-v4 steins-terminal-v3
+
+update-alternatives --set x-session-manager /usr/bin/startplasma-x11
+printf '%s\n' /usr/bin/sddm > /etc/X11/default-display-manager
+systemctl disable lightdm
+systemctl enable --force sddm
+systemctl set-default graphical.target
+
+layout=/usr/share/plasma/layout-templates/org.kde.plasma.desktop.defaultPanel/contents/layout.js
+dpkg-divert --local --rename --add "$layout"
+install -m 644 /usr/share/steins-v4/default-panel.js "$layout"
+
+install -d -m 755 /etc/skel/.config
+cat > /etc/skel/.config/plasmarc <<'CONFIG'
+[Theme]
+name=SteinsLab
+CONFIG
+cat > /etc/skel/.config/kdeglobals <<'CONFIG'
+[Icons]
+Theme=SteinsLab
+CONFIG
+install -m 644 /etc/skel/.config/plasmarc /etc/xdg/plasmarc
+install -m 644 /etc/skel/.config/kdeglobals /etc/xdg/kdeglobals
+
+python3 - <<'PY'
+from pathlib import Path
+import yaml
+
+path = Path('/var/lib/steins/installer/config/modules/displaymanager.conf')
+config = yaml.safe_load(path.read_text())
+config['displaymanagers'] = ['sddm']
+config['defaultDesktopEnvironment'] = {
+    'executable': 'startplasma-wayland',
+    'desktopFile': 'plasma',
+}
+path.write_text(yaml.safe_dump(config, sort_keys=False))
+
+path = Path('/var/lib/steins/installer/config/branding/steins/branding.desc')
+branding = yaml.safe_load(path.read_text())
+branding['strings'].update(
+    version='V4', shortVersion='V4',
+    versionedName='Steins;OS V4 Plasma', shortVersionedName='Steins;OS V4',
+)
+path.write_text(yaml.safe_dump(branding, sort_keys=False))
+PY

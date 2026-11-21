@@ -47,7 +47,7 @@ Presentation {
         Column { anchors.centerIn: parent; width: parent.width * 0.8; spacing: 14
             Text { width: parent.width; color: "#e99a45"; font.pixelSize: 28; font.bold: true; wrapMode: Text.WordWrap; text: "A development preview" }
             Text { width: parent.width; color: "#e7e2d6"; font.pixelSize: 18; wrapMode: Text.WordWrap
-                   text: "Debian provides updates and security fixes for installed packages. Steins;OS is an unofficial fan-inspired project and is not certified for production use. The User guide in the application menu works offline." } }
+                   text: "Debian provides updates and security fixes for installed packages. This build is a development preview. The User Guide is available offline from the application menu." } }
     }
 
     function onActivate() { }

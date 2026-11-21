@@ -365,7 +365,7 @@ def wallpaper(w):
 <text x="140" y="320" fill="{acc}" font-family="DejaVu Sans Mono" font-size="18" letter-spacing="3">WORLDLINE / {w["name"].upper()}</text>
 {ruler(w, p)}
 <path d="M140 935H1780" stroke="#8ea098" stroke-opacity=".2"/>
-<text x="140" y="974" fill="{muted}" fill-opacity=".75" font-family="DejaVu Sans Mono" font-size="13" letter-spacing="2">UNOFFICIAL FAN THEME / ORIGINAL ARTWORK / OBSERVE · QUESTION · CREATE</text>
+<text x="140" y="974" fill="{muted}" fill-opacity=".75" font-family="DejaVu Sans Mono" font-size="13" letter-spacing="2">STEINS;OS / WORLDLINE SERIES</text>
 {zones}</svg>'''
 
 

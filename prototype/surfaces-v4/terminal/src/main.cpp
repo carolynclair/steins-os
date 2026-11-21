@@ -60,7 +60,7 @@ class TerminalWindow final : public QMainWindow {
 public:
     explicit TerminalWindow(const QString &directory, const QStringList &command) {
         setObjectName("SteinsTerminal");
-        setWindowTitle("Terminal — Steins;OS Experimental");
+        setWindowTitle("Steins;OS Terminal");
         setWindowIcon(QIcon::fromTheme("utilities-terminal"));
         resize(1100, 690);
         setMinimumSize(560, 360);
@@ -76,9 +76,6 @@ public:
         auto *name = new QLabel("TERMINAL");
         name->setObjectName("identity");
         top->addWidget(name);
-        auto *experiment = new QLabel("LABORATORY / EXPERIMENTAL");
-        experiment->setObjectName("muted");
-        top->addWidget(experiment);
         top->addStretch();
         worldline = new QPushButton("WORLDLINE / —.——————");
         worldline->setObjectName("worldline");
@@ -123,7 +120,7 @@ public:
         body->addWidget(tabs, 1);
         outer->addLayout(body, 1);
         setCentralWidget(central);
-        status = new QLabel("Local PTY / UTF-8");
+        status = new QLabel("Terminal ready");
         statusBar()->addWidget(status, 1);
         connectionStatus = new QLabel("Connecting to worldline service…");
         statusBar()->addPermanentWidget(connectionStatus);
@@ -396,8 +393,8 @@ private:
     }
     void updateStatus() {
         auto *term = currentTerminal();
-        status->setText(QString("Local PTY / UTF-8 · %1 pt · %2 session(s)").arg(fontSize).arg(tabs->count()));
-        if (term) setWindowTitle(sessions.value(term).title + " — Steins;OS Terminal (experimental)");
+        status->setText(QString("%1 pt · %2 sessions").arg(fontSize).arg(tabs->count()));
+        if (term) setWindowTitle(sessions.value(term).title + " — Steins;OS Terminal");
     }
     void requestState() {
         const auto generation = ++stateGeneration;

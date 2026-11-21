@@ -115,6 +115,12 @@ def postrm(package):
     lines = ['#!/bin/sh', 'set -eu', 'case "$1" in remove|purge|abort-install)']
     if package == 'steins-live-installer':
         lines += [' rm -rf /var/lib/steins/installer', ' rm -f /usr/lib/steins/calamares-install']
+        # Calamares removes this package from the target after unpacking the
+        # live filesystem, including live-build's Bash prompt marker.
+        lines += [' if [ "$1" = remove ] && [ -f /etc/debian_chroot ] && [ ! -L /etc/debian_chroot ]',
+                  ' then',
+                  '  if [ "$(cat /etc/debian_chroot)" = live ]; then rm -f /etc/debian_chroot; fi',
+                  ' fi']
     for path in diversions.get(package, []):
         lines += [f' if [ "$(dpkg-divert --listpackage "{path}")" = {package} ]; then',
                   f'  if [ -e "{path}.debian" ]; then cp -a --remove-destination "{path}.debian" "{path}"; fi',

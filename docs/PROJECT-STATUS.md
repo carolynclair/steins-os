@@ -27,16 +27,14 @@ V4 is a separately packaged, native Plasma/Wayland desktop running in an install
 
 The frozen milestone passed real mouse/keyboard interactions, six-world state and wallpaper checks, terminal shell input, native screen lock/unlock, a fresh checkpoint boot and package/service qualification. Asset and private-bus tests additionally cover small icon rendering, contrast, SVG slice seams, migration behavior and failure states.
 
-The [V4 ledger](../evidence/v4-design/VALIDATION.md) distinguishes actual guest screenshots from isolated renderer proofs. The existing ISO and previous checkpoints were preserved. **V4 is not present in a rebuilt release ISO.** The VM launch helper depends on local backing disks; those images are excluded from this source repository.
+The [V4 installer build](../prototype/iso-v4/README.md) integrates these packages into its own hybrid live ISO. The existing XFCE ISO and V4 installed-guest checkpoints are separate artifacts. The VM launch helper for the earlier checkpoint depends on local backing disks.
 
 ## Remaining release gates
 
-1. Integrate the selected Plasma package set into a complete live image and rebuild it from a recorded source revision.
-2. Repeat BIOS/UEFI live boot, offline installation, disk-only reboot/login, networking, desktop, lock/unlock and shutdown tests on that exact image.
-3. Qualify package upgrades, rollback and identity/state preservation on the installed Plasma system.
-4. Test encrypted/manual installation, localization, accessibility and additional display sizes/scaling.
-5. Establish a hardware matrix for USB boot, real graphics, Wi-Fi, Bluetooth, audio and suspend/resume. Secure Boot requires independent verification.
-6. Define a maintained signed Steins package feed and release ownership; retain matching source and licensing records.
-7. Pin build inputs and compare clean builds before claiming bit-for-bit reproducibility.
+1. Extend installer coverage to BIOS installation, encrypted/manual partitioning, localization, accessibility, and additional display sizes and scaling.
+2. Qualify networking, lock/unlock, shutdown, package upgrades, rollback and identity/state preservation on the installed Plasma system.
+3. Test physical USB boot, graphics, Wi-Fi, Bluetooth, audio, suspend/resume and Secure Boot.
+4. Define a maintained signed Steins package feed and release ownership, and retain matching source and licensing records.
+5. Pin build inputs and compare clean builds before claiming bit-for-bit reproducibility.
 
 Debian updates use Debian repositories. There is no public signed Steins update repository or promised support cadence. The project should be treated as a development preview until those release gates are met.

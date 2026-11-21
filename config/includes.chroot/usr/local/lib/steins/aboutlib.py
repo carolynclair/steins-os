@@ -8,7 +8,7 @@ CODENAME = "Gate of Steiner"
 GUIDE = "/usr/share/doc/steins-os/guide.html"
 STATUS = ("Development preview. Not a production-certified release: hardware compatibility, "
           "Secure Boot, suspend and Steins;OS-specific update ownership are untested or not yet provided.")
-DISCLAIMER = ("Unofficial, community-built fan-inspired project. Not affiliated with, or endorsed by, the creators "
+DISCLAIMER = ("Steins;OS is an independent, community-built Linux distribution. Not affiliated with, or endorsed by, the creators "
               "or rights holders of any work it alludes to. All artwork is original.")
 REAL_VS_FICTION = (
     "Decorative: the divergence number, worldline names, D-Mail and codes. They are stored as one local number "

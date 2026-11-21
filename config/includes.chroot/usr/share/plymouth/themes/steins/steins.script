@@ -13,13 +13,13 @@ fun message(text) {
 }
 fun normal_message() {
  mode = Plymouth.GetMode();
- if (mode == "shutdown") return "STEINS;OS / SHUTTING DOWN LABORATORY";
- if (mode == "reboot") return "STEINS;OS / RESTARTING LABORATORY";
- if (mode == "updates") return "STEINS;OS / APPLYING SYSTEM UPDATES";
- if (mode == "system-upgrade") return "STEINS;OS / APPLYING SYSTEM UPDATES";
- if (mode == "firmware-upgrade") return "STEINS;OS / APPLYING FIRMWARE UPDATE";
- if (mode == "system-reset") return "STEINS;OS / RESETTING SYSTEM";
- return "STEINS;OS / INITIALISING LABORATORY";
+ if (mode == "shutdown") return "Shutting down";
+ if (mode == "reboot") return "Restarting";
+ if (mode == "updates") return "Applying system updates";
+ if (mode == "system-upgrade") return "Applying system updates";
+ if (mode == "firmware-upgrade") return "Applying firmware update";
+ if (mode == "system-reset") return "Resetting system";
+ return "Starting Steins;OS";
 }
 message(normal_message());
 fun display_message(text) { message(text); }

@@ -11,7 +11,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = ROOT / 'prototype/surfaces-v4/terminal'
 OUT = ROOT / 'dist/v4/surfaces/terminal'
-VERSION = '0.3.0~v4.1'
+VERSION = '0.3.0~v4.2'
 binary = OUT / 'build/steins-terminal-v3'
 if not binary.is_file():
     raise SystemExit('Build the terminal in Debian13 before packaging')
@@ -28,7 +28,7 @@ with tempfile.TemporaryDirectory(prefix='steins-terminal-package-') as tmp:
         shutil.copy2(path, target)
     copy(binary, 'usr/bin/steins-terminal-v3')
     write('usr/share/applications/steins-terminal-v3.desktop',
-          '[Desktop Entry]\nType=Application\nName=Steins;OS Terminal (experimental)\n'
+          '[Desktop Entry]\nType=Application\nName=Steins;OS Terminal\n'
           'Comment=Worldline-aware terminal using maintained QTermWidget 6\nExec=steins-terminal-v3\n'
           'Icon=utilities-terminal\nTerminal=false\nCategories=System;TerminalEmulator;Utility;\n'
           'StartupWMClass=steins-terminal-v3\nKeywords=shell;console;worldline;\n')

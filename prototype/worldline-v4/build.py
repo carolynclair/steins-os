@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / 'prototype/worldline-v4'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--output', type=Path, default=ROOT / 'dist/v4/core')
-parser.add_argument('--version', default='0.1.0~prototype7v4.2')
+parser.add_argument('--version', default='0.1.0~prototype7v4.3')
 parser.add_argument('--artwork-dir', type=Path, default=ROOT / 'prototype/artwork-v3')
 args = parser.parse_args()
 OUT = args.output.resolve()
